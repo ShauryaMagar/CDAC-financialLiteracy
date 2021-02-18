@@ -1,5 +1,6 @@
 import React from 'react';
 import './LandingPageMain.css';
+import {NavLink} from 'react-router-dom';
 class LandingPageMain extends React.Component{
     render(){
         return(
@@ -7,7 +8,7 @@ class LandingPageMain extends React.Component{
                 <div className="container" style={{height:"10vh"}}>
                       <div className="row" >
                         <div className="col-3">
-                            <img src="cloud.png" className="cloud-image" style={{height:"7vh", zIndex:"-1", marginTop:"15vh"}}></img>
+                            <img src="cloud.png"  className="cloud-image" style={{height:"7vh", zIndex:"-1", marginTop:"15vh"}}></img>
                         </div>
                         <div className="col-6">
                             <div className="title ">
@@ -15,7 +16,7 @@ class LandingPageMain extends React.Component{
                              </div>
                         </div>
                         <div className="col-3">
-                           <img src="sun-image.png" className="sun-image" style={{height:"20vh", zIndex:"-2", position:"absolute"}}></img>
+                           <img src="sun-image.png" className="sun-image" style={{height:"20vh", zIndex:"-2", position:"absolute"}}/>
                            <img src="cloud.png" style={{height:"7vh", zIndex:"-1", marginTop:"11vh"}}></img>
                         </div>
 
@@ -37,7 +38,7 @@ class LandingPageMain extends React.Component{
 
                          </div>
                          <div className="col-4" style={{textAlign:"center"}}>
-                             <center style={{marginBottom:"10vh"}}><a class="bn31" href="/"><span class="bn31span">Start</span></a></center>
+                             <center style={{marginBottom:"10vh"}}><NavLink class="bn31" exact to="/intro"><span class="bn31span">Start</span></NavLink></center>
                          </div>
                          <div className="col-4"></div>
                      </div>

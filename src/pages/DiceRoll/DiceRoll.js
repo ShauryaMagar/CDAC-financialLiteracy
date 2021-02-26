@@ -1,26 +1,33 @@
 import { render } from '@testing-library/react';
 import React, { useEffect } from 'react';
+import {useHistory,useLocation} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './DiceRoll.css';
-class DiceRoll extends React.Component {
-    
-    constructor(props){
-        super(props);
-        
-        this.state={
-            retrievedObject:{},
-            isloaded:false,
-        }
-    }
-    componentDidMount(){
-        let retrievedObject = JSON.parse(localStorage.getItem("financialLiteracy"));
-        this.setState({
-            retrievedObject:retrievedObject,
-            isloaded:true,
-        });
+const DiceRoll=()=> {
+    const [isLoaded,setIsLoaded]=React.useState(false);
+    const [retrievedObject,setRetrievedObject]=React.useState({});
+    const [numberGot,setNumberGot]=React.useState(0);
+    const [level,setLevel]=React.useState(0);
+    useEffect(()=>{
+        let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
+        setRetrievedObject(retrievedObj);
+        setIsLoaded(true);
+    },[]);
+    const location = useLocation();
+    const history = useHistory();
+    const diceRolling=()=>{
+        var rand = Math.floor(Math.random() * 3) + 1;
+        setLevel(level+rand);
+        setNumberGot(rand);
+        alert("Number obtained: "+rand);
+        setTimeout(()=>{
+            history.push(`/${rand}`,{
+                level:level,
 
+            })
+        },1000)
     }
-     displayContentHealth=(sp)=>{
+    const displayContentHealth=(sp)=>{
          return(
             <>
           <div class="modal-body">
@@ -42,7 +49,7 @@ class DiceRoll extends React.Component {
      }
         
     
-    displayContentHome=(sp)=>{
+    const displayContentHome=(sp)=>{
         return(
             <>
           <div class="modal-body">
@@ -64,7 +71,7 @@ class DiceRoll extends React.Component {
         
     
 
-    displayContentVehicle=(sp)=>{
+    const displayContentVehicle=(sp)=>{
         return(
             <>
           <div class="modal-body">
@@ -83,11 +90,8 @@ class DiceRoll extends React.Component {
         </>
     )
     }
-    Diceroll=()=>{
-        
-    }
     
-    displayContentFixedDep=(sp)=>{
+    const displayContentFixedDep=(sp)=>{
         return(
             <>
           <div class="modal-body">
@@ -113,8 +117,8 @@ class DiceRoll extends React.Component {
     //                     money: {this.state.retrievedObject.moneyInHand}<br/>
     //                     FD: {this.state.retrievedObject.fixedDeposit.purchased} <br/>
 
-    render(){
-        if(this.state.isloaded){
+
+        if (isLoaded) {
             return (
         <>
         <div class="modal fade" id="assets" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -127,10 +131,10 @@ class DiceRoll extends React.Component {
                         </button>
                     </div>
                     
-                    {this.state.retrievedObject.insurance.healthIns.purchased?this.displayContentHealth(5000):""}
-                    {this.state.retrievedObject.insurance.homeIns.purchased?this.displayContentHome(4000):""}
-                    {this.state.retrievedObject.insurance.vehicleIns.purchased?this.displayContentVehicle(3000):""}
-                    {this.displayContentFixedDep(this.state.retrievedObject.fixedDeposit.purchased)}
+                    {retrievedObject.insurance.healthIns.purchased?displayContentHealth(5000):""}
+                    {retrievedObject.insurance.homeIns.purchased?displayContentHome(4000):""}
+                    {retrievedObject.insurance.vehicleIns.purchased?displayContentVehicle(3000):""}
+                    {displayContentFixedDep(retrievedObject.fixedDeposit.purchased)}
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                     </div>
@@ -144,8 +148,8 @@ class DiceRoll extends React.Component {
                 <div className='col-2'>
                     <Link to='/intro' style={{color:'white'}}><button className="btn btn-dark">Back</button></Link>
                 </div>
-                <div className="col-6" style={{textAlign:'center'}}>
-                    <h1>roll the dice</h1>                
+                <div className="col-6" onClick={diceRolling} style={{textAlign:'center'}}>
+                    <h1>Click here to roll the dice</h1>                
                 </div>
                 <div className='col-4'>
                     <div className="row">
@@ -156,7 +160,7 @@ class DiceRoll extends React.Component {
                         </div>
                         <div className="col-4">
                             
-                                <strong>Rs. {this.state.retrievedObject.moneyInHand}</strong>
+                                <strong>Rs. {retrievedObject.moneyInHand}</strong>
                                 <br/>
                                 <strong>PIN: 2345</strong>
                         </div>
@@ -229,8 +233,8 @@ class DiceRoll extends React.Component {
         
     }
         
-    }
-    
 }
+    
+
 
 export default DiceRoll;

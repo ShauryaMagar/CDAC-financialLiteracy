@@ -39,7 +39,8 @@ const IntroScreen = () => {
             fixedDeposit:{
                 purchased: FD,
                 turnsLeft:'4'
-            }
+            },
+            currentLevel:0,
         }
         localStorage.setItem('financialLiteracy', JSON.stringify(financialObject));
         

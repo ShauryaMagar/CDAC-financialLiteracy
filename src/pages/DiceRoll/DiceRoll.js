@@ -11,20 +11,21 @@ const DiceRoll=()=> {
     useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
+        setLevel(retrievedObj.currentLevel);
         setIsLoaded(true);
     },[]);
     const location = useLocation();
     const history = useHistory();
     const diceRolling=()=>{
-        var rand = Math.floor(Math.random() * 3) + 1;
-        setLevel(level+rand);
+        var rand = Math.floor(Math.random() * 2) + 1;
         setNumberGot(rand);
+        var update=parseInt(level) + rand
+        setLevel(update);
         alert("Number obtained: "+rand);
+        retrievedObject.currentLevel=update;
+        localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         setTimeout(()=>{
-            history.push(`/${rand}`,{
-                level:level,
-
-            })
+            history.push(`/${update}`)
         },1000)
     }
     const displayContentHealth=(sp)=>{

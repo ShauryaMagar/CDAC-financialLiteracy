@@ -17,9 +17,9 @@ const DiceRoll=()=> {
     const location = useLocation();
     const history = useHistory();
     const diceRolling=()=>{
-        var rand = Math.floor(Math.random() * 2) + 1;
+        var rand = Math.floor(Math.random() * 1) + 1;
         setNumberGot(rand);
-        var update=parseInt(level) + rand
+        var update=parseInt(level) + rand;
         setLevel(update);
         alert("Number obtained: "+rand);
         retrievedObject.currentLevel=update;

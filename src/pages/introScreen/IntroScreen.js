@@ -8,6 +8,7 @@ const IntroScreen = () => {
     const [home,setHome]=React.useState(false);
     const [FD,setFD] = React.useState(0);
     const [inpFD,setInpFD] = React.useState();
+    const [turns,setTurns]=React.useState(-1);
     const fdSubmit =(e) =>{
         e.preventDefault();
         var input =inpFD;
@@ -16,7 +17,7 @@ const IntroScreen = () => {
         }else{
             setAmt(amt-input);
             setFD(input);
-
+            setTurns(4);
         }
     }
     const onSubmission = () => {
@@ -38,7 +39,7 @@ const IntroScreen = () => {
             moneyInHand: amt,
             fixedDeposit:{
                 purchased: FD,
-                turnsLeft:'4'
+                turnsLeft:turns
             },
             currentLevel:0,
         }
@@ -67,6 +68,7 @@ const IntroScreen = () => {
         var addition = amt + parseInt(FD);
         setAmt(addition);
         setFD(0);
+        setTurns(-3);
     }
     const vehicleInsuranceHandler = () => {
         var diff = amt - 7000;

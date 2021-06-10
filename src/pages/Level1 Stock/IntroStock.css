@@ -1,0 +1,8 @@
+.steps {
+    border-style: solid;
+    border-width: 2px;
+    height: 10rem;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}

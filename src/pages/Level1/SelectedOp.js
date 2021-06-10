@@ -18,12 +18,12 @@ const SelectedOp=(props)=>{
         retrievedObject.moneyInHand=parseInt(money) +2000;
         console.log(retrievedObject)
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        history.push('/start')
+        history.push('/1.2')
     }
     const WrongGuess=()=>{
         retrievedObject.moneyInHand=parseInt(money) -2000;
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        history.push('/start')
+        history.push('/1.2')
     }
     if(!isLoaded){
         return(

@@ -41,6 +41,12 @@ const IntroScreen = () => {
                 purchased: FD,
                 turnsLeft:turns
             },
+            stocks:{
+                steel:0,
+                med:0,
+                auto:0,
+                oil:0,
+            },
             currentLevel:0,
         }
         localStorage.setItem('financialLiteracy', JSON.stringify(financialObject));

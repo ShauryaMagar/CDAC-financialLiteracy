@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './IntroScreen.css';
+
+
 const IntroScreen = () => {
     const [amt,setAmt]=React.useState(20000);
     const [health,setHealth] = React.useState(false);
@@ -17,7 +20,7 @@ const IntroScreen = () => {
         }else{
             setAmt(amt-input);
             setFD(input);
-            setTurns(4);
+            setTurns(3);
         }
     }
     const onSubmission = () => {
@@ -107,7 +110,7 @@ const IntroScreen = () => {
         }
     }
     return (
-        <div className="container-fluid" style={{marginTop:'2rem'}}>
+        <div className="intro-container" style={{marginTop:'0'}}>
             <div class="modal fade" id="Insurance" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -275,8 +278,8 @@ const IntroScreen = () => {
                                     However, withdrawing money before it matures might result in some loss
                             </div>
                             <div className="row">
-                            Rate of Interest: 40 %    <br/>
-                                Maturity period: 4 dice rolls
+                            Rate of Interest: 15 %    <br/>
+                                Maturity period: 3 dice rolls
                             </div><br/>
                             <div className='row'>
                                     <form onSubmit={fdSubmit}>
@@ -304,73 +307,102 @@ const IntroScreen = () => {
             <div className="row justify-content-around">
                 <div className="col-2">
                     <Link exact to="/">
-                        <button className="btn btn-dark btn-lg">Back</button>
+                        <button className="btn  btn-lg btn-dark">Back</button>
                     </Link>
                 </div>
+
                 <div className="col-5" style={{textAlign:'center'}}>
-                    <h1>Let's get started!</h1>
+                    <h1 style={{fontSize:"64px", fontWeight:"500"}} className="animate__animated animate__flip animate__delay-1s">Let's get started!</h1>
+                    <img src="economics.png"  className="warn" style={{width:"90px"}}></img>   
                 </div>
+                {/* <div className="col-1">
+                               
+                </div> */}
                 <div className="col-2">
-                        <h3>Rs {amt}</h3><br/>
+                        <h3>₹ {amt}</h3><br/>
                         <h3> PIN: 2345</h3>
                 </div>
             </div>
             <div className="row justify-content-center" style={{marginTop:'2rem'}}>
-                <div className="col-6">
+                <div className="col-2" style={{textAlign:"center",marginTop:"auto",marginBottom:"auto"}}>
+                    <img src="warn.png"  className="warn" style={{width:"90px"}}></img>
+                </div>
+                <div className="col-6 instruct-card animate__animated animate__bounceInDown " >
                     <h2>
                         You have Rs. 20000 with you. Make some wise choices. Click on the boxes below to know more!
                     </h2>
                 </div>
+                <div className="col-2" style={{textAlign:"center",marginTop:"auto",marginBottom:"auto"}}>
+                    <img src="warn.png"  className="warn" style={{width:"90px"}} ></img>
+                </div>
             </div>
             <div className="row justify-content-around" style={{marginTop:'2rem'}}>
-                <div className="col-3" style={{textAlign:'center'}}>
+                <div className="col-6 "  style={{textAlign:'center' , marginBottom: "2rem"}}>
+                <div className="choice-card"  data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
+                <img src="life-insurance.png"  className="warn" style={{width:"64px"}}></img>
+                <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Insurance</h1><br/>
                     <div >
-                        <h4>Insurance provide protection from unforseen mishaps.However, a small amount of money(premium) is deducted after every chance</h4> 
+                        <h4>Insurance provide protection from unforseen mishaps.However, a small amount of money(premium) is deducted after every chance.</h4> 
                     </div>
-                    <div className="row justify-content-center" style={{padding:'1rem'}}>
-                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Insurance">
+                  
+                    <div className="row justify-content-center" style={{paddingTop:'2.9rem'}}>
+                        <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#Insurance">
                         Click
                         </button>
                     </div>
+                    </div>
                 </div>
-                <div className="col-3" style={{textAlign:'center'}}>
+                <div className="col-6" style={{textAlign:'center' , marginBottom: "2rem"}}>
+                <div className="choice-card " data-aos="fade-left" data-aos-delay="100" data-aos-duration="800">
+                <img src="risk.png"  className="warn" style={{width:"64px"}}></img>
+                <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Stocks</h1>
                     <div>
                         <h4> Purchasing a stock in a company basically means owning a part of company.If company grows, the value of stock purchased increases and hence, high returns can be expected.However, it has high risk. </h4> 
                     </div>
                     <div className="row justify-content-center" style={{padding:'1rem'}}>
-                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#stocks">
+                        <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#stocks">
                         Click
                         </button>
                     </div>
+                    </div>
                 </div>
-                <div className="col-3" style={{textAlign:'center'}}>
+                <div className="col-6 " style={{textAlign:'center' , marginBottom: "2rem"}}>
+                <div className="choice-card" data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
+                <img src="fraud.png"  className="warn" style={{width:"64px"}}></img>
+                <br/><br/>
                     <h1  style={{textDecoration:'underline'}}>Frauds</h1>
                     <div >
                         <h4>You may encounter several types of financial frauds in this game. Beware of them!</h4> 
                     </div>
-                    <div className="row justify-content-center" style={{padding:'1rem'}}>
-                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#frauds">
+                    <div className="row justify-content-center" style={{paddingTop:'4.5rem'}}>
+                        <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#frauds">
                         Click
                         </button>
                     </div>
                 </div>
-                <div className="col-3" style={{textAlign:'center'}}>
+                </div>
+                <div className="col-6 " style={{textAlign:'center' , marginBottom: "2rem"}}>
+                    <div className="choice-card" data-aos="fade-left" data-aos-delay="100" data-aos-duration="800">
+                    <img src="fixed.png"  className="warn" style={{width:"64px"}}></img>
+                <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Fixed Deposits</h1>
                     <div >
                         <h4>Fixed Deposits are basically investments made in a bank. After a particular period of time, it matures and returns with some rate of interest. It has lowest risk associated.</h4> 
                     </div>
                     <div className="row justify-content-center" style={{padding:'1rem'}}>
-                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#fixedDeposits">
+                        <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#fixedDeposits">
                         Click
                         </button>
                     </div>
                 </div>
+                </div>
             </div>
-            <div className='row justify-content-end'>
-                <div className='col-2' style={{textAlign:'center'}}>
-                    <Link to="/start" onClick={onSubmission} style={{color:'white'}}><button className="btn btn-dark" >Start!</button></Link>
+            <br/><br/>
+            <div >
+                <div className='' style={{textAlign:'center',paddingBottom:"80px"}}>
+                    <Link to="/start" onClick={onSubmission} style={{color:'white' , fontFamily:"Bubblegum Sans"}}><button className="btn btn-lg start-button animate__animated animate__pulse animate__infinite" style={{fontSize:"32px"}}>Start!</button></Link>
                 </div> 
             </div>
             

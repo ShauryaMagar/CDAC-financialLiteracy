@@ -1,0 +1,81 @@
+
+.justify-content-around{
+    padding-top: 2rem;
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.justify-content-center{
+    font-family: 'Baloo Tammudu 2', cursive;
+}
+
+.justify-content-around button{
+    background-color: tomato;
+}
+
+.justify-content-around{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.instruct-card{
+    color: white;
+    background: rgb(0,107,142);
+background: linear-gradient(90deg, rgba(0,107,142,1) 0%, rgba(16,11,84,1) 100%);
+    padding: 30px;
+    border-radius: 20px;
+    border:5px solid rgb(73, 219, 158);
+    box-shadow: 5px 5px 18px #000;
+    
+}
+
+
+
+.intro-container{
+    /* background: #67B26F;  
+    background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);
+    background: linear-gradient(to right, #4ca2cd, #67B26F); 
+     */
+     background: #4CB8C4;  
+background: -webkit-linear-gradient(to right, #3CD3AD, #4CB8C4); 
+background: linear-gradient(to right, #3CD3AD, #4CB8C4); 
+
+}
+
+
+
+.btn-lg{
+    width: 70%;
+    padding-bottom: 0;
+}
+
+
+
+.choice-card{
+    
+    background: rgb(0,107,142);
+    background: linear-gradient(90deg, rgba(0,107,142,1) 0%, rgba(16,11,84,1) 100%);
+    
+color: white;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    /* border: 3px solid #000; */
+    width:87%;
+    height: 100%;
+   
+}
+
+.start-button{
+    background-color: lightcoral;
+    width: 200px;
+    transition: width 2s;
+    border: 5px solid rgb(141, 6, 6);
+}
+
+.start-button:hover{
+    background-color: rgb(248, 163, 163);
+    width: 70%;
+}

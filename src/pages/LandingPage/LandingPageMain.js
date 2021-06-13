@@ -8,7 +8,7 @@ class LandingPageMain extends React.Component{
                 <div className="container" style={{height:"10vh"}}>
                       <div className="row" >
                         <div className="col-3">
-                            <img src="cloud.png"  className="cloud-image" style={{height:"7vh", zIndex:"-1", marginTop:"15vh"}}></img>
+                            <img src="cloud.png"  className="cloud-image" style={{height:"7vh", zIndex:"0", marginTop:"15vh"}}></img>
                         </div>
                         <div className="col-6">
                             <div className="title ">
@@ -16,15 +16,15 @@ class LandingPageMain extends React.Component{
                              </div>
                         </div>
                         <div className="col-3">
-                           <img src="sun-image.png" className="sun-image" style={{height:"20vh", zIndex:"-2", position:"absolute"}}/>
-                           <img src="cloud.png" style={{height:"7vh", zIndex:"-1", marginTop:"11vh"}}></img>
+                           <img src="sun-image.png" className="sun-image" style={{height:"20vh", zIndex:"0", position:"absolute"}}/>
+                           <img src="cloud.png" style={{height:"7vh", zIndex:"0", marginTop:"11vh"}}></img>
                         </div>
 
                       </div>
                 </div>
                     <div className="row">
                         <div className="col-4">
-                            <img src="homeScreen2.svg" style={{width:"15vw",marginTop:"37vh"}}></img>
+                            <img src="homeScreen2.svg" style={{width:"15vw",marginTop:"34vh"}}></img>
                         </div>
                         <div className="col-4">
                              <img src="cool-child.png" className="cool-child-pic" style={{textAlign:"center",height:"40vh", position:"relative",marginTop:"10vh"}}></img>
@@ -38,7 +38,7 @@ class LandingPageMain extends React.Component{
 
                          </div>
                          <div className="col-4" style={{textAlign:"center"}}>
-                             <center style={{marginBottom:"10vh"}}><NavLink class="bn31" exact to="/intro"><span class="bn31span">Start</span></NavLink></center>
+                             <center style={{marginBottom:"10vh"}}><NavLink class="bn31" exact to="/intro"><span class="bn31span" >Start</span></NavLink></center>
                          </div>
                          <div className="col-4"></div>
                      </div>

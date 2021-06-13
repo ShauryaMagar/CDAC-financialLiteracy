@@ -64,7 +64,7 @@ const DiceRoll = () => {
 
   function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
-    var generatedNum = getRandomNumber(1, 3);
+    var generatedNum = getRandomNumber(1, 1);
     dice.forEach((die) => {
       toggleClasses(die);
 
@@ -295,7 +295,8 @@ const DiceRoll = () => {
               {retrievedObject.insurance.vehicleIns.purchased
                 ? displayContentVehicle(3000)
                 : ""}
-              {displayContentFixedDep(retrievedObject.fixedDeposit.purchased)}
+              {retrievedObject.fixedDeposit.purchased===0?"":displayContentFixedDep(retrievedObject.fixedDeposit.purchased,retrievedObject.fixedDeposit.purchased.turnsLeft)}
+              {}
               <div class="modal-footer">
                 <button type="button" class="btn  dice-page-btn" data-dismiss="modal">
                   Close

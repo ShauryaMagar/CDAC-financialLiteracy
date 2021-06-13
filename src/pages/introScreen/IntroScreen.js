@@ -10,7 +10,7 @@ const IntroScreen = () => {
     const [vehicle,setVehicle]=React.useState(false);
     const [home,setHome]=React.useState(false);
     const [FD,setFD] = React.useState(0);
-    const [inpFD,setInpFD] = React.useState();
+    const [inpFD,setInpFD] = React.useState(0);
     const [turns,setTurns]=React.useState(-1);
     const fdSubmit =(e) =>{
         e.preventDefault();

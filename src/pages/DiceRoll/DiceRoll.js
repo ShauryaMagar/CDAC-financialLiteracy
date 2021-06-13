@@ -83,8 +83,8 @@ const DiceRoll = () => {
         var addFd=parseFloat(retrievedObject.fixedDeposit.purchased)*(0.15)
         retrievedObject.fixedDeposit.purchased=parseFloat(retrievedObject.fixedDeposit.purchased)+addFd;
         retrievedObject.moneyInHand=parseFloat(retrievedObject.moneyInHand)+parseFloat(retrievedObject.fixedDeposit.purchased)
-        retrievedObject.fixedDeposit.turnsLeft=retrievedObject.fixedDeposit.turnsLeft-1
-        
+        retrievedObject.fixedDeposit.turnsLeft=0;
+        retrievedObject.fixedDeposit.purchased = 0;
       }else{
         retrievedObject.fixedDeposit.turnsLeft=retrievedObject.fixedDeposit.turnsLeft-1
       }
@@ -231,7 +231,7 @@ const DiceRoll = () => {
     );
   };
 
-  const displayContentFixedDep = (sp) => {
+  const displayContentFixedDep = (sp, turn) => {
     return (
       <>
         <div class="modal-body">
@@ -240,6 +240,13 @@ const DiceRoll = () => {
             <div className="col-6">
               <strong>Purchased: </strong>
               {sp} <br />
+            </div>
+            <div className="col-6"></div>
+          </div>
+          <div className="row justify-content-between">
+            <div className="col-6">
+              <strong>Turns Left before maturity: </strong>
+              {turn} <br />
             </div>
             <div className="col-6"></div>
           </div>
@@ -295,7 +302,7 @@ const DiceRoll = () => {
               {retrievedObject.insurance.vehicleIns.purchased
                 ? displayContentVehicle(3000)
                 : ""}
-              {retrievedObject.fixedDeposit.purchased===0?"":displayContentFixedDep(retrievedObject.fixedDeposit.purchased,retrievedObject.fixedDeposit.purchased.turnsLeft)}
+              {retrievedObject.fixedDeposit.purchased===0?"":displayContentFixedDep(retrievedObject.fixedDeposit.purchased,retrievedObject.fixedDeposit.turnsLeft)}
               {}
               <div class="modal-footer">
                 <button type="button" class="btn  dice-page-btn" data-dismiss="modal">

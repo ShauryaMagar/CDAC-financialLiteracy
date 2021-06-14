@@ -2,6 +2,7 @@ import React from 'react';
 import imgNote from "./images/img-note.jpg";
 import fakeNote from './images/fake-note.jpg';
 import {useHistory} from 'react-router-dom';
+import './Level1.css';
 const Landing=(props)=>{
     const history=useHistory();
     const [option,setOption]=React.useState(false);
@@ -21,7 +22,7 @@ const Landing=(props)=>{
     if(!option){
         return(
         <>
-            <div className="container-fluid">
+            <div className="container-fluid shopseller-container" style={{paddingTop:"7rem", paddingBottom:"4.2rem"}}>
                 <div className="row justify-content-center">
                     <div className="col-5" onClick={onImageClick}>
                         <img src={imgNote} alt="background"></img>
@@ -41,19 +42,21 @@ const Landing=(props)=>{
     }else{
         return (
             <>
-            <div className="container-fluid" style={{textAlign:'center'}}>
+            <div className="container-fluid  shopseller-container" style={{textAlign:'center',paddingTop:"7rem", paddingBottom:"6rem"}}>
                 <div className="row justify-content-center">
                         <img src={fakeNote} alt="fake-note"></img>
                 </div>
+                <br/>
+                
                 <div className="row justify-content-center">
                     <p style={{fontSize:'2rem'}}>Will You accept this note?</p>
                 </div>
                 <div className="row">
                     <div className="col-6">
-                        <button className="btn btn-dark" onClick={onYesClick}>YES</button>
+                        <button className="btn btn-dark level-one-button animate__animated animate__backInLeft " onClick={onYesClick}>YES</button>
                     </div>
                     <div className="col-6">
-                        <button className="btn btn-dark" onClick={onNoClick}>NO</button>
+                        <button className="btn btn-dark level-one-button animate__animated animate__backInRight" onClick={onNoClick}>NO</button>
                     </div>
                 </div>
             </div>

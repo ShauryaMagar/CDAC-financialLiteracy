@@ -6,7 +6,7 @@ const Level1 =()=>{
     const [fake,setFake]=React.useState(false);
     if(!disp){
         return(
-            <div style={{marginTop:"5rem"}}>
+            <div >
                  <Landing setDisp={setDisp} setFake={setFake}/>
             </div>
                

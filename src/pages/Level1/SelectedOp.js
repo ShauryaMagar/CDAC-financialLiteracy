@@ -1,6 +1,8 @@
 import React,{useEffect} from 'react';
 import {useLocation,useHistory} from 'react-router-dom';
 import Know from './images/know.png';
+import './Level1.css'
+
 const SelectedOp=(props)=>{
     const location=useLocation();
     const history=useHistory();
@@ -33,9 +35,9 @@ const SelectedOp=(props)=>{
         if(!selected){
         return(
             <>
-            <div className="container-fluid">
+            <div className="container-fluid selected-page-right">
                 <div className="row">
-                    <div className="col-5">
+                    <div className="col-6">
                         <div style={{marginTop:'15rem'}}>
                             <h1>You made the right choice!</h1>
                         </div>
@@ -46,7 +48,7 @@ const SelectedOp=(props)=>{
                         </div>
                     </div>
                     <div className="col-6">
-                        <img src={Know} style={{width:'100%'}} alt="Rbi guidelines"/>
+                        <img src={Know} style={{width:'100%', marginTop:"2.2rem"}} alt="Rbi guidelines"/>
                     </div>
                 </div>
             </div>
@@ -55,9 +57,9 @@ const SelectedOp=(props)=>{
     }else
         return(
             <>
-            <div className="container-fluid">
+            <div className="container-fluid selected-page-wrong">
                 <div className="row">
-                    <div className="col-5">
+                    <div className="col-6">
                         <div style={{marginTop:'15rem'}}>
                             <h1>You made the wrong choice!</h1>
                         </div>
@@ -68,7 +70,7 @@ const SelectedOp=(props)=>{
                         </div>
                     </div>
                     <div className="col-6">
-                        <img src={Know} style={{width:'100%'}} alt="Rbi guidelines"/>
+                        <img src={Know} style={{width:'100%', marginTop:"2.2rem"}} alt="Rbi guidelines"/>
                     </div>
                 </div>
             </div>

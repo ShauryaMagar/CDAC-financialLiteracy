@@ -89,13 +89,14 @@ const DiceRoll = () => {
      
       
       if(retrievedObject.fixedDeposit.turnsLeft==1){
-        var addFd=parseFloat(retrievedObject.fixedDeposit.purchased)*(0.15)
-        retrievedObject.fixedDeposit.purchased=parseFloat(retrievedObject.fixedDeposit.purchased)+addFd;
-        retrievedObject.moneyInHand=parseFloat(retrievedObject.moneyInHand)+parseFloat(retrievedObject.fixedDeposit.purchased)
+
+        retrievedObject.fixedDeposit.purchased=parseFloat(retrievedObject.fixedDeposit.purchased)+parseFloat(retrievedObject.fixedDeposit.purchased)*(0.15);
+        money=parseFloat(money)+parseFloat(retrievedObject.fixedDeposit.purchased)
         retrievedObject.fixedDeposit.turnsLeft=0;
-        retrievedObject.fixedDeposit.purchased = 0;
+        retrievedObject.fixedDeposit.purchased=0;
+   
       }else{
-        retrievedObject.fixedDeposit.turnsLeft=retrievedObject.fixedDeposit.turnsLeft-1
+        retrievedObject.fixedDeposit.turnsLeft=retrievedObject.fixedDeposit.turnsLeft-1;
       }
       
     retrievedObject.stocks.oil =

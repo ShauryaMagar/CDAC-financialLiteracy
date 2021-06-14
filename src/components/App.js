@@ -15,7 +15,10 @@ import Mid from '../pages/Level1.3/Level1.3'
 import Six from '../pages/Level6/Level6';
 import Seven from '../pages/Level7/Level7';
 import Eight from '../pages/Level8/Level8';
+
 import SellPurchase from '../pages/SellPurchaseStock/SellPurchaseStock';
+
+
 class App extends React.Component{
     render(){
         return (
@@ -37,6 +40,7 @@ class App extends React.Component{
                         <Route exact path="/7" component={Six}/>
                         <Route exact path="/8" component={Seven}/>
                         <Route exact path="/9" component={Eight}/>
+                        <Route exact path="/10" component={Four}/>
                         <Route exact path="/SPStock" component={SellPurchase}/>
                         <Route exact path="/1.1" component={SelectedOp}/>
 					</div>

@@ -71,7 +71,16 @@ const DiceRoll = () => {
       die.dataset.roll = generatedNum;
     });
     var update = parseInt(level) + generatedNum;
-    
+    let money = retrievedObject.moneyInHand;
+    if (retrievedObject.insurance.healthIns.purchased){
+      money=money-200;
+    }
+    if (retrievedObject.insurance.homeIns.purchased) {
+      money = money - 200;
+    }
+    if (retrievedObject.insurance.vehicleIns.purchased) {
+      money = money - 200;
+    }
     setTimeout(() => {
       
      
@@ -98,7 +107,7 @@ const DiceRoll = () => {
     retrievedObject.stocks.steel =
       parseInt(steel) + (parseInt(steel) * steelChange) / 100;
     retrievedObject.currentLevel = update;
-    
+    retrievedObject.moneyInHand=money;
     localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
   
       history.push(`/${update}`);

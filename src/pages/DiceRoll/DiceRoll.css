@@ -1,15 +1,39 @@
 .steps{
-    border-style: solid;
-    border-width: 2px;
-    height: 10rem;
+    /* border-style: solid;
+    border-width: 1px; */
+    height: 6rem;
     width: 100%;
     text-align: center;
     margin-top: auto;
-    font-size: 56px;
-    padding-top: 2rem;
-    border-color: white;
+    font-size: 50px;
+    padding-top: 1.5rem;
+    /* border-color: white; */
+    background: #4776E6;  
+    background: -webkit-linear-gradient(to right, #8E54E9, #4776E6); 
+    background: linear-gradient(to right, #8E54E9, #4776E6); 
+
     /* border-top-color:#12D8FA  ; */
+
+
+    
 }
+/* 
+background: radial-gradient(circle at bottom left, #8E54E9 30px, transparent 0) bottom left;
+background-size: 50% 50%;
+background-repeat: no-repeat; */
+
+.trans-row{
+  background: #4776E6;  
+  background: -webkit-linear-gradient(to right, #8E54E9, #4776E6); 
+  background: linear-gradient(to right, #8E54E9, #4776E6); 
+}
+.trans-block{
+  background: #4ce7e7;
+  /* background: -webkit-linear-gradient(to top, #A6FFCB, #12D8FA);
+  background: linear-gradient(to top, #A6FFCB, #12fafa); */
+}
+
+
 .dice-roll-page{
   background: #1FA2FF; 
   background: -webkit-linear-gradient(to top, #A6FFCB, #12D8FA, #1FA2FF);  
@@ -32,9 +56,7 @@
     width: 100%;
   }
   .board-row{
-    background: #4776E6;  
-    background: -webkit-linear-gradient(to right, #8E54E9, #4776E6); 
-    background: linear-gradient(to right, #8E54E9, #4776E6); 
+
     color:#fff ;   
   
   }

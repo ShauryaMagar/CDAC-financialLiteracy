@@ -5,7 +5,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 import "./DiceRoll.css";
-
+import ScrollToTop from "../../ScrollToTop";
 import { parseInt } from "lodash";
 
 
@@ -44,16 +44,101 @@ const DiceRoll = () => {
 
   useEffectX(() => {
     let retrievedObjt = JSON.parse(localStorage.getItem("financialLiteracy"));
+
+        
+    if(document.getElementById(level.toString())){
+      document.getElementById(level.toString()).style.background="rgb(120, 214, 107)";
+  }
+
     if(retrievedObjt.fixedDeposit.turnsLeft==0){
       if(document.getElementById(level.toString())){
         document.getElementById(level.toString()).innerHTML="FD HAS MATURED! <br/> Balance has been updated";
         document.getElementById(level.toString()).style.fontSize="18px";
         document.getElementById(level.toString()).style.fontWeight="500";
 
+    }}else{
+      if(retrievedObjt.currentLevel>=1){
+        if(document.getElementById("1")){
+        document.getElementById("1").innerHTML="Shopkeeper Fake Notes";
+        document.getElementById("1").style.fontSize="18px";
+        
     }}
-      if(document.getElementById(level.toString())){
-        document.getElementById(level.toString()).style.backgroundColor="rgb(120, 214, 107)";
+    if(retrievedObjt.currentLevel>=2){
+      if(document.getElementById("2")){
+      document.getElementById("2").innerHTML="Information on Stocks";
+      document.getElementById("2").style.fontSize="18px";
+      
+  }}
+  if(retrievedObjt.currentLevel>=3){
+    if(document.getElementById("3")){
+    document.getElementById("3").innerHTML="Car Accident";
+    document.getElementById("3").style.fontSize="18px";
+    
+  }}
+  if(retrievedObjt.currentLevel>=4){
+    if(document.getElementById("4")){
+    document.getElementById("4").innerHTML="Bill Payment";
+    document.getElementById("4").style.fontSize="18px";
+    
+  }}
+  if(retrievedObjt.currentLevel>=5){
+    if(document.getElementById("5")){
+    document.getElementById("5").innerHTML="PAY DAY";
+    document.getElementById("5").style.fontSize="18px";
+    
+  }}
+  if(retrievedObjt.currentLevel>=6){
+    if(document.getElementById("6")){
+    document.getElementById("6").innerHTML="Suspicious Website";
+    document.getElementById("6").style.fontSize="18px";
+    
+  }}
+  if(retrievedObjt.currentLevel>=7){
+    if(document.getElementById("7")){
+    document.getElementById("7").innerHTML="Government plans on Railway Expansion";
+    document.getElementById("7").style.fontSize="18px";
+    
+  }}
+  if(retrievedObjt.currentLevel>=8){
+    if(document.getElementById("8")){
+    document.getElementById("8").innerHTML="House Caught Fire";
+    document.getElementById("8").style.fontSize="18px";
+    
+  }}
+  if(retrievedObjt.currentLevel>=9){
+    if(document.getElementById("9")){
+    document.getElementById("9").innerHTML="Steel Prices Increased";
+    document.getElementById("9").style.fontSize="18px";
+    
+  }}
+  if(retrievedObjt.currentLevel>=10){
+    if(document.getElementById("10")){
+    document.getElementById("10").innerHTML="PAY DAY";
+    document.getElementById("10").style.fontSize="18px";
+    
+  }}
     }
+
+
+    if(retrievedObjt.currentLevel==8  ){
+      if(document.getElementById("trans")){
+        document.getElementById("trans").style.background="transparent";
+
+        
+    
+  }}
+
+  if(retrievedObjt.currentLevel==16 ){
+    if(document.getElementById("trans2")){
+      document.getElementById("trans2").style.background="transparent";
+
+      
+  
+}}
+
+  
+
+
    });
 
   const location = useLocation();
@@ -64,7 +149,7 @@ const DiceRoll = () => {
 
   function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
-    var generatedNum = getRandomNumber(1, 1);
+    var generatedNum = getRandomNumber(1,3);
     dice.forEach((die) => {
       toggleClasses(die);
 
@@ -115,7 +200,7 @@ const DiceRoll = () => {
     }, 3500);   
     setTimeout(()=>{
 
-      document.getElementById(update.toString()).style.backgroundColor="rgb(120, 214, 107)";
+      document.getElementById(update.toString()).style.background="rgb(120, 214, 107)";
     },2000)
     
 
@@ -278,7 +363,7 @@ const DiceRoll = () => {
       
         
       <>
-      
+       <ScrollToTop />
         <div
           class="modal fade"
           id="assets"
@@ -413,28 +498,99 @@ const DiceRoll = () => {
           </div>
         </div>
     
-        <div  className="container-fluid animate__animated animate__fadeInRight" style={{ marginTop: "10rem", paddingBottom:"124px" }}>
-          <div className="row r board-row">
+        <div  className="container-fluid animate__animated animate__fadeInRight" style={{ marginTop: "2rem", paddingBottom:"124px",marginRight:"40px", paddingLeft:"0",paddingRight:"0" }}>
+          <div className="row r board-row" style={{marginRight:"30px",marginLeft:"30px"}}>
             <div className="" id="0">
                 
             </div>
-            <div className="steps col-2 justify-content-center d-flex align-items-center" id={parseInt(level).toString()} >
-            {(parseInt(level)).toString()}
+            <div className="steps col justify-content-center d-flex align-items-center" id="1" style={{borderTopLeftRadius:"30px",borderBottomLeftRadius:"30px"}} >
+              1
             </div>
-            <div className="steps col-2 justify-content-center d-flex align-items-center" id={(parseInt(level)+1).toString()}>
-            {(parseInt(level)+1).toString()}
+            <div className="steps col justify-content-center d-flex align-items-center" id="2">
+              2
             </div>
-            <div className="steps col-2 justify-content-center d-flex align-items-center" id={(parseInt(level)+2).toString()}> 
-            {(parseInt(level)+2).toString()} 
+            <div className="steps col justify-content-center d-flex align-items-center" id="3"> 
+              3
             </div>
-            <div className="steps col-2 justify-content-center d-flex align-items-center" id={(parseInt(level)+3).toString()}>
-            {(parseInt(level)+3).toString()}
+            <div className="steps col justify-content-center d-flex align-items-center" id="4">
+              4
             </div>
-            <div className="steps col-2 justify-content-center d-flex align-items-center" id={(parseInt(level)+4).toString()}>
-            {(parseInt(level)+4).toString()}
+            <div className="steps col justify-content-center d-flex align-items-center" id="5">
+              5
             </div>
-            <div className="steps col-2 justify-content-center d-flex align-items-center" id={(parseInt(level)+5).toString()}>
-            {(parseInt(level)+5).toString()}
+            <div className="steps col justify-content-center d-flex align-items-center" id="6">
+              6
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="7" style={{borderTopRightRadius:"30px  "}} >
+              7
+            </div>
+            
+            </div>
+            <div className="row r board-row trans-row" style={{marginLeft:"auto",marginRight:"30px",width:"fit-content"}} id="trans">
+            <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopRightRadius:"20px  ",borderBottomRightRadius:"20px  ",width:"189px",background:"#13d5fa"}} >
+          
+          </div>
+            <div className="steps col justify-content-center d-flex align-items-center  " id="8" style={{marginLeft:"auto",width:"190px", color:"#fff"}}>
+            8 
+            </div>
+
+            </div>
+            <div className="row r board-row" style={{marginRight:"30px",marginLeft:"30px"}}>
+            <div className="steps col justify-content-center d-flex align-items-center " id="15" style={{borderTopLeftRadius:"30px"}} >
+             15
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="14" >
+              14
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="13" >
+              13
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="12" >
+              12
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="11" >
+              11
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="10" >
+              10
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="9" style={{borderBottomRightRadius:"30px  "}} >
+              9
+            </div>
+
+          </div>
+  
+          <div className="row r board-row trans-row" style={{marginLeft:"30px",marginRight:"30px",width:"fit-content"}} id="trans2">
+          <div className="steps col justify-content-center d-flex align-items-center " id="16" style={{width:"189px", color:"#fff",display:"inline-block"}}>
+              16
+            </div>
+          
+          <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopLeftRadius:"20px  ",borderBottomLeftRadius:"20px  ",width:"189px"}} >
+          
+            </div>
+            </div>
+          <div className="row r board-row" style={{marginLeft:"30px",marginRight:"30px"}}>
+
+          <div className="steps col justify-content-center d-flex align-items-center " id="17" style={{borderBottomLeftRadius:"30px  "}} >
+              17
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="18" >
+              18
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="19" >
+              19
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="20" >
+              20
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="21" >
+              21
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="22" >
+              22
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="23" style={{borderTopRightRadius:"30px",borderBottomRightRadius:"30px"}}  >
+              22
             </div>
           </div>
         </div>

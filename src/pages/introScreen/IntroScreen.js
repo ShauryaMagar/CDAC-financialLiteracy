@@ -20,7 +20,7 @@ const IntroScreen = () => {
         }else{
             setAmt(amt-input);
             setFD(input);
-            setTurns(3);
+            setTurns(4);
         }
     }
     const onSubmission = () => {
@@ -39,7 +39,11 @@ const IntroScreen = () => {
                     sellingPrice:'5000',
                 }
             },
-            moneyInHand: amt,
+            levelset1: [1,2,3,4],
+            levelset2:[5,6,7,8],
+            levelset3:[9,10,11,12],
+            levelset4:[13],
+            moneyInHand: [amt],
             fixedDeposit:{
                 purchased: FD,
                 turnsLeft:turns
@@ -279,7 +283,7 @@ const IntroScreen = () => {
                             </div>
                             <div className="row">
                             Rate of Interest: 15 %    <br/>
-                                Maturity period: 3 dice rolls
+                                Maturity period: 4 dice rolls
                             </div><br/>
                             <div className='row'>
                                     <form onSubmit={fdSubmit}>

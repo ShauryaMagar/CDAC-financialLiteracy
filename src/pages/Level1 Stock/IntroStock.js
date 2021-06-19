@@ -16,7 +16,7 @@ const IntroStock=()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setIsLoaded(true);
-        setAmt(retrievedObj.moneyInHand);
+        setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
     }, []);
     const [show, setShow] = React.useState(false);
     const nextPage=()=>{
@@ -24,7 +24,10 @@ const IntroStock=()=>{
         retrievedObject.stocks.oil=oil;
         retrievedObject.stocks.med=med;
         retrievedObject.stocks.auto=auto;
-        retrievedObject.moneyInHand=amt;
+        if(amt != retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1]){
+            retrievedObject.moneyInHand.push(amt);
+        }
+     
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         setTimeout(() => {
             history.push('/start');

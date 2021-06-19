@@ -33,7 +33,7 @@ const Level4=()=>{
         );
     }
     const onFormSubmit1 = () => {
-            retrievedObject.moneyInHand = parseInt(money) + 5000;
+            retrievedObject.moneyInHand.push(parseInt(money) + 5000);
             console.log(retrievedObject);
             localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
             history.push('/start');
@@ -61,7 +61,7 @@ const Level4=()=>{
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
-        setMoney(retrievedObj.moneyInHand);
+        setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
     }, []);
     

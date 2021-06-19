@@ -13,17 +13,17 @@ const SelectedOp=(props)=>{
     useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
-        setMoney(retrievedObj.moneyInHand);
+        setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
     },[]);
     const rightGuess=()=>{
-        retrievedObject.moneyInHand=parseInt(money) +2000;
+        retrievedObject.moneyInHand.push(parseInt(money) +2000);
         console.log(retrievedObject)
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         history.push('/1.2')
     }
     const WrongGuess=()=>{
-        retrievedObject.moneyInHand=parseInt(money) -2000;
+        retrievedObject.moneyInHand.push(parseInt(money) -2000);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         history.push('/1.2')
     }

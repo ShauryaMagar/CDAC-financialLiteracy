@@ -18,9 +18,9 @@ const Two = ()=>{
         },1000)
     }
     const notOwn=()=>{
-        var temp= retrievedObject.moneyInHand;
+        var temp= retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1];
         var update= parseInt(temp) -5000;
-        retrievedObject.moneyInHand=update;
+        retrievedObject.moneyInHand.push(update);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         setTimeout(() => {
             history.push('/start');

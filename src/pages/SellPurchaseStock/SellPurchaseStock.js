@@ -16,7 +16,7 @@ const SellPurchaseStock=()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setMed(retrievedObj.stocks.med);
-        setAmt(retrievedObj.moneyInHand);
+        setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setSteel(retrievedObj.stocks.steel);
         setOil(retrievedObj.stocks.oil);
         setAuto(retrievedObj.stocks.auto);
@@ -87,7 +87,7 @@ const SellPurchaseStock=()=>{
         retrievedObject.stocks.steel = steel;
         retrievedObject.stocks.oil = oil;
         retrievedObject.stocks.auto = auto;
-        retrievedObject.moneyInHand=amt;
+        retrievedObject.moneyInHand.push(amt);
         localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
         setTimeout(()=>{
             history.push("/start")

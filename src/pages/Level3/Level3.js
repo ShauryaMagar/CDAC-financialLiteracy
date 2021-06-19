@@ -12,13 +12,13 @@ const Three=()=>{
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
-        setMoney(retrievedObj.moneyInHand);
+        setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
     }, []);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const onSubmit=()=>{
-        retrievedObject.moneyInHand=parseInt(money)+2000;
+        retrievedObject.moneyInHand.push(parseInt(money)+2000);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         alert("You've been awarded Rs 2000 for completing your first financial transaction");
         setTimeout(()=>{

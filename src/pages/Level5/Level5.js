@@ -14,13 +14,13 @@ const Level5=()=>{
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
-        setMoney(retrievedObj.moneyInHand);
+        setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
     }, []);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const wrongChoice=()=>{
-        retrievedObject.moneyInHand=parseInt(money)-5000;
+        retrievedObject.moneyInHand.push(parseInt(money)-5000);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         alert("You've been scammed. Never Enter personal details on unknown websites. Rs 5000 deducted!");
         setTimeout(()=>{
@@ -28,7 +28,7 @@ const Level5=()=>{
         },1000);
     }
     const rightChoice=()=>{
-        retrievedObject.moneyInHand=parseInt(money)+5000;
+        retrievedObject.moneyInHand.push(parseInt(money)+5000);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         alert("Phew! That was close. You just saved yourself from a Scam. You've been rewarded Rs. 5000");
         setTimeout(() => {

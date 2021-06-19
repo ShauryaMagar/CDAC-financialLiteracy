@@ -15,7 +15,9 @@ import Mid from '../pages/Level1.3/Level1.3'
 import Six from '../pages/Level6/Level6';
 import Seven from '../pages/Level7/Level7';
 import Eight from '../pages/Level8/Level8';
-
+import Nine from '../pages/Level9/Level9';
+import Ten from '../pages/Level10/Level10';
+import Eleven from '../pages/Level11/Level11';
 import SellPurchase from '../pages/SellPurchaseStock/SellPurchaseStock';
 
 
@@ -43,6 +45,9 @@ class App extends React.Component{
                         <Route exact path="/10" component={Four}/>
                         <Route exact path="/SPStock" component={SellPurchase}/>
                         <Route exact path="/1.1" component={SelectedOp}/>
+                        <Route exact path="/11" component={Nine}/>
+                        <Route exact path="/12" component={Ten}/>
+                        <Route exact path="/13" component={Eleven}/>
 					</div>
 				</Switch>
 			</Router>

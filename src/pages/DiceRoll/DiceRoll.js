@@ -7,7 +7,7 @@ import { Modal, Button } from "react-bootstrap";
 import "./DiceRoll.css";
 import ScrollToTop from "../../ScrollToTop";
 import { parseInt } from "lodash";
-
+import { Line } from "react-chartjs-2";
 
 
 const DiceRoll = () => {
@@ -38,11 +38,12 @@ const DiceRoll = () => {
     setOil(retrievedObj.stocks.oil);
     setAuto(retrievedObj.stocks.auto);
     setIsLoaded(true);
-
+    
     
   },[]);
 
   useEffectX(() => {
+    
     let retrievedObjt = JSON.parse(localStorage.getItem("financialLiteracy"));
 
         
@@ -56,69 +57,69 @@ const DiceRoll = () => {
         document.getElementById(level.toString()).style.fontSize="18px";
         document.getElementById(level.toString()).style.fontWeight="500";
 
-    }}else{
-      if(retrievedObjt.currentLevel>=1){
-        if(document.getElementById("1")){
-        document.getElementById("1").innerHTML="Shopkeeper Fake Notes";
-        document.getElementById("1").style.fontSize="18px";
-        
     }}
-    if(retrievedObjt.currentLevel>=2){
-      if(document.getElementById("2")){
-      document.getElementById("2").innerHTML="Information on Stocks";
-      document.getElementById("2").style.fontSize="18px";
+  
+  //     if(retrievedObjt.currentLevel>=1){
+  //       if(document.getElementById("1")){
+  //       document.getElementById("1").innerHTML="Shopkeeper Fake Notes";
+  //       document.getElementById("1").style.fontSize="18px";
+        
+  //   }}
+  //   if(retrievedObjt.currentLevel>=2){
+  //     if(document.getElementById("2")){
+  //     document.getElementById("2").innerHTML="Information on Stocks";
+  //     document.getElementById("2").style.fontSize="18px";
       
-  }}
-  if(retrievedObjt.currentLevel>=3){
-    if(document.getElementById("3")){
-    document.getElementById("3").innerHTML="Car Accident";
-    document.getElementById("3").style.fontSize="18px";
+  // }}
+  // if(retrievedObjt.currentLevel>=3){
+  //   if(document.getElementById("3")){
+  //   document.getElementById("3").innerHTML="Car Accident";
+  //   document.getElementById("3").style.fontSize="18px";
     
-  }}
-  if(retrievedObjt.currentLevel>=4){
-    if(document.getElementById("4")){
-    document.getElementById("4").innerHTML="Bill Payment";
-    document.getElementById("4").style.fontSize="18px";
+  // }}
+  // if(retrievedObjt.currentLevel>=4){
+  //   if(document.getElementById("4")){
+  //   document.getElementById("4").innerHTML="Bill Payment";
+  //   document.getElementById("4").style.fontSize="18px";
     
-  }}
-  if(retrievedObjt.currentLevel>=5){
-    if(document.getElementById("5")){
-    document.getElementById("5").innerHTML="PAY DAY";
-    document.getElementById("5").style.fontSize="18px";
+  // }}
+  // if(retrievedObjt.currentLevel>=5){
+  //   if(document.getElementById("5")){
+  //   document.getElementById("5").innerHTML="PAY DAY";
+  //   document.getElementById("5").style.fontSize="18px";
     
-  }}
-  if(retrievedObjt.currentLevel>=6){
-    if(document.getElementById("6")){
-    document.getElementById("6").innerHTML="Suspicious Website";
-    document.getElementById("6").style.fontSize="18px";
+  // }}
+  // if(retrievedObjt.currentLevel>=6){
+  //   if(document.getElementById("6")){
+  //   document.getElementById("6").innerHTML="Suspicious Website";
+  //   document.getElementById("6").style.fontSize="18px";
     
-  }}
-  if(retrievedObjt.currentLevel>=7){
-    if(document.getElementById("7")){
-    document.getElementById("7").innerHTML="Government plans on Railway Expansion";
-    document.getElementById("7").style.fontSize="18px";
+  // }}
+  // if(retrievedObjt.currentLevel>=7){
+  //   if(document.getElementById("7")){
+  //   document.getElementById("7").innerHTML="Government plans on Railway Expansion";
+  //   document.getElementById("7").style.fontSize="18px";
     
-  }}
-  if(retrievedObjt.currentLevel>=8){
-    if(document.getElementById("8")){
-    document.getElementById("8").innerHTML="House Caught Fire";
-    document.getElementById("8").style.fontSize="18px";
+  // }}
+  // if(retrievedObjt.currentLevel>=8){
+  //   if(document.getElementById("8")){
+  //   document.getElementById("8").innerHTML="House Caught Fire";
+  //   document.getElementById("8").style.fontSize="18px";
     
-  }}
-  if(retrievedObjt.currentLevel>=9){
-    if(document.getElementById("9")){
-    document.getElementById("9").innerHTML="Steel Prices Increased";
-    document.getElementById("9").style.fontSize="18px";
+  // }}
+  // if(retrievedObjt.currentLevel>=9){
+  //   if(document.getElementById("9")){
+  //   document.getElementById("9").innerHTML="Steel Prices Increased";
+  //   document.getElementById("9").style.fontSize="18px";
     
-  }}
-  if(retrievedObjt.currentLevel>=10){
-    if(document.getElementById("10")){
-    document.getElementById("10").innerHTML="PAY DAY";
-    document.getElementById("10").style.fontSize="18px";
+  // }}
+  // if(retrievedObjt.currentLevel>=10){
+  //   if(document.getElementById("10")){
+  //   document.getElementById("10").innerHTML="PAY DAY";
+  //   document.getElementById("10").style.fontSize="18px";
     
-  }}
-    }
-
+  // }}
+ 
 
     if(retrievedObjt.currentLevel==8  ){
       if(document.getElementById("trans")){
@@ -149,14 +150,22 @@ const DiceRoll = () => {
 
   function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
-    var generatedNum = getRandomNumber(1,3);
+    var generatedNum = getRandomNumber(1,4);
     dice.forEach((die) => {
       toggleClasses(die);
 
       die.dataset.roll = generatedNum;
     });
+
+   
+
     var update = parseInt(level) + generatedNum;
-    let money = retrievedObject.moneyInHand;
+
+    
+
+
+
+    let money = retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1];
     if (retrievedObject.insurance.healthIns.purchased){
       money=money-200;
     }
@@ -169,9 +178,8 @@ const DiceRoll = () => {
     setTimeout(() => {
       
      
-      
       setLevel(update);
-     
+
       
       if(retrievedObject.fixedDeposit.turnsLeft==1){
 
@@ -193,10 +201,36 @@ const DiceRoll = () => {
     retrievedObject.stocks.steel =
       parseInt(steel) + (parseInt(steel) * steelChange) / 100;
     retrievedObject.currentLevel = update;
-    retrievedObject.moneyInHand=money;
-    localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
-  
-      history.push(`/${update}`);
+    retrievedObject.moneyInHand.push(money);
+if(retrievedObject.levelset1.length!=0){
+  var levelShow = retrievedObject.levelset1
+  var indexLevel=Math.floor(Math.random()*(levelShow.length)) ;
+  var finalShow=levelShow[indexLevel];
+   levelShow.splice(indexLevel,1);
+   retrievedObject.levelset1=levelShow;
+}else if(retrievedObject.levelset2.length!=0){
+  var levelShow = retrievedObject.levelset2
+  var indexLevel=Math.floor(Math.random()*(levelShow.length)) ;
+  var finalShow=levelShow[indexLevel];
+   levelShow.splice(indexLevel,1);
+   retrievedObject.levelset2=levelShow;
+}else if(retrievedObject.levelset3.length!=0){
+  var levelShow = retrievedObject.levelset3
+  var indexLevel=Math.floor(Math.random()*(levelShow.length)) ;
+  var finalShow=levelShow[indexLevel];
+   levelShow.splice(indexLevel,1);
+   retrievedObject.levelset3=levelShow;
+}else if(retrievedObject.levelset4.length!=0){
+  var levelShow = retrievedObject.levelset4
+  var indexLevel=Math.floor(Math.random()*(levelShow.length)) ;
+  var finalShow=levelShow[indexLevel];
+   levelShow.splice(indexLevel,1);
+   retrievedObject.levelset4=levelShow;
+}
+
+
+      localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
+      history.push(`/${finalShow}`);
     }, 3500);   
     setTimeout(()=>{
 
@@ -272,7 +306,36 @@ const DiceRoll = () => {
   // retrievedObject.stocks.steel=(parseInt(steel)+(parseInt(steel)*steelChange)/100);
   // retrievedObject.currentLevel=update;
   // localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
+  let retrievedObt = JSON.parse(localStorage.getItem("financialLiteracy"));
+var totalStocksFdValue=parseFloat(retrievedObt.stocks.oil)+parseFloat(retrievedObt.stocks.med) +parseFloat(retrievedObt.stocks.auto)+parseFloat(retrievedObt.stocks.steel)+parseFloat(retrievedObt.fixedDeposit.purchased); 
 
+  var netWorth = retrievedObt.moneyInHand.map( function(value) { 
+    return value + totalStocksFdValue; 
+} );
+for(var i=0;i<netWorth.length;i++){
+  if(netWorth[i]==netWorth[i+1]){
+    netWorth.splice(i,1)
+
+  }else{
+
+    continue;
+  }
+}
+
+  const data = {
+    labels: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","16"],
+
+    datasets: [
+      {
+        label: "Net Worth", 
+        data: netWorth,
+        fill: true,
+        backgroundColor: "#00ff7349",
+        borderColor: "#00ff73"
+      }
+    ],
+
+  };
 
   const displayContentHealth = (sp) => {
     return (
@@ -410,13 +473,11 @@ const DiceRoll = () => {
         <div className="dice-roll-page">
         <div className="container-fluid" style={{ paddingTop: "2rem" }}>
           <div className="row">
-            <div className="col-2">
-              <Link to="/intro" style={{ color: "white" }}>
-                <button className="btn  dice-page-btn" style={{color:"#fff"}} >Back</button>
-              </Link>
+            <div className="col-5">
+            <Line data={data} />
             </div>
 
-            <div className="col-6 " style={{ textAlign: "center" }}>
+            <div className="col-3 " style={{ textAlign: "center" }}>
               <div className="dice">
                 <ol className="die-list even-roll" data-roll={1} id="die-1">
                   <li className="die-item" data-side={1}>
@@ -471,12 +532,16 @@ const DiceRoll = () => {
                     Stock Market
                   </button>
                 </div>
-                <div className="col-4" style={{marginLeft:"40px"}}>
-                  <strong>₹ {retrievedObject.moneyInHand}</strong>
+                <div className="col-3" style={{marginLeft:"40px"}}>
+                  <strong>₹ {retrievedObject.moneyInHand[(retrievedObject.moneyInHand.length)-1]}</strong>
                   <br />
                   <strong>PIN: 2345</strong>
                 </div>
-              </div>
+                <div className="col-2" style={{}}>
+                <Link to="/intro" style={{ color: "white" }}>
+                <button className="btn  dice-page-btn" style={{color:"#fff"}} >Exit</button>
+              </Link>
+              </div></div>
               <div className="row" style={{ marginTop: "2rem" }}>
                 <div className="col-4">
                   <button
@@ -527,7 +592,7 @@ const DiceRoll = () => {
             
             </div>
             <div className="row r board-row trans-row" style={{marginLeft:"auto",marginRight:"30px",width:"fit-content"}} id="trans">
-            <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopRightRadius:"20px  ",borderBottomRightRadius:"20px  ",width:"189px",background:"#13d5fa"}} >
+            <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopRightRadius:"20px  ",borderBottomRightRadius:"20px  ",width:"189px",background:"#16ccfc"}} >
           
           </div>
             <div className="steps col justify-content-center d-flex align-items-center  " id="8" style={{marginLeft:"auto",width:"190px", color:"#fff"}}>
@@ -565,7 +630,7 @@ const DiceRoll = () => {
               16
             </div>
           
-          <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopLeftRadius:"20px  ",borderBottomLeftRadius:"20px  ",width:"189px"}} >
+          <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopLeftRadius:"20px  ",borderBottomLeftRadius:"20px  ",width:"189px",background:"#27def4"}} >
           
             </div>
             </div>
@@ -589,9 +654,42 @@ const DiceRoll = () => {
             <div className="steps col justify-content-center d-flex align-items-center " id="22" >
               22
             </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="23" style={{borderTopRightRadius:"30px",borderBottomRightRadius:"30px"}}  >
-              22
+            <div className="steps col justify-content-center d-flex align-items-center " id="23" style={{borderTopRightRadius:"30px"}}  >
+              23
             </div>
+          </div>
+          <div className="row r board-row trans-row" style={{marginLeft:"auto",marginRight:"30px",width:"fit-content"}} id="trans">
+            <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopRightRadius:"20px  ",borderBottomRightRadius:"20px  ",width:"189px",background:"#5cebe2"}} >
+          
+          </div>
+            <div className="steps col justify-content-center d-flex align-items-center  " id="24" style={{marginLeft:"auto",width:"190px", color:"#fff"}}>
+            24
+            </div>
+
+            </div>
+            <div className="row r board-row" style={{marginRight:"30px",marginLeft:"30px"}}>
+            <div className="steps col justify-content-center d-flex align-items-center " id="31" style={{borderTopLeftRadius:"30px",borderBottomLeftRadius:"30px"}} >
+             31
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="30" >
+              30
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="29" >
+              29
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="28" >
+              28
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="27" >
+              27
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="26" >
+              26
+            </div>
+            <div className="steps col justify-content-center d-flex align-items-center " id="25" style={{borderBottomRightRadius:"30px  "}} >
+              25
+            </div>
+
           </div>
         </div>
         </div>

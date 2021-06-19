@@ -22,7 +22,7 @@ const Landing=(props)=>{
     if(!option){
         return(
         <>
-            <div className="container-fluid shopseller-container" style={{paddingTop:"7rem", paddingBottom:"4.2rem"}}>
+            <div className="container-fluid shopseller-container" style={{paddingTop:"7rem", paddingBottom:"8.4rem"}}>
                 <div className="row justify-content-center">
                     <div className="col-5" onClick={onImageClick}>
                         <img src={imgNote} alt="background"></img>
@@ -42,7 +42,7 @@ const Landing=(props)=>{
     }else{
         return (
             <>
-            <div className="container-fluid  shopseller-container" style={{textAlign:'center',paddingTop:"7rem", paddingBottom:"6rem"}}>
+            <div className="container-fluid  shopseller-container" style={{textAlign:'center',paddingTop:"7rem", paddingBottom:"10.3rem"}}>
                 <div className="row justify-content-center">
                         <img src={fakeNote} alt="fake-note"></img>
                 </div>

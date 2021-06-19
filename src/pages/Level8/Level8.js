@@ -16,7 +16,7 @@ const Eight=()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
 
-        setAmt(retrievedObj.moneyInHand);
+        setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setSteel(retrievedObj.stocks.steel);
 
     },[])

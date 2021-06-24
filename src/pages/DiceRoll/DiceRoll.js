@@ -418,7 +418,16 @@ for(var i=0;i<netWorth.length;i++){
   //                     vehicle:{this.state.retrievedObject.insurance.vehicleIns.purchased.toString()}<br/>
   //                     money: {this.state.retrievedObject.moneyInHand}<br/>
   //                     FD: {this.state.retrievedObject.fixedDeposit.purchased} <br/>
-
+  const goToBuyFD=()=>{
+    setTimeout(()=>{
+      history.push('/SPFD');
+    },1000)
+  }
+  const goToBuyIns=()=>{
+    setTimeout(()=>{
+      history.push("/SPIns")
+    },1000)
+  }
   if (isLoaded) {
      
     
@@ -461,7 +470,14 @@ for(var i=0;i<netWorth.length;i++){
                 ? displayContentVehicle(3000)
                 : ""}
               {retrievedObject.fixedDeposit.purchased===0?"":displayContentFixedDep(retrievedObject.fixedDeposit.purchased,retrievedObject.fixedDeposit.turnsLeft)}
-              {}
+              <div className="modal-body">
+                <strong>Sell/Purchase Fixed Deposit</strong><br/>
+                <button onClick={goToBuyFD} data-dismiss="modal" className="btn btn-dark">Click</button>
+              </div>
+              <div className="modal-body">
+                <strong>Sell/Purchase Insurance</strong><br/>
+                <button onClick={goToBuyIns} data-dismiss="modal" className="btn btn-dark">Click</button>
+              </div>
               <div class="modal-footer">
                 <button type="button" class="btn  dice-page-btn" data-dismiss="modal">
                   Close

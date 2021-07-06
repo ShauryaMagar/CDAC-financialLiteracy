@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import React, { useEffect } from "react";
-import { useEffectX } from 'use-effect-x';
+import { useEffectX } from "use-effect-x";
 import { useHistory, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
@@ -9,10 +9,7 @@ import ScrollToTop from "../../ScrollToTop";
 import { parseInt } from "lodash";
 import { Line } from "react-chartjs-2";
 
-
 const DiceRoll = () => {
-
-
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [retrievedObject, setRetrievedObject] = React.useState({});
   const [numberGot, setNumberGot] = React.useState(0);
@@ -32,142 +29,125 @@ const DiceRoll = () => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
     setLevel(retrievedObj.currentLevel);
-    
+
     setMed(retrievedObj.stocks.med);
     setSteel(retrievedObj.stocks.steel);
     setOil(retrievedObj.stocks.oil);
     setAuto(retrievedObj.stocks.auto);
     setIsLoaded(true);
-    
-    
-  },[]);
+  }, []);
 
   useEffectX(() => {
-    
     let retrievedObjt = JSON.parse(localStorage.getItem("financialLiteracy"));
 
-        
-    if(document.getElementById(level.toString())){
-      document.getElementById(level.toString()).style.background="rgb(120, 214, 107)";
-  }
+    if (document.getElementById(level.toString())) {
+      document.getElementById(level.toString()).style.background =
+        "rgb(120, 214, 107)";
+    }
 
-    if(retrievedObjt.fixedDeposit.turnsLeft==0){
-      if(document.getElementById(level.toString())){
-        document.getElementById(level.toString()).innerHTML="FD HAS MATURED! <br/> Balance has been updated";
-        document.getElementById(level.toString()).style.fontSize="18px";
-        document.getElementById(level.toString()).style.fontWeight="500";
+    if (retrievedObjt.fixedDeposit.turnsLeft == 0) {
+      if (document.getElementById(level.toString())) {
+        document.getElementById(level.toString()).innerHTML =
+          "FD HAS MATURED! <br/> Balance has been updated";
+        document.getElementById(level.toString()).style.fontSize = "18px";
+        document.getElementById(level.toString()).style.fontWeight = "500";
+      }
+    }
 
-    }}
-  
-  //     if(retrievedObjt.currentLevel>=1){
-  //       if(document.getElementById("1")){
-  //       document.getElementById("1").innerHTML="Shopkeeper Fake Notes";
-  //       document.getElementById("1").style.fontSize="18px";
-        
-  //   }}
-  //   if(retrievedObjt.currentLevel>=2){
-  //     if(document.getElementById("2")){
-  //     document.getElementById("2").innerHTML="Information on Stocks";
-  //     document.getElementById("2").style.fontSize="18px";
-      
-  // }}
-  // if(retrievedObjt.currentLevel>=3){
-  //   if(document.getElementById("3")){
-  //   document.getElementById("3").innerHTML="Car Accident";
-  //   document.getElementById("3").style.fontSize="18px";
-    
-  // }}
-  // if(retrievedObjt.currentLevel>=4){
-  //   if(document.getElementById("4")){
-  //   document.getElementById("4").innerHTML="Bill Payment";
-  //   document.getElementById("4").style.fontSize="18px";
-    
-  // }}
-  // if(retrievedObjt.currentLevel>=5){
-  //   if(document.getElementById("5")){
-  //   document.getElementById("5").innerHTML="PAY DAY";
-  //   document.getElementById("5").style.fontSize="18px";
-    
-  // }}
-  // if(retrievedObjt.currentLevel>=6){
-  //   if(document.getElementById("6")){
-  //   document.getElementById("6").innerHTML="Suspicious Website";
-  //   document.getElementById("6").style.fontSize="18px";
-    
-  // }}
-  // if(retrievedObjt.currentLevel>=7){
-  //   if(document.getElementById("7")){
-  //   document.getElementById("7").innerHTML="Government plans on Railway Expansion";
-  //   document.getElementById("7").style.fontSize="18px";
-    
-  // }}
-  // if(retrievedObjt.currentLevel>=8){
-  //   if(document.getElementById("8")){
-  //   document.getElementById("8").innerHTML="House Caught Fire";
-  //   document.getElementById("8").style.fontSize="18px";
-    
-  // }}
-  // if(retrievedObjt.currentLevel>=9){
-  //   if(document.getElementById("9")){
-  //   document.getElementById("9").innerHTML="Steel Prices Increased";
-  //   document.getElementById("9").style.fontSize="18px";
-    
-  // }}
-  // if(retrievedObjt.currentLevel>=10){
-  //   if(document.getElementById("10")){
-  //   document.getElementById("10").innerHTML="PAY DAY";
-  //   document.getElementById("10").style.fontSize="18px";
-    
-  // }}
- 
+    //     if(retrievedObjt.currentLevel>=1){
+    //       if(document.getElementById("1")){
+    //       document.getElementById("1").innerHTML="Shopkeeper Fake Notes";
+    //       document.getElementById("1").style.fontSize="18px";
 
-    if(retrievedObjt.currentLevel==8  ){
-      if(document.getElementById("trans")){
-        document.getElementById("trans").style.background="transparent";
+    //   }}
+    //   if(retrievedObjt.currentLevel>=2){
+    //     if(document.getElementById("2")){
+    //     document.getElementById("2").innerHTML="Information on Stocks";
+    //     document.getElementById("2").style.fontSize="18px";
 
-        
-    
-  }}
+    // }}
+    // if(retrievedObjt.currentLevel>=3){
+    //   if(document.getElementById("3")){
+    //   document.getElementById("3").innerHTML="Car Accident";
+    //   document.getElementById("3").style.fontSize="18px";
 
-  if(retrievedObjt.currentLevel==16 ){
-    if(document.getElementById("trans2")){
-      document.getElementById("trans2").style.background="transparent";
+    // }}
+    // if(retrievedObjt.currentLevel>=4){
+    //   if(document.getElementById("4")){
+    //   document.getElementById("4").innerHTML="Bill Payment";
+    //   document.getElementById("4").style.fontSize="18px";
 
-      
-  
-}}
+    // }}
+    // if(retrievedObjt.currentLevel>=5){
+    //   if(document.getElementById("5")){
+    //   document.getElementById("5").innerHTML="PAY DAY";
+    //   document.getElementById("5").style.fontSize="18px";
 
-  
+    // }}
+    // if(retrievedObjt.currentLevel>=6){
+    //   if(document.getElementById("6")){
+    //   document.getElementById("6").innerHTML="Suspicious Website";
+    //   document.getElementById("6").style.fontSize="18px";
 
+    // }}
+    // if(retrievedObjt.currentLevel>=7){
+    //   if(document.getElementById("7")){
+    //   document.getElementById("7").innerHTML="Government plans on Railway Expansion";
+    //   document.getElementById("7").style.fontSize="18px";
 
-   });
+    // }}
+    // if(retrievedObjt.currentLevel>=8){
+    //   if(document.getElementById("8")){
+    //   document.getElementById("8").innerHTML="House Caught Fire";
+    //   document.getElementById("8").style.fontSize="18px";
+
+    // }}
+    // if(retrievedObjt.currentLevel>=9){
+    //   if(document.getElementById("9")){
+    //   document.getElementById("9").innerHTML="Steel Prices Increased";
+    //   document.getElementById("9").style.fontSize="18px";
+
+    // }}
+    // if(retrievedObjt.currentLevel>=10){
+    //   if(document.getElementById("10")){
+    //   document.getElementById("10").innerHTML="PAY DAY";
+    //   document.getElementById("10").style.fontSize="18px";
+
+    // }}
+
+    if (retrievedObjt.currentLevel == 8) {
+      if (document.getElementById("trans")) {
+        document.getElementById("trans").style.background = "transparent";
+      }
+    }
+
+    if (retrievedObjt.currentLevel == 16) {
+      if (document.getElementById("trans2")) {
+        document.getElementById("trans2").style.background = "transparent";
+      }
+    }
+  });
 
   const location = useLocation();
   const history = useHistory();
 
   // ---------------------------------------------------------------------
 
-
   function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
-    var generatedNum = getRandomNumber(1,4);
+    var generatedNum = getRandomNumber(1, 4);
     dice.forEach((die) => {
       toggleClasses(die);
 
       die.dataset.roll = generatedNum;
     });
 
-   
-
     var update = parseInt(level) + generatedNum;
 
-    
-
-
-
-    let money = retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1];
-    if (retrievedObject.insurance.healthIns.purchased){
-      money=money-200;
+    let money =
+      retrievedObject.moneyInHand[retrievedObject.moneyInHand.length - 1];
+    if (retrievedObject.insurance.healthIns.purchased) {
+      money = money - 200;
     }
     if (retrievedObject.insurance.homeIns.purchased) {
       money = money - 200;
@@ -176,82 +156,76 @@ const DiceRoll = () => {
       money = money - 200;
     }
     setTimeout(() => {
-      
-     
       setLevel(update);
 
-      
-      if(retrievedObject.fixedDeposit.turnsLeft==1){
-
-        retrievedObject.fixedDeposit.purchased=parseFloat(retrievedObject.fixedDeposit.purchased)+parseFloat(retrievedObject.fixedDeposit.purchased)*(0.15);
-        money=parseFloat(money)+parseFloat(retrievedObject.fixedDeposit.purchased)
-        retrievedObject.fixedDeposit.turnsLeft=0;
-        retrievedObject.fixedDeposit.purchased=0;
-   
-      }else{
-        retrievedObject.fixedDeposit.turnsLeft=retrievedObject.fixedDeposit.turnsLeft-1;
+      if (retrievedObject.fixedDeposit.turnsLeft == 1) {
+        retrievedObject.fixedDeposit.purchased =
+          parseFloat(retrievedObject.fixedDeposit.purchased) +
+          parseFloat(retrievedObject.fixedDeposit.purchased) * 0.15;
+        money =
+          parseFloat(money) +
+          parseFloat(retrievedObject.fixedDeposit.purchased);
+        retrievedObject.fixedDeposit.turnsLeft = 0;
+        retrievedObject.fixedDeposit.purchased = 0;
+      } else {
+        retrievedObject.fixedDeposit.turnsLeft =
+          retrievedObject.fixedDeposit.turnsLeft - 1;
       }
-      
-    retrievedObject.stocks.oil =
-      parseInt(oil) + (parseInt(oil) * oilChange) / 100;
-    retrievedObject.stocks.med =
-      parseInt(med) + (parseInt(med) * medChange) / 100;
-    retrievedObject.stocks.auto =
-      parseInt(auto) + (parseInt(auto) * autoChange) / 100;
-    retrievedObject.stocks.steel =
-      parseInt(steel) + (parseInt(steel) * steelChange) / 100;
-    retrievedObject.currentLevel = update;
-    retrievedObject.moneyInHand.push(money);
-if(retrievedObject.levelset1.length!=0){
-  var levelShow = retrievedObject.levelset1
-  var indexLevel=Math.floor(Math.random()*(levelShow.length)) ;
-  var finalShow=levelShow[indexLevel];
-   levelShow.splice(indexLevel,1);
-   retrievedObject.levelset1=levelShow;
-}else if(retrievedObject.levelset2.length!=0){
-  var levelShow = retrievedObject.levelset2
-  var indexLevel=Math.floor(Math.random()*(levelShow.length)) ;
-  var finalShow=levelShow[indexLevel];
-   levelShow.splice(indexLevel,1);
-   retrievedObject.levelset2=levelShow;
-}else if(retrievedObject.levelset3.length!=0){
-  var levelShow = retrievedObject.levelset3
-  var indexLevel=Math.floor(Math.random()*(levelShow.length)) ;
-  var finalShow=levelShow[indexLevel];
-   levelShow.splice(indexLevel,1);
-   retrievedObject.levelset3=levelShow;
-}else if(retrievedObject.levelset4.length!=0){
-  var levelShow = retrievedObject.levelset4
-  var indexLevel=Math.floor(Math.random()*(levelShow.length)) ;
-  var finalShow=levelShow[indexLevel];
-   levelShow.splice(indexLevel,1);
-   retrievedObject.levelset4=levelShow;
-}
 
+      retrievedObject.stocks.oil =
+        parseInt(oil) + (parseInt(oil) * oilChange) / 100;
+      retrievedObject.stocks.med =
+        parseInt(med) + (parseInt(med) * medChange) / 100;
+      retrievedObject.stocks.auto =
+        parseInt(auto) + (parseInt(auto) * autoChange) / 100;
+      retrievedObject.stocks.steel =
+        parseInt(steel) + (parseInt(steel) * steelChange) / 100;
+      retrievedObject.currentLevel = update;
+      retrievedObject.moneyInHand.push(money);
+      if (retrievedObject.levelset1.length != 0) {
+        var levelShow = retrievedObject.levelset1;
+        var indexLevel = Math.floor(Math.random() * levelShow.length);
+        var finalShow = levelShow[indexLevel];
+        levelShow.splice(indexLevel, 1);
+        retrievedObject.levelset1 = levelShow;
+      } else if (retrievedObject.levelset2.length != 0) {
+        var levelShow = retrievedObject.levelset2;
+        var indexLevel = Math.floor(Math.random() * levelShow.length);
+        var finalShow = levelShow[indexLevel];
+        levelShow.splice(indexLevel, 1);
+        retrievedObject.levelset2 = levelShow;
+      } else if (retrievedObject.levelset3.length != 0) {
+        var levelShow = retrievedObject.levelset3;
+        var indexLevel = Math.floor(Math.random() * levelShow.length);
+        var finalShow = levelShow[indexLevel];
+        levelShow.splice(indexLevel, 1);
+        retrievedObject.levelset3 = levelShow;
+      } else if (retrievedObject.levelset4.length != 0) {
+        var levelShow = retrievedObject.levelset4;
+        var indexLevel = Math.floor(Math.random() * levelShow.length);
+        var finalShow = levelShow[indexLevel];
+        levelShow.splice(indexLevel, 1);
+        retrievedObject.levelset4 = levelShow;
+      }
 
-      localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
+      localStorage.setItem(
+        "financialLiteracy",
+        JSON.stringify(retrievedObject)
+      );
       history.push(`/${finalShow}`);
-    }, 3500);   
-    setTimeout(()=>{
-
-      document.getElementById(update.toString()).style.background="rgb(120, 214, 107)";
-    },2000)
-    
-
+    }, 3500);
+    setTimeout(() => {
+      document.getElementById(update.toString()).style.background =
+        "rgb(120, 214, 107)";
+    }, 2000);
   }
 
+  //   function cLevel(){
 
+  //   }
 
-
-//   function cLevel(){
-
-
-//   }
-
-//   console.log(gen.toString())
-//     document.getElementById("1").style.backgroundColor="green";
-
-
+  //   console.log(gen.toString())
+  //     document.getElementById("1").style.backgroundColor="green";
 
   function toggleClasses(die) {
     die.classList.toggle("odd-roll");
@@ -264,34 +238,25 @@ if(retrievedObject.levelset1.length!=0){
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  //   openNav = () => {
+  //     if (
+  //       document.getElementById("mySidenav") &&
+  //       document.getElementById("main")
+  //     ) {
+  //       document.getElementById("mySidenav").style.width = "250px";
+  //       document.getElementById("main").style.marginLeft = "250px";
+  //     }
+  //   };
 
-//   openNav = () => {
-//     if (
-//       document.getElementById("mySidenav") &&
-//       document.getElementById("main")
-//     ) {
-//       document.getElementById("mySidenav").style.width = "250px";
-//       document.getElementById("main").style.marginLeft = "250px";
-//     }
-//   };
-
-//   closeNav = () => {
-//     if (
-//       document.getElementById("mySidenav") &&
-//       document.getElementById("main")
-//     ) {
-//       document.getElementById("mySidenav").style.width = "0";
-//       document.getElementById("main").style.marginLeft = "0";
-//     }
-//   };
-
-    
-    
-  
-
-
-
-
+  //   closeNav = () => {
+  //     if (
+  //       document.getElementById("mySidenav") &&
+  //       document.getElementById("main")
+  //     ) {
+  //       document.getElementById("mySidenav").style.width = "0";
+  //       document.getElementById("main").style.marginLeft = "0";
+  //     }
+  //   };
 
   // --------------------------------------------------------------------------------------------------
 
@@ -307,34 +272,71 @@ if(retrievedObject.levelset1.length!=0){
   // retrievedObject.currentLevel=update;
   // localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
   let retrievedObt = JSON.parse(localStorage.getItem("financialLiteracy"));
-var totalStocksFdValue=parseFloat(retrievedObt.stocks.oil)+parseFloat(retrievedObt.stocks.med) +parseFloat(retrievedObt.stocks.auto)+parseFloat(retrievedObt.stocks.steel)+parseFloat(retrievedObt.fixedDeposit.purchased); 
-
-  var netWorth = retrievedObt.moneyInHand.map( function(value) { 
-    return value + totalStocksFdValue; 
-} );
-for(var i=0;i<netWorth.length;i++){
-  if(netWorth[i]==netWorth[i+1]){
-    netWorth.splice(i,1)
-
-  }else{
-
-    continue;
+  var totalStocksFdValue =
+    parseFloat(retrievedObt.stocks.oil) +
+    parseFloat(retrievedObt.stocks.med) +
+    parseFloat(retrievedObt.stocks.auto) +
+    parseFloat(retrievedObt.stocks.steel) +
+    parseFloat(retrievedObt.fixedDeposit.purchased);
+  // var moneycurrent=retrievedObt.moneyInHand
+  var netWorth = retrievedObt.moneyInHand.map(function (value) {
+    return value + totalStocksFdValue;
+  });
+  for (var i = 0; i < netWorth.length; i++) {
+    if (netWorth[i] == netWorth[i + 1]) {
+      netWorth.splice(i, 1);
+    } else {
+      continue;
+    }
   }
-}
+  // for(var i=0;i<moneycurrent.length;i++){
+  //   if(moneycurrent[i]==moneycurrent[i+1]){
+  //     moneycurrent.splice(i,1)
+
+  //   }else{
+
+  //     continue;
+  //   }
+  // }
 
   const data = {
-    labels: ["1", "2", "3", "4", "5", "6","7","8","9","10","11","12","13","14","15","16"],
+    labels: [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+    ],
 
     datasets: [
       {
-        label: "Net Worth", 
+        label: "Net Worth",
         data: netWorth,
         fill: true,
         backgroundColor: "#00ff7349",
-        borderColor: "#00ff73"
-      }
+        borderColor: "#00ff73",
+      },
+      // ,
+      // {
+      //   label: "Money in hand",
+      //   data: moneycurrent,
+      //   fill: true,
+      //   borderColor: "#742774"
+      // }
     ],
-
   };
 
   const displayContentHealth = (sp) => {
@@ -370,7 +372,6 @@ for(var i=0;i<netWorth.length;i++){
       </>
     );
   };
-  
 
   const displayContentVehicle = (sp) => {
     return (
@@ -418,24 +419,20 @@ for(var i=0;i<netWorth.length;i++){
   //                     vehicle:{this.state.retrievedObject.insurance.vehicleIns.purchased.toString()}<br/>
   //                     money: {this.state.retrievedObject.moneyInHand}<br/>
   //                     FD: {this.state.retrievedObject.fixedDeposit.purchased} <br/>
-  const goToBuyFD=()=>{
-    setTimeout(()=>{
-      history.push('/SPFD');
-    },1000)
-  }
-  const goToBuyIns=()=>{
-    setTimeout(()=>{
-      history.push("/SPIns")
-    },1000)
-  }
+  const goToBuyFD = () => {
+    setTimeout(() => {
+      history.push("/SPFD");
+    }, 1000);
+  };
+  const goToBuyIns = () => {
+    setTimeout(() => {
+      history.push("/SPIns");
+    }, 1000);
+  };
   if (isLoaded) {
-     
-    
     return (
-      
-        
       <>
-       <ScrollToTop />
+        <ScrollToTop />
         <div
           class="modal fade"
           id="assets"
@@ -469,17 +466,40 @@ for(var i=0;i<netWorth.length;i++){
               {retrievedObject.insurance.vehicleIns.purchased
                 ? displayContentVehicle(3000)
                 : ""}
-              {retrievedObject.fixedDeposit.purchased===0?"":displayContentFixedDep(retrievedObject.fixedDeposit.purchased,retrievedObject.fixedDeposit.turnsLeft)}
+              {retrievedObject.fixedDeposit.purchased === 0
+                ? ""
+                : displayContentFixedDep(
+                    retrievedObject.fixedDeposit.purchased,
+                    retrievedObject.fixedDeposit.turnsLeft
+                  )}
               <div className="modal-body">
-                <strong>Sell/Purchase Fixed Deposit</strong><br/>
-                <button onClick={goToBuyFD} data-dismiss="modal" className="btn btn-dark">Click</button>
+                <strong>Sell/Purchase Fixed Deposit</strong>
+                <br />
+                <button
+                  onClick={goToBuyFD}
+                  data-dismiss="modal"
+                  className="btn btn-dark"
+                >
+                  Click
+                </button>
               </div>
               <div className="modal-body">
-                <strong>Sell/Purchase Insurance</strong><br/>
-                <button onClick={goToBuyIns} data-dismiss="modal" className="btn btn-dark">Click</button>
+                <strong>Sell/Purchase Insurance</strong>
+                <br />
+                <button
+                  onClick={goToBuyIns}
+                  data-dismiss="modal"
+                  className="btn btn-dark"
+                >
+                  Click
+                </button>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn  dice-page-btn" data-dismiss="modal">
+                <button
+                  type="button"
+                  class="btn  dice-page-btn"
+                  data-dismiss="modal"
+                >
                   Close
                 </button>
               </div>
@@ -487,227 +507,415 @@ for(var i=0;i<netWorth.length;i++){
           </div>
         </div>
         <div className="dice-roll-page">
-        <div className="container-fluid" style={{ paddingTop: "2rem" }}>
+          <div className="container-fluid" style={{ paddingTop: "2rem" }}>
           <div className="row">
-            <div className="col-5">
-            <Line data={data} />
-            </div>
-
-            <div className="col-3 " style={{ textAlign: "center" }}>
-              <div className="dice">
-                <ol className="die-list even-roll" data-roll={1} id="die-1">
-                  <li className="die-item" data-side={1}>
-                    <span className="dot" />
-                  </li>
-                  <li className="die-item" data-side={2}>
-                    <span className="dot" />
-                    <span className="dot" />
-                  </li>
-                  <li className="die-item" data-side={3}>
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                  </li>
-                  <li className="die-item" data-side={4}>
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                  </li>
-                  <li className="die-item" data-side={5}>
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                  </li>
-                  <li className="die-item" data-side={6}>
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                    <span className="dot" />
-                  </li>
-                </ol>
-
-              </div>
-              <br/>
-              <button type="button" className="btn dice-page-btn animate__animated animate__pulse animate__infinite"  onClick={rollDice} id="roll-button">
-                Roll Dice
-              </button>
-            </div>
-            <div className="col-4">
-              <div className="row">
-                <div className="col-4">
-                  <button
-                    className="btn dice-page-btn"
-                    onClick={handleShow}
-                    style={{ color: "white" }}
-                  >
-                    Stock Market
-                  </button>
-                </div>
-                <div className="col-3" style={{marginLeft:"40px"}}>
-                  <strong>₹ {retrievedObject.moneyInHand[(retrievedObject.moneyInHand.length)-1]}</strong>
-                  <br />
-                  <strong>PIN: 2345</strong>
-                </div>
-                <div className="col-2" style={{}}>
+          <div className="col-4" style={{}}>
                 <Link to="/intro" style={{ color: "white" }}>
-                <button className="btn  dice-page-btn" style={{color:"#fff"}} >Exit</button>
+                <button className="btn btn-danger   "   >Exit</button>
               </Link>
-              </div></div>
-              <div className="row" style={{ marginTop: "2rem" }}>
-                <div className="col-4">
-                  <button
-                    className="btn  dice-page-btn"
-                    style={{ color: "white" }}
-                    data-toggle="modal"
-                    data-target="#assets"
-                  >
-                    Assets
-                  </button>
+              </div>
+            <h1 className="heading-title">Financial Literacy</h1>
+          </div>        
+            <div className="row">
+              <div className="col-5">
+                <Line data={data} />
+              </div>
+
+              <div className="col-3 " style={{ textAlign: "center" }}>
+                <div className="dice">
+                  <ol className="die-list even-roll" data-roll={1} id="die-1">
+                    <li className="die-item" data-side={1}>
+                      <span className="dot" />
+                    </li>
+                    <li className="die-item" data-side={2}>
+                      <span className="dot" />
+                      <span className="dot" />
+                    </li>
+                    <li className="die-item" data-side={3}>
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                    </li>
+                    <li className="die-item" data-side={4}>
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                    </li>
+                    <li className="die-item" data-side={5}>
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                    </li>
+                    <li className="die-item" data-side={6}>
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                    </li>
+                  </ol>
                 </div>
-                <div className="col-4">
-                  <button className="btn dice-page-btn" style={{ color: "white" }}>
-                    Pass Book
-                  </button>
+                <br />
+                <button
+                  type="button"
+                  className="btn dice-page-btn-1 animate__animated animate__pulse animate__infinite"
+                  onClick={rollDice}
+                  id="roll-button"
+                
+                >
+                  Roll Dice
+                </button>
+              </div>
+              <div className="col-4">
+                <div className="row">
+                  <div className="col-4">
+                    <button
+                      className="btn dice-page-btn-2"
+                      onClick={handleShow}
+                      style={{ color: "white" }}
+                    >
+                      Stock Market
+                    </button>
+                  </div>
+                  <div className="col-3" style={{ marginLeft: "40px" }}>
+                    <strong>
+                      ₹{" "}
+                      {
+                        retrievedObject.moneyInHand[
+                          retrievedObject.moneyInHand.length - 1
+                        ]
+                      }
+                    </strong>
+                    <br />
+                    <strong>PIN: 2345</strong>
+                  </div>
+                </div>
+                <div className="row" style={{ marginTop: "2rem" }}>
+                  <div className="col-4">
+                    <button
+                      className="btn  dice-page-btn-2"
+                      style={{ color: "white" }}
+                      data-toggle="modal"
+                      data-target="#assets"
+                    >
+                      Assets
+                    </button>
+                  </div>
+                  <div className="col-4">
+                    <button
+                      className="btn dice-page-btn-2"
+                      style={{ color: "white" }}
+                    >
+                      Pass Book
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-    
-        <div  className="container-fluid animate__animated animate__fadeInRight" style={{ marginTop: "2rem", paddingBottom:"124px",marginRight:"40px", paddingLeft:"0",paddingRight:"0" }}>
-          <div className="row r board-row" style={{marginRight:"30px",marginLeft:"30px"}}>
-            <div className="" id="0">
-                
+
+          <div
+            className="container-fluid animate__animated animate__fadeInRight"
+            style={{
+              marginTop: "2rem",
+              paddingBottom: "124px",
+              marginRight: "40px",
+              paddingLeft: "0",
+              paddingRight: "0",
+            }}
+          >
+            <div
+              className="row r board-row"
+              style={{ marginRight: "30px", marginLeft: "30px" }}
+            >
+              <div className="" id="0"></div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center"
+                id="1"
+                style={{
+                  borderTopLeftRadius: "30px",
+                  borderBottomLeftRadius: "30px",
+                }}
+              >
+                1
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center"
+                id="2"
+              >
+                2
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center"
+                id="3"
+              >
+                3
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center"
+                id="4"
+              >
+                4
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center"
+                id="5"
+              >
+                5
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center"
+                id="6"
+              >
+                6
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="7"
+                style={{ borderTopRightRadius: "30px  " }}
+              >
+                7
+              </div>
             </div>
-            <div className="steps col justify-content-center d-flex align-items-center" id="1" style={{borderTopLeftRadius:"30px",borderBottomLeftRadius:"30px"}} >
-              1
+            <div
+              className="row r board-row trans-row"
+              style={{
+                marginLeft: "auto",
+                marginRight: "30px",
+                width: "fit-content",
+              }}
+              id="trans"
+            >
+              <div
+                className="steps col justify-content-center d-flex align-items-center trans-block "
+                style={{
+                  borderTopRightRadius: "20px  ",
+                  borderBottomRightRadius: "20px  ",
+                  width: "189px",
+                  background: "#16ccfc",
+                }}
+              ></div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center  "
+                id="8"
+                style={{ marginLeft: "auto", width: "190px", color: "#fff" }}
+              >
+                8
+              </div>
             </div>
-            <div className="steps col justify-content-center d-flex align-items-center" id="2">
-              2
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center" id="3"> 
-              3
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center" id="4">
-              4
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center" id="5">
-              5
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center" id="6">
-              6
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="7" style={{borderTopRightRadius:"30px  "}} >
-              7
-            </div>
-            
-            </div>
-            <div className="row r board-row trans-row" style={{marginLeft:"auto",marginRight:"30px",width:"fit-content"}} id="trans">
-            <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopRightRadius:"20px  ",borderBottomRightRadius:"20px  ",width:"189px",background:"#16ccfc"}} >
-          
-          </div>
-            <div className="steps col justify-content-center d-flex align-items-center  " id="8" style={{marginLeft:"auto",width:"190px", color:"#fff"}}>
-            8 
+            <div
+              className="row r board-row"
+              style={{ marginRight: "30px", marginLeft: "30px" }}
+            >
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="15"
+                style={{ borderTopLeftRadius: "30px" }}
+              >
+                15
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="14"
+              >
+                14
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="13"
+              >
+                13
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="12"
+              >
+                12
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="11"
+              >
+                11
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="10"
+              >
+                10
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="9"
+                style={{ borderBottomRightRadius: "30px  " }}
+              >
+                9
+              </div>
             </div>
 
-            </div>
-            <div className="row r board-row" style={{marginRight:"30px",marginLeft:"30px"}}>
-            <div className="steps col justify-content-center d-flex align-items-center " id="15" style={{borderTopLeftRadius:"30px"}} >
-             15
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="14" >
-              14
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="13" >
-              13
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="12" >
-              12
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="11" >
-              11
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="10" >
-              10
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="9" style={{borderBottomRightRadius:"30px  "}} >
-              9
-            </div>
+            <div
+              className="row r board-row trans-row"
+              style={{
+                marginLeft: "30px",
+                marginRight: "30px",
+                width: "fit-content",
+              }}
+              id="trans2"
+            >
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="16"
+                style={{
+                  width: "189px",
+                  color: "#fff",
+                  display: "inline-block",
+                }}
+              >
+                16
+              </div>
 
+              <div
+                className="steps col justify-content-center d-flex align-items-center trans-block "
+                style={{
+                  borderTopLeftRadius: "20px  ",
+                  borderBottomLeftRadius: "20px  ",
+                  width: "189px",
+                  background: "#27def4",
+                }}
+              ></div>
+            </div>
+            <div
+              className="row r board-row"
+              style={{ marginLeft: "30px", marginRight: "30px" }}
+            >
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="17"
+                style={{ borderBottomLeftRadius: "30px  " }}
+              >
+                17
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="18"
+              >
+                18
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="19"
+              >
+                19
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="20"
+              >
+                20
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="21"
+              >
+                21
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="22"
+              >
+                22
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="23"
+                style={{ borderTopRightRadius: "30px" }}
+              >
+                23
+              </div>
+            </div>
+            <div
+              className="row r board-row trans-row"
+              style={{
+                marginLeft: "auto",
+                marginRight: "30px",
+                width: "fit-content",
+              }}
+              id="trans"
+            >
+              <div
+                className="steps col justify-content-center d-flex align-items-center trans-block "
+                style={{
+                  borderTopRightRadius: "20px  ",
+                  borderBottomRightRadius: "20px  ",
+                  width: "189px",
+                  background: "#5cebe2",
+                }}
+              ></div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center  "
+                id="24"
+                style={{ marginLeft: "auto", width: "190px", color: "#fff" }}
+              >
+                24
+              </div>
+            </div>
+            <div
+              className="row r board-row"
+              style={{ marginRight: "30px", marginLeft: "30px" }}
+            >
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="31"
+                style={{
+                  borderTopLeftRadius: "30px",
+                  borderBottomLeftRadius: "30px",
+                }}
+              >
+                31
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="30"
+              >
+                30
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="29"
+              >
+                29
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="28"
+              >
+                28
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="27"
+              >
+                27
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="26"
+              >
+                26
+              </div>
+              <div
+                className="steps col justify-content-center d-flex align-items-center "
+                id="25"
+                style={{ borderBottomRightRadius: "30px  " }}
+              >
+                25
+              </div>
+            </div>
           </div>
-  
-          <div className="row r board-row trans-row" style={{marginLeft:"30px",marginRight:"30px",width:"fit-content"}} id="trans2">
-          <div className="steps col justify-content-center d-flex align-items-center " id="16" style={{width:"189px", color:"#fff",display:"inline-block"}}>
-              16
-            </div>
-          
-          <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopLeftRadius:"20px  ",borderBottomLeftRadius:"20px  ",width:"189px",background:"#27def4"}} >
-          
-            </div>
-            </div>
-          <div className="row r board-row" style={{marginLeft:"30px",marginRight:"30px"}}>
-
-          <div className="steps col justify-content-center d-flex align-items-center " id="17" style={{borderBottomLeftRadius:"30px  "}} >
-              17
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="18" >
-              18
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="19" >
-              19
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="20" >
-              20
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="21" >
-              21
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="22" >
-              22
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="23" style={{borderTopRightRadius:"30px"}}  >
-              23
-            </div>
-          </div>
-          <div className="row r board-row trans-row" style={{marginLeft:"auto",marginRight:"30px",width:"fit-content"}} id="trans">
-            <div className="steps col justify-content-center d-flex align-items-center trans-block " style={{borderTopRightRadius:"20px  ",borderBottomRightRadius:"20px  ",width:"189px",background:"#5cebe2"}} >
-          
-          </div>
-            <div className="steps col justify-content-center d-flex align-items-center  " id="24" style={{marginLeft:"auto",width:"190px", color:"#fff"}}>
-            24
-            </div>
-
-            </div>
-            <div className="row r board-row" style={{marginRight:"30px",marginLeft:"30px"}}>
-            <div className="steps col justify-content-center d-flex align-items-center " id="31" style={{borderTopLeftRadius:"30px",borderBottomLeftRadius:"30px"}} >
-             31
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="30" >
-              30
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="29" >
-              29
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="28" >
-              28
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="27" >
-              27
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="26" >
-              26
-            </div>
-            <div className="steps col justify-content-center d-flex align-items-center " id="25" style={{borderBottomRightRadius:"30px  "}} >
-              25
-            </div>
-
-          </div>
-        </div>
         </div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -752,7 +960,6 @@ for(var i=0;i<netWorth.length;i++){
         </Modal>
       </>
     );
-    
   } else {
     return (
       <>
@@ -780,10 +987,6 @@ for(var i=0;i<netWorth.length;i++){
       </>
     );
   }
-
 };
-
-
-
 
 export default DiceRoll;

@@ -7,10 +7,12 @@ const Seven = ()=>{
     const history = useHistory();
     const [isLoaded,setIsLoaded]=React.useState(false);
     const [retrievedObject,setRetrievedObject]=React.useState({});
+    const [passbook,setPassbook]=React.useState();
     const [ins,setIns]=React.useState(false);
     React.useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
+        setPassbook(retrievedObj.passbook);
         setIns(retrievedObj.insurance.homeIns.purchased);
         setIsLoaded(true);
     },[]);
@@ -20,6 +22,15 @@ const Seven = ()=>{
         },1000)
     }
     const notOwn=()=>{
+        let obj12=passbook;
+        let obj={
+            name:'House repair expenses',
+            type:'debit',
+            amount:10000
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
+        retrievedObject.passbook=passbook
         var temp= retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1];
         var update= parseInt(temp) -10000;
         retrievedObject.moneyInHand.push(update);
@@ -40,7 +51,7 @@ const Seven = ()=>{
                     <div>
                         <h4>
                         There was a short-circuit in your kitchen causing a fire in your house. <br/>
-                            The cost of repairing the damages is Rs.24,000.
+                            The cost of repairing the damages is Rs.10,000.
                             However,
                             if you have a House Insurance, the expense is reduced to Rs 0
                         </h4>
@@ -71,7 +82,7 @@ const Seven = ()=>{
                     <div>
                         <h4>
                             There was a short-circuit in your kitchen causing a fire in your house. <br/>
-                            The cost of repairing the damages is Rs.24,000.
+                            The cost of repairing the damages is Rs.10,000.
                             However,
                             if you have a House Insurance, the expense is reduced to Rs 0
                             

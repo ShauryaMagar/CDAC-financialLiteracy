@@ -12,10 +12,12 @@ const SellPurchaseStock=()=>{
     const [bsteel,setBsteel]=useState(0);
     const [bauto,setBauto]=useState(0);
     const [bmed,setBmed]=useState(0);
+    const [passbook,setPassbook]=useState()
     useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setMed(retrievedObj.stocks.med);
+        setPassbook(retrievedObj.passbook);
         setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setSteel(retrievedObj.stocks.steel);
         setOil(retrievedObj.stocks.oil);
@@ -23,21 +25,53 @@ const SellPurchaseStock=()=>{
     },[])
     const sellAuto=()=>{
         let add = parseInt(amt);
+        let obj12=passbook;
+        let obj={
+            name:"Automobile stocks sold",
+            type:'credit',
+            amount:auto
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         setAmt(add+parseInt(auto));
         setAuto(0);
     }
     const sellOil=()=>{
         let add = parseInt(amt);
+        let obj12 = passbook;
+        let obj = {
+            name: "Oil stocks sold",
+            type: 'credit',
+            amount: oil
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         setAmt(add + parseInt(oil));
         setOil(0);
     }
     const sellSteel=()=>{
         let add = parseInt(amt);
+        let obj12=passbook;
+        let obj={
+            name:"Steel stocks sold",
+            type:'credit',
+            amount:steel
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         setAmt(add + parseInt(steel));
         setSteel(0);
     }
     const sellMed=()=>{
         let add = parseInt(amt);
+        let obj12=passbook;
+        let obj={
+            name:"Pharmaceutical stocks sold",
+            type:'credit',
+            amount:med
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         setAmt(add + parseInt(med));
         setMed(0);
     }
@@ -47,6 +81,14 @@ const SellPurchaseStock=()=>{
             alert("Too low");
         }else{
             setAmt(amt-boil);
+            let obj12 = passbook;
+            let obj = {
+                name: "Oil stocks purchased",
+                type: 'debit',
+                amount: boil
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
             setOil(boil);
             setBoil(0);
         }
@@ -58,6 +100,14 @@ const SellPurchaseStock=()=>{
             alert("Too low");
         }else{
             setAmt(amt-bmed);
+            let obj12 = passbook;
+            let obj = {
+                name: "Pharmaceutical stocks purchased",
+                type: 'debit',
+                amount: bmed
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
             setMed(bmed);
             setBmed(0);
         }
@@ -68,6 +118,14 @@ const SellPurchaseStock=()=>{
             alert("Too low");
         }else{
             setAmt(amt-bsteel);
+            let obj12 = passbook;
+            let obj = {
+                name: "Steel stocks purchased",
+                type: 'debit',
+                amount: bsteel
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
             setSteel(bsteel);
             setBsteel(0);
         }
@@ -78,6 +136,14 @@ const SellPurchaseStock=()=>{
             alert("Too low");
         }else{
             setAmt(amt-bauto);
+            let obj12 = passbook;
+            let obj = {
+                name: "Automobile stocks purchased",
+                type: 'debit',
+                amount: bauto
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
             setAuto(bauto);
             setBauto(0);
         }
@@ -85,6 +151,7 @@ const SellPurchaseStock=()=>{
     const nextPage=()=>{
         retrievedObject.stocks.med=med;
         retrievedObject.stocks.steel = steel;
+        retrievedObject.passbook=passbook;
         retrievedObject.stocks.oil = oil;
         retrievedObject.stocks.auto = auto;
         retrievedObject.moneyInHand.push(amt);

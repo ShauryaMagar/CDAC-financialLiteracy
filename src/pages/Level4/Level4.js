@@ -5,6 +5,7 @@ const Level4=()=>{
     const history = useHistory();
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money, setMoney] = React.useState(0);
+    const [passbook,setPassbook]=React.useState()
     const [retrievedObject, setRetrievedObject] = React.useState({});
     const [modalShow, setModalShow] = React.useState(true);
     function MyVerticallyCenteredModal(props) {
@@ -33,6 +34,15 @@ const Level4=()=>{
         );
     }
     const onFormSubmit1 = () => {
+            let obj12=passbook;
+            let obj={
+                name:'PAY DAY',
+                type:'credit',
+                amount:5000
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
+            retrievedObject.passbook=passbook;
             retrievedObject.moneyInHand.push(parseInt(money) + 5000);
             console.log(retrievedObject);
             localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
@@ -61,6 +71,7 @@ const Level4=()=>{
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
+        setPassbook(retrievedObj.passbook);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
     }, []);

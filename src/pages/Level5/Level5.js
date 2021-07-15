@@ -10,16 +10,27 @@ const Level5=()=>{
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money, setMoney] = React.useState(0);
     const [show, setShow] = React.useState(false);
+    const [passbook,setPassbook]=React.useState();
     const [retrievedObject, setRetrievedObject] = React.useState({});
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
+        setPassbook(retrievedObj.passbook);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
     }, []);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const wrongChoice=()=>{
+        let obj12=passbook;
+        let obj={
+            name:'Online Banking Scam',
+            type:'debit',
+            amount:5000
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
+        retrievedObject.passbook=passbook;
         retrievedObject.moneyInHand.push(parseInt(money)-5000);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         alert("You've been scammed. Never Enter personal details on unknown websites. Rs 5000 deducted!");
@@ -28,6 +39,15 @@ const Level5=()=>{
         },1000);
     }
     const rightChoice=()=>{
+        let obj12 = passbook;
+        let obj = {
+            name: 'Level rewards',
+            type: 'credit',
+            amount: 5000
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
+        retrievedObject.passbook = passbook;
         retrievedObject.moneyInHand.push(parseInt(money)+5000);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         alert("Phew! That was close. You just saved yourself from a Scam. You've been rewarded Rs. 5000");

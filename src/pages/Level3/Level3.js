@@ -8,16 +8,27 @@ const Three=()=>{
     const [show, setShow] = React.useState(false);
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money,setMoney]=React.useState(0);
+    const [passbook,setPassbook]=React.useState();
     const [retrievedObject, setRetrievedObject] = React.useState({});
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
+        setPassbook(retrievedObj.passbook);
     }, []);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const onSubmit=()=>{
+        let obj12=passbook;
+        let obj={
+            name:'First Financial Transaction',
+            type:'credit',
+            amount:2000
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
+        retrievedObject.passbook=passbook
         retrievedObject.moneyInHand.push(parseInt(money)+2000);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         alert("You've been awarded Rs 2000 for completing your first financial transaction");

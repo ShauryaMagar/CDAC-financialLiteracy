@@ -24,6 +24,39 @@ const IntroScreen = () => {
         }
     }
     const onSubmission = () => {
+        const passbook=[];
+        if(FD!=0){
+            let obj1={
+                name:'Fixed Deposit',
+                type:'debit',
+                amount:FD,
+            }
+            passbook.push(obj1);
+        }
+        if(health){
+            let obj1={
+                name:'Health Insurance',
+                type:'debit',
+                amount:5000
+            }
+            passbook.push(obj1);
+        }
+        if(vehicle){
+            let obj1 = {
+                name: 'Vehicle Insurance',
+                type: 'debit',
+                amount: 7000
+            }
+            passbook.push(obj1);
+        }
+        if (home) {
+            let obj1 = {
+                name: 'House Insurance',
+                type: 'debit',
+                amount: 9000
+            }
+            passbook.push(obj1);
+        }
         const financialObject= {
             insurance: {
                 healthIns: {
@@ -39,6 +72,7 @@ const IntroScreen = () => {
                     sellingPrice:'5000',
                 }
             },
+            passbook:passbook,
             levelset1: [1,2,3,4],
             levelset2:[5,6,7,8],
             levelset3:[9,10,11,12],

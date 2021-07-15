@@ -5,6 +5,7 @@ const SellPurchaseIns = () =>{
     const [health,setHealth]=useState(false);
     const [vehicle,setVehicle]=useState(false);
     const [home,setHome]=useState(false);
+    const [passbook,setPassbook]=useState()
     const [retrievedObject, setRetrievedObject] = useState({});
     const history=useHistory();
     useEffect(() => {
@@ -12,19 +13,44 @@ const SellPurchaseIns = () =>{
         setRetrievedObject(retrievedObj);
         setAmt(parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]));
         setHealth(retrievedObj.insurance.healthIns.purchased);
+        setPassbook(retrievedObj.passbook);
         setVehicle(retrievedObj.insurance.vehicleIns.purchased);
         setHome(retrievedObj.insurance.homeIns.purchased);
     }, [])
     const sellHealth=()=>{
         setHealth(false);
+        var obj12=passbook;
+        var obj={
+            name:'Health Insurance sold',
+            type:'credit',
+            amount:'3000'
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         setAmt(parseInt(amt)+3000);
     }
     const sellVehicle=()=>{
         setVehicle(false);
+        var obj12 = passbook;
+        var obj = {
+            name: 'Vehicle Insurance sold',
+            type: 'credit',
+            amount: '4000'
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         setAmt(parseInt(amt)+4000);
     }
     const sellHome=()=>{
         setHome(false);
+        var obj12 = passbook;
+        var obj = {
+            name: 'House Insurance sold',
+            type: 'credit',
+            amount: '5000'
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         setAmt(parseInt(amt)+5000);
     }
     const purHealth=()=>{
@@ -33,6 +59,14 @@ const SellPurchaseIns = () =>{
             alert("Too low");
         }else{
             setHealth(true);
+            var obj12 = passbook;
+            var obj = {
+                name: 'Health Insurance Purchased',
+                type: 'debit',
+                amount: '5000'
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
             setAmt(amt-5000);
         }
     }
@@ -41,6 +75,14 @@ const SellPurchaseIns = () =>{
             alert("Too low");
         }else{
             setHome(true);
+            var obj12 = passbook;
+            var obj = {
+                name: 'House Insurance Purchased',
+                type: 'debit',
+                amount: '8000'
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
             setAmt(amt-8000);
         }
     }
@@ -49,12 +91,21 @@ const SellPurchaseIns = () =>{
             alert("Too low");
         }else{
             setVehicle(true);
+            var obj12 = passbook;
+            var obj = {
+                name: 'Vehicle Insurance Purchased',
+                type: 'debit',
+                amount: '7000'
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
             setAmt(amt-7000);
         }
     };
     const goBack=()=>{
         retrievedObject.insurance.healthIns.purchased=health;
         retrievedObject.insurance.homeIns.purchased=home;
+        retrievedObject.passbook=passbook;
         retrievedObject.insurance.vehicleIns.purchased=vehicle;
         retrievedObject.moneyInHand.push(amt);
         localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));

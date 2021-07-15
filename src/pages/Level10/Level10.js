@@ -6,6 +6,7 @@ const Ten = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [retrievedObject, setRetrievedObject] = React.useState({});
   const [health, setHealth] = React.useState(false);
+  const [passbook,setPassbook]=React.useState();
   const [amt, setAmt] = React.useState(0);
 
   React.useEffect(() => {
@@ -13,13 +14,14 @@ const Ten = () => {
     setRetrievedObject(retrievedObj);
     setHealth(retrievedObj.insurance.healthIns.purchased);
     setIsLoaded(true);
+    setPassbook(retrievedObj.passbook);
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
   }, []);
 
   //onClick  when user has health insurance.
   // 1000 deducted
   const own = () => {
-    var update = amt - 1000;
+    var update = amt - 0;
     setAmt(update);
     retrievedObject.moneyInHand.push(update);
     localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
@@ -30,6 +32,15 @@ const Ten = () => {
   //onClick  when user does not have health insurance.
   // 8000 deducted
   const notOwn = () => {
+    let obj12=passbook;
+    let obj={
+      name:'Hospitalization charges',
+      type:'debit',
+      amount:8000
+    }
+    obj12.push(obj);
+    setPassbook(obj12);
+    retrievedObject.passbook=passbook
     var update = amt - 8000;
     setAmt(update);
     retrievedObject.moneyInHand.push(update);
@@ -66,7 +77,7 @@ const Ten = () => {
                 <h5>
                   Unfortunately, you had to be hospitalised due to sudden
                   illness. The cost of treatment is Rs. 8,000. However, if you
-                  have health insurance, the expense is reduced to Rs 1000{" "}
+                  have health insurance, the expense is reduced to Rs 0{" "}
                 </h5>
               </div>
               <div>
@@ -75,7 +86,7 @@ const Ten = () => {
               <div>
                 <h5>
                   Congratulations! You already had an insurance, so you have to
-                  pay only Rs 1000.
+                  pay only Rs 0.
                   <br />
                   <br />
                   <button onClick={own} className="btn btn-dark">
@@ -117,7 +128,7 @@ const Ten = () => {
                 <h5>
                   Unfortunately, you had to be hospitalised due to sudden
                   illness.The cost of treatment Rs. 8,000. However, if you have
-                  health insurance, the expense is reduced to Rs 1000
+                  health insurance, the expense is reduced to Rs 0
                 </h5>
               </div>
               <div>

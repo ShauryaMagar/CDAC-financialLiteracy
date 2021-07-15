@@ -9,21 +9,40 @@ const SelectedOp=(props)=>{
     const selected=location.state.real;
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money,setMoney]=React.useState(0);
+    const [passbook,setPassbook]=React.useState();
     const [retrievedObject, setRetrievedObject] = React.useState({});
     useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
+        setPassbook(retrievedObj.passbook);
         setIsLoaded(true);
     },[]);
     const rightGuess=()=>{
         retrievedObject.moneyInHand.push(parseInt(money) +2000);
-        console.log(retrievedObject)
+        let obj12=passbook;
+        let obj={
+            name:'Level Rewards',
+            type:'credit',
+            amount:2000
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
+        retrievedObject.passbook=passbook;
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         history.push('/1.2')
     }
     const WrongGuess=()=>{
         retrievedObject.moneyInHand.push(parseInt(money) -2000);
+        let obj12=passbook;
+        let obj={
+            name:'Fake Currency Scam',
+            type:'debit',
+            amount:2000
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
+        retrievedObject.passbook=passbook;
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         history.push('/1.2')
     }

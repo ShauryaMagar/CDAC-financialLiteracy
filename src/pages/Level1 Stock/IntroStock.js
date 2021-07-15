@@ -11,15 +11,52 @@ const IntroStock=()=>{
     const [med,setMed]=React.useState(0);
     const [steel,setSteel]=React.useState(0);
     const [oil,setOil]=React.useState(0);
+    const [passbook,setPassbook]=React.useState();
     const [auto,setAuto]=React.useState(0);
     useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setIsLoaded(true);
+        setPassbook(retrievedObj.passbook);
         setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
     }, []);
     const [show, setShow] = React.useState(false);
     const nextPage=()=>{
+        let obj12=passbook;
+        if(steel!=0){
+            var obj={
+                name:'Steel Stocks purchased',
+                type:'debit',
+                amount:steel
+            }
+            obj12.push(obj);
+        }
+        if(oil!=0){
+            var obj={
+                name:'Oil Stocks purchased',
+                type:'debit',
+                amount:oil
+            }
+            obj12.push(obj);
+        }
+        if(med!=0){
+            var obj={
+                name:'Pharmaceutical Stocks purchased',
+                type:'debit',
+                amount:med
+            }
+            obj12.push(obj);
+        }
+        if(auto!=0){
+            var obj={
+                name:'Automobile Stocks purchased',
+                type:'debit',
+                amount:auto
+            }
+            obj12.push(obj);
+        }
+        setPassbook(obj12);
+        retrievedObject.passbook=passbook;
         retrievedObject.stocks.steel=steel;
         retrievedObject.stocks.oil=oil;
         retrievedObject.stocks.med=med;
@@ -35,7 +72,6 @@ const IntroStock=()=>{
     }
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const location = useLocation();
     const history = useHistory();
     const submitOil=(e)=>{
         e.preventDefault();
@@ -135,8 +171,8 @@ const IntroStock=()=>{
                         </div>
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
                         <h4>Purchase</h4>
-                            <form onSubmit={submitAuto}>
-                                <input type="text" onChange={changeAuto} value={auto} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
+                            <form onSubmit={submitOil}>
+                                <input type="text" onChange={changeOil} value={oil} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
                                 <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
                             </form>
                         </div>
@@ -157,8 +193,8 @@ const IntroStock=()=>{
                         </div>
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
                         <h4>Purchase</h4>
-                            <form onSubmit={submitAuto}>
-                                <input type="text" onChange={changeAuto} value={auto} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
+                            <form onSubmit={submitMed}>
+                                <input type="text" onChange={changePharm} value={med} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
                                 <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
                             </form>
                                 
@@ -181,8 +217,8 @@ const IntroStock=()=>{
                         </div>
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem" ,borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
                         <h4>Purchase</h4>
-                            <form onSubmit={submitAuto}>
-                                <input type="text" onChange={changeAuto} value={auto} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
+                            <form onSubmit={submitSteel}>
+                                <input type="text" onChange={changeSteel} value={steel} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
                                 <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
                             </form>
                             

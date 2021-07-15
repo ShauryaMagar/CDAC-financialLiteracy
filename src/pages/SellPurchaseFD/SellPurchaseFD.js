@@ -5,6 +5,7 @@ const SellPurchaseFD=()=>{
     const [amt,setAmt]=useState(0);
     const [bFD,setBFD]=useState(0);
     const [fd,setFd]=useState(0);
+    const [passbook,setPassbook]=useState()
     const [turns,setTurns]=useState(0);
     const history=useHistory();
     useEffect(()=>{
@@ -12,6 +13,7 @@ const SellPurchaseFD=()=>{
         setRetrievedObject(retrievedObj);
         setAmt(parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]));
         setFd(parseInt(retrievedObj.fixedDeposit.purchased));
+        setPassbook(retrievedObj.passbook);
         setTurns(parseInt(retrievedObj.fixedDeposit.turnsLeft));
     },[])
     const handleChange=e=>setBFD(e.target.value);
@@ -20,6 +22,14 @@ const SellPurchaseFD=()=>{
         if(amt-bFD<1000){
             alert("Too low");
         }else{
+            var obj12=passbook;
+            var obj={
+                name:'Fixed Deposit Purchased',
+                type:'debit',
+                amount:bFD
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
             setFd(parseInt(bFD));
             setTurns(3);
             setAmt(amt-bFD);
@@ -27,12 +37,22 @@ const SellPurchaseFD=()=>{
         }
     }
     const sellFD=()=>{
+        var obj12 = passbook;
+        var am=fd-(fd*10)/100;
+        var obj = {
+            name: 'Fixed Deposit Sold',
+            type: 'credit',
+            amount: am
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         setAmt(amt+(fd-(fd*10)/100));
         setFd(0);
         setTurns(-1);
     }
     const nextPage=()=>{
         retrievedObject.moneyInHand.push(amt);
+        retrievedObject.passbook=passbook
         retrievedObject.fixedDeposit.purchased=fd;
         retrievedObject.fixedDeposit.turnsLeft=turns;
         localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));

@@ -11,12 +11,14 @@ const Two = ()=>{
     const history = useHistory();
     const [isLoaded,setIsLoaded]=React.useState(false);
     const [retrievedObject,setRetrievedObject]=React.useState({});
+    const [passbook,setPassbook]=React.useState();
     const [ins,setIns]=React.useState(false);
     React.useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setIns(retrievedObj.insurance.vehicleIns.purchased);
         setIsLoaded(true);
+        setPassbook(retrievedObj.passbook);
     },[]);
     const own=()=>{
         setTimeout(()=>{
@@ -25,6 +27,15 @@ const Two = ()=>{
     }
     const notOwn=()=>{
         var temp= retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1];
+        let obj12=passbook;
+        let obj={
+            name:'Car Accident',
+            type:'debit',
+            amount:5000
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
+        retrievedObject.passbook=passbook;
         var update= parseInt(temp) -5000;
         retrievedObject.moneyInHand.push(update);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
@@ -48,9 +59,7 @@ const Two = ()=>{
                     <div>
                         <h4>
                             Unfortunately, your car has been damaged in an accident.
-                            The cost of repairing the damages is Rs.12,000.
-                            However,
-                            if you have a vehicle insurance, the expense is reduced to Rs 500
+                            The cost of repairing the damages is Rs.5,000.
                         </h4>
                     </div>
                     <div>
@@ -87,7 +96,7 @@ const Two = ()=>{
                     <div>
                         <h4>
                             Unfortunately, your car has been damaged in an accident.
-                            The cost of repairing the damages is Rs.12,000.
+                            The cost of repairing the damages is Rs.5000.
                             However,
                             if you have a vehicle insurance, the expense is reduced to Rs 0
                             

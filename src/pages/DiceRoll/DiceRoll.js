@@ -19,12 +19,16 @@ const DiceRoll = () => {
   const [steel, setSteel] = React.useState(0);
   const [oil, setOil] = React.useState(0);
   const [auto, setAuto] = React.useState(0);
+  const [passbook,setPassbook]=React.useState({});
   const medChange = Math.floor(Math.random() * 15) - 2;
   const steelChange = Math.floor(Math.random() * 15) - 2;
   const oilChange = Math.floor(Math.random() * 15) - 2;
   const autoChange = Math.floor(Math.random() * 15) - 2;
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [passbookShow,setPassbookShow]=React.useState(false);
+  const handlePassbookClose = () => setPassbookShow(false);
+  const handlePassbookShow = () => setPassbookShow(true);
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
@@ -34,12 +38,12 @@ const DiceRoll = () => {
     setSteel(retrievedObj.stocks.steel);
     setOil(retrievedObj.stocks.oil);
     setAuto(retrievedObj.stocks.auto);
+    setPassbook(retrievedObj.passbook);
     setIsLoaded(true);
   }, []);
 
   useEffectX(() => {
     let retrievedObjt = JSON.parse(localStorage.getItem("financialLiteracy"));
-
     if (document.getElementById(level.toString())) {
       document.getElementById(level.toString()).style.background =
         "rgb(120, 214, 107)";
@@ -143,17 +147,35 @@ const DiceRoll = () => {
     });
 
     var update = parseInt(level) + generatedNum;
-
+    let obj12=passbook;
     let money =
       retrievedObject.moneyInHand[retrievedObject.moneyInHand.length - 1];
     if (retrievedObject.insurance.healthIns.purchased) {
       money = money - 200;
+      var obj={
+        name:'Health Insurance Premium',
+        type:'debit',
+        amount:200
+      }
+      obj12.push(obj);
     }
     if (retrievedObject.insurance.homeIns.purchased) {
       money = money - 200;
+      var obj = {
+        name: 'House Insurance Premium',
+        type: 'debit',
+        amount: 200
+      }
+      obj12.push(obj);
     }
     if (retrievedObject.insurance.vehicleIns.purchased) {
       money = money - 200;
+      var obj = {
+        name: 'Vehicle Insurance Premium',
+        type: 'debit',
+        amount: 200
+      }
+      obj12.push(obj);
     }
     setTimeout(() => {
       setLevel(update);
@@ -162,9 +184,17 @@ const DiceRoll = () => {
         retrievedObject.fixedDeposit.purchased =
           parseFloat(retrievedObject.fixedDeposit.purchased) +
           parseFloat(retrievedObject.fixedDeposit.purchased) * 0.15;
+        var amountFD = retrievedObject.fixedDeposit.purchased
         money =
           parseFloat(money) +
           parseFloat(retrievedObject.fixedDeposit.purchased);
+        var obj={
+          name:'Fixed Deposit Matured',
+          type:'credit',
+          amount:amountFD
+        }
+        obj12.push(obj);
+        setPassbook(obj12);
         retrievedObject.fixedDeposit.turnsLeft = 0;
         retrievedObject.fixedDeposit.purchased = 0;
       } else {
@@ -182,6 +212,7 @@ const DiceRoll = () => {
         parseInt(steel) + (parseInt(steel) * steelChange) / 100;
       retrievedObject.currentLevel = update;
       retrievedObject.moneyInHand.push(money);
+      retrievedObject.passbook=passbook;
       if (retrievedObject.levelset1.length != 0) {
         var levelShow = retrievedObject.levelset1;
         var indexLevel = Math.floor(Math.random() * levelShow.length);
@@ -508,6 +539,39 @@ const DiceRoll = () => {
             </div>
           </div>
         </div>
+        <Modal show={passbookShow} onHide={handlePassbookClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Passbook</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className='container'>
+          {passbook.map(pass=>(
+            <div className="row">
+                  <div className='col-7'>
+                    {pass.name}
+                  </div>
+                  {
+                    pass.type=='debit'?
+                    <div className='col-5' style={{color:'red'}}>
+                    -{pass.amount}
+                  </div>:
+                   <div className='col-5' style={{color:'green'}}>
+                    +{pass.amount}
+                  </div>
+                  }
+                  
+            </div>
+          ))
+            
+          }
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handlePassbookClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <div className="dice-roll-page">
           <div className="container-fluid" style={{ paddingTop: "2rem" }}>
           <div className="row">
@@ -611,6 +675,7 @@ const DiceRoll = () => {
                     <button
                       className="btn dice-page-btn-2"
                       style={{ color: "white" }}
+                      onClick={handlePassbookShow}
                     >
                       Pass Book
                     </button>

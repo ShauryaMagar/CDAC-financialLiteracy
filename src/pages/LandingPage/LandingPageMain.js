@@ -3,6 +3,7 @@ import './LandingPageMain.css';
 import {NavLink} from 'react-router-dom';
 class LandingPageMain extends React.Component{
     render(){
+        
         return(
                 <div className="main" style={{margin:"auto", marginTop:"3%", textAlign:"center"}}>
                 <div className="container" style={{height:"10vh"}}>

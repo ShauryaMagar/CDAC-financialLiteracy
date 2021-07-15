@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {useHistory,useLocation} from 'react-router-dom';
 import {Modal,Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import cardImg from './card-img.jpg';
+import cardImg from './images/card-img.jpg';
 import './IntroStock.css';
 const IntroStock=()=>{
     const [isLoaded, setIsLoaded] = React.useState(false);
@@ -79,12 +79,12 @@ const IntroStock=()=>{
             return (
         <>
         
-        <div className="container-fluid" style={{marginTop:'2rem'}}>
+        <div className="container-fluid back-intro-stock" style={{paddingTop:'2rem',paddingBottom:'1rem '}}>
                
             
             <div className="row">
                 <div className='col-2'>
-                    <Link to='/intro' style={{color:'white'}}><button className="btn btn-dark">Back</button></Link>
+                    <Link to='/start' style={{color:'white'}}><button className="btn btn-danger">Back</button></Link>
                 </div>
                 <div className="col-6"  style={{textAlign:'center'}}>               
                 </div>
@@ -103,56 +103,63 @@ const IntroStock=()=>{
                     
                 </div>
             </div>
-        </div>
+        
         <div style={{marginTop:"2rem"}}>
                 <div style={{textAlign:"center"}}>
-                    <h1>
+                    <h1 style={{fontFamily: 'Poppins',fontWeight:'800',fontSize:'44px',textShadow:'5px 5px 18px gray'}}>
                         Purchase Stocks!
                     </h1>
                 </div>
 
         </div>
-        <div style={{marginTop:"2rem"}} className="container-fluid">
-                <div className="row justify-content-around">
-                    <div className="col-3" >
-                        <div className="row justify-content-center">
-                            
-                                <h2><u>Oil Company</u></h2>
+        <div className="row justify-content-lg-end" style={{marginRight:"3rem"}}>
+
+                    <button className="btn btn-primary" onClick={nextPage} style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px'}}>Next</button>
+
+                </div>
+        <div style={{marginTop:"0.1rem"}} className="container-fluid">
+                <div className="row " style={{padding:'30px'}}>
+                    <div className="col-3 stocks-card stocks-card-oil" >
+                        <div className="row justify-content-center" style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px',textAlign:'center'}}>
+                  
+                                <h2 ><u>Oil & Gas<br/> Company</u></h2>
+                 
                             
                         </div>
+
                         <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
                             <h4>Own stocks in a company.</h4>
                             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                            d minim  nostrud exercitation ull efw  
                             laboris nisi ut aliquip ex ea commodo consequat. </h5>
                         </div>
-                        <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
-                            <label for="">Purchase</label>
-                            <form onSubmit={submitOil}>
-                                <input type="text" class="form-control" id="" value={oil} aria-describedby="emailHelp" onChange={changeOil} placeholder="Enter Amount"></input>
-                                <button className="btn btn-dark" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
+                        <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
+                        <h4>Purchase</h4>
+                            <form onSubmit={submitAuto}>
+                                <input type="text" onChange={changeAuto} value={auto} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
+                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
                             </form>
                         </div>
                         <br/>
                             
                     </div>
-                    <div className="col-3" >
-                        <div className="row justify-content-center">
+                    <div className="col-3 stocks-card stocks-card-pharma" >
+                        <div className="row justify-content-center " style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px'}}>
                             
-                                <h2><u>Pharmaceutical Company</u></h2>
+                           <center> <h2><u>Pharmaceutical Company</u></h2></center>    
                             
                         </div>
                         <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
                             <h4>Own stocks in a company.</h4> <br/>
                             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                            d minim  nostrud exercitation ull efw  
                             laboris nisi ut aliquip ex ea commodo consequat. </h5>
                         </div>
-                        <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
-                            <label for="">Purchase</label>
-                            <form onSubmit={submitMed}>
-                                <input type="text" class="form-control" value={med} onChange={changePharm} id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
-                                <button className="btn btn-dark" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
+                        <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
+                        <h4>Purchase</h4>
+                            <form onSubmit={submitAuto}>
+                                <input type="text" onChange={changeAuto} value={auto} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
+                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
                             </form>
                                 
                             
@@ -160,47 +167,46 @@ const IntroStock=()=>{
                         <br/>
                             
                     </div>
-                    <div className="col-3" >
-                        <div className="row justify-content-center">
+                    <div className="col-3 stocks-card stocks-card-steel" >
+                        <div className="row justify-content-center"  style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px',textAlign:'center'}}> 
                             
-                                <h2><u>Steel Company</u></h2>
+                                <h2><u>Steel <br/> Company</u></h2>
                             
                         </div>
                         <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
                             <h4>Own stocks in a company.</h4>
                             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                            laboris nisi ut aliquip ex ea commodo consequat. </h5>
+                            d minim  nostrud exercitation ull efw  
+                            laboris nisi ut aliquip ex ea commodo consequat.  </h5>
                         </div>
-                        <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
-                            <label for="">Purchase</label>
-                            <form onSubmit={submitSteel}>
-                                <input type="text" onChange={changeSteel} value={steel} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
-                                <button className="btn btn-dark" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
+                        <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem" ,borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
+                        <h4>Purchase</h4>
+                            <form onSubmit={submitAuto}>
+                                <input type="text" onChange={changeAuto} value={auto} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
+                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
                             </form>
-                            
                             
                         </div>
                         <br/>
                             
                     </div>
-                    <div className="col-3" >
-                        <div className="row justify-content-center">
+                    <div className="col-3 stocks-card stocks-card-auto" >
+                        <div className="row justify-content-center"  style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px',textAlign:'center'}}> 
                             
-                                <h2><u>Automobile Company</u></h2>
+                                <h2><u>Automobile <br/> Company</u></h2>
                             
                         </div>
                         <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
                             <h4>Own stocks in a company.</h4>
                             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                            laboris nisi ut aliquip ex ea commodo consequat. </h5>
+                            d minim  nostrud exercitation ull efw  
+                            laboris nisi ut aliquip ex ea commodo consequat.  </h5>
                         </div>
-                        <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
-                            <label for="">Purchase</label>
+                        <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
+                            <h4>Purchase</h4>
                             <form onSubmit={submitAuto}>
                                 <input type="text" onChange={changeAuto} value={auto} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
-                                <button className="btn btn-dark" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
+                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
                             </form>
                             
                         </div>
@@ -210,11 +216,8 @@ const IntroStock=()=>{
                 </div>
         </div>
         <div className="container-fluid">
-                <div className="row justify-content-lg-end" style={{marginRight:"2rem"}}>
-                    <button onClick={nextPage} className="btn btn-dark">
-                        Next
-                    </button>
-                </div>
+
+        </div>
         </div>
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import Increase from "./images/increase.png";
-import "./Level11.css";
+import Decrease from "./images/downward-arrow.png";
+import "./Level13.css";
 import { bottom } from "@popperjs/core";
 
-const Eleven = () => {
+const Thirteen = () => {
   const history = useHistory();
   const [retrievedObject, setRetrievedObject] = useState({});
   const [amt, setAmt] = useState(0);
-  const [med, setMed] = useState(0);
+  const [oil, setOil] = useState(0);
 
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
 
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
-    setMed(retrievedObj.stocks.med);
+    setOil(retrievedObj.stocks.oil);
   }, []);
 
   const nextPage = () => {
-    var update = parseFloat(med * 0.4) + parseFloat(med);
+    var update =  parseFloat(oil)-parseFloat(oil * 0.3);
 
     // let addAmt=parseFloat(amt)+update
 
-    retrievedObject.stocks.med = update;
+    retrievedObject.stocks.oil = update;
 
     // retrievedObject.moneyInHand=addAmt;
     localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
@@ -34,44 +34,44 @@ const Eleven = () => {
   };
   let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
 
-  if (retrievedObj.stocks.med) {
+  if (retrievedObj.stocks.oil) {
     return (
       <>
-        <div className="container-fluid pharma-stocks-page">
+        <div className="container-fluid  oil-back">
           <div
             className="row justify-content-center"
-            style={{ paddingTop: "2.9rem", paddingBottom: "0rem" }}
+            style={{ paddingTop: "2rem", paddingBottom: "5rem" }}
           >
             <div
               className="col-7"
-              style={{ color: "black", textAlign: "center", padding: "2rem" }}
+              style={{ color: "white", textAlign: "center", padding: "2rem" }}
             >
               <div>
                 <h1>
-                  <strong>Pharma Prices have Increased!!</strong>
+                  <strong>Oil Prices have Decreased.</strong>
                 </h1>
               </div>
               <div>
                 <h4>
-                  As stated earlier a pandemic has hit India which had les to
-                  the increase in pharma prices of the Pharmaceutical Industry.
+                  As stated earlier, the government has promoted renewable energy sources which had les to
+                  the decrease in oil prices of the Crude Oil Industry.
                 </h4>
               </div>
               <div>
                 <img
-                  src={Increase}
-                  alt="stock-increase"
+                  src={Decrease}
+                  alt="stock-decrease"
                   style={{ height: "200px" }}
                 />
               </div>
               <br />
               <div>
                 <h4>
-                  You had bought pharma stocks worth ₹ {parseFloat(med)}
+                  You had bought oil stocks worth ₹ {parseFloat(oil)}
                   <br />
                   <br />
-                  The Price has increased by a whopping 40% to ₹{" "}
-                  {parseFloat(med) * 0.4 + parseFloat(med)}
+                  The price has decreased by 30% to ₹{" "}
+                  {parseFloat(oil) - parseFloat(oil) * 0.3}
                   <br />
                   <br />
                   <button className="btn btn-light btn-lg" onClick={nextPage}>
@@ -94,40 +94,40 @@ const Eleven = () => {
   } else {
     return (
       <>
-        <div className="container-fluid pharma-stocks-page">
+        <div className="container-fluid  oil-back">
           <div
             className="row justify-content-center"
-            style={{ paddingTop: "2.9rem", paddingBottom: "0rem" }}
+            style={{ paddingTop: "2rem", paddingBottom: "5rem" }}
           >
             <div
               className="col-7"
-              style={{ color: "black", textAlign: "center", padding: "2rem" }}
+              style={{ color: "white", textAlign: "center", padding: "2rem" }}
             >
               <div>
                 <h1>
-                  <strong>Pharma Prices have Increased!!</strong>
+                  <strong>Oil Prices have Decreased.</strong>
                 </h1>
               </div>
               <div>
                 <h4>
-                  As stated earlier a pandemic has hit India which had led to
-                  the increase in pharma prices of the Pharmaceutical Industry.
+                As stated earlier, the government has promoted renewable energy sources which had les to
+                the decrease in oil prices of the Crude Oil Industry.
                 </h4>
               </div>
               <div>
                 <img
-                  src={Increase}
-                  alt="stock-increase"
+                  src={Decrease}
+                  alt="stock-decrease"
                   style={{ height: "200px" }}
                 />
               </div>
               <br />
               <div>
                 <h4>
-                  Uh-Oh! you did not buy any pharma stocks earlier!
+                  Yay! You did not buy any oil stocks earlier!
                   <br />
                   <br />
-                  Next time make sure to analyse every situation!
+                  You did a good job in analysing the situation!
                   <br />
                   <br />
                   <button className="btn btn-light btn-lg" onClick={nextPage}>
@@ -150,4 +150,4 @@ const Eleven = () => {
   }
 };
 
-export default Eleven;
+export default Thirteen;

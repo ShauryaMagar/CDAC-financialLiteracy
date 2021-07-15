@@ -124,6 +124,7 @@ const SellPurchaseStock=()=>{
     )
     return (
         <>
+
         <div className="container">
             <div className="row justify-content-center" style={{marginTop:"2rem"}}>
                 <div className="col-8" style={{textAlign:"center"}}>
@@ -189,6 +190,7 @@ const SellPurchaseStock=()=>{
                 </div>
             </div>
         </div>
+
         </>
     );
 };

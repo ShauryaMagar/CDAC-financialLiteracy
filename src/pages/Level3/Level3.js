@@ -38,7 +38,7 @@ const Three=()=>{
           </Button>
         </Modal.Footer>
       </Modal>
-        <div className="container-fluid" style={{marginTop:'5rem'}}>
+        <div className="container-fluid bill-payment-card" style={{paddingTop:'5rem',paddingBottom:'7rem'}}>
             <div className="row justify-content-center">
                 <div className="col-8">
                     <div className="container" style={{textAlign:'center'}}>
@@ -54,11 +54,11 @@ const Three=()=>{
                              </div>
                             </div>
                             <div className="row justify-content-center">
-                                //Add a url image here of a secure website
+          
                             </div>
                             <div className="row" style={{marginTop:'3rem'}}>
                                 <div className='col-6'>
-                                    <table cellPadding="10px">
+                                    <table cellPadding="10px" width='90%' height='100%'>
                                         <tr>
                                             <th>Sr. No.</th>
                                             <th>
@@ -103,11 +103,11 @@ const Three=()=>{
                                     </div>
                                     <div className="row justify-content-center">
                                         <button type="button" class="btn btn-primary" onClick={handleShow}>
-                                            Click To see your Credit Card
+                                            Click to see your Credit Card
                                         </button>
                                     </div>
                                     <div className="row justify-content-start" style={{marginTop:'2rem'}}>
-                                        <div className="col-10">
+                                        <div className="col-12">
                                             <div class="form-group">
                                             <input type="email" class="form-control form-control-lg" id="Credit Card number" aria-describedby="emailHelp" placeholder="Enter Your credit card number"/>
                                             
@@ -124,8 +124,8 @@ const Three=()=>{
                                         
                                     </div>
                                     <div className="row" style={{marginTop:'2rem'}}>
-                                        <button className="btn btn-dark" onClick={onSubmit}>
-                                            Pay!
+                                        <button className="btn btn-dark btn-block" onClick={onSubmit} style={{fontWeight:'600',fontSize:'22px', paddingBottom:'0',backgroundColor:'rgb(0, 175, 38)',outline:'none',border:'3px solid black'}} >
+                                            Pay !
                                         </button>
                                     </div>
                                 </div>

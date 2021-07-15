@@ -21,14 +21,18 @@ import Eleven from '../pages/Level11/Level11';
 import SellPurchase from '../pages/SellPurchaseStock/SellPurchaseStock';
 import SellPurchaseIns from '../pages/SellPurchaseIns/SellPurchaseIns';
 import SellPurchaseFD from '../pages/SellPurchaseFD/SellPurchaseFD';
+import Twelve from '../pages/Level12/Level12';
+import Thirteen from '../pages/Level13/Level13';
+import Mcq from '../pages/MCQ/mcq';
 class App extends React.Component{
+    
     render(){
         return (
             <>
                 <Router>
 				<Switch>
 					<div>
-						
+
 						<Route exact path="/" component={LandingPageMain}></Route>
 						<Route exact path="/intro" component={IntroScreen}></Route>
                         <Route exact path="/start" component={DiceRoll}></Route>
@@ -50,6 +54,10 @@ class App extends React.Component{
                         <Route exact path="/11" component={Nine}/>
                         <Route exact path="/12" component={Ten}/>
                         <Route exact path="/13" component={Eleven}/>
+                        <Route exact path="/14" component={Twelve}/>
+              <Route exact path="/15" component={Thirteen}/>
+              <Route exact path="/16" component={Mcq}/>
+
 					</div>
 				</Switch>
 			</Router>

@@ -36,13 +36,13 @@ const Level5=()=>{
         }, 1000);
     }
     return(
-        <div style={{backgroundColor:'black'}}>
+        <div style={{backgroundColor:'black',paddingTop:'4rem'}}>
         <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Card Details</Modal.Title>
         </Modal.Header>
         <Modal.Body><img src={CardImg}alt="Credit card" style={{height:'auto',width:'400px'}}></img><br></br>
-        Pin:2134
+        Pin: 2134
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -83,7 +83,7 @@ const Level5=()=>{
                                                  <button className="btn btn-danger" onClick={wrongChoice}>Submit</button>
                                             </div>
                                             <div className="col-3">
-                                                 <button className="btn btn-primary" onClick={rightChoice}>Don't share</button>
+                                                 <button className="btn btn-primary" onClick={rightChoice} style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px'}}>Don't share</button>
                                             </div>
                                         </div>
                                     </div>

@@ -1,9 +1,8 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
+import './Level12.css'
 
-import './Level9.css'
-
-const Nine=()=>{
+const Twelve=()=>{
     const history=useHistory();
     const handleClick=()=>{
         setTimeout(()=>{
@@ -12,8 +11,8 @@ const Nine=()=>{
     }
     return(
         <>
-        <div className="news-pharma-back">
-            <div className="container news-pharma"  >
+              <div className="news-oil-back">
+            <div className="container news-oil"  >
                 <div className="row justify-content-center" style={{marginTop:"2rem"}}>
                     <div className="col-12" style={{textAlign:"center",paddingTop:'2rem'}}>
                     <p><h3>Such events affect the behaviour of stock market. It is advisable to take a look at the stock market and the stocks owned by you.</h3></p>
@@ -34,8 +33,7 @@ const Nine=()=>{
             </div>
             </div>
         </>
-     
     );
 }
 
-export default Nine
+export default Twelve

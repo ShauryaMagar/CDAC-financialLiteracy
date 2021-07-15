@@ -6,3 +6,61 @@
     text-align: center;
     margin-top: auto;
 } */
+.stocks-card{
+    height: 470px;
+  
+}
+
+.back-intro-stock{
+    background: rgb(23,166,177);
+background: linear-gradient(7deg, rgba(23,166,177,0.4573179613642332) 0%, rgba(4,255,184,0.26684177088804273) 100%);
+}
+
+.stocks-card-oil{
+    background-image: url("./images/factory.png");
+   border-radius: 15px;
+   border-right: 5px solid #a2e4e1;
+}
+.stocks-card-pharma{
+    background-image: url("./images/medicine.png");
+   border-radius: 15px;
+   border-right: 5px solid #a2e4e1;
+}
+
+.stocks-card-steel{
+    background-image: url("./images/crucible.png");
+   border-radius: 15px;
+   border-right: 5px solid #a2e4e1;
+}
+
+.stocks-card-auto{
+    background-image: url("./images/automobile.png");
+   border-radius: 15px;
+   border-right: 5px solid #a2e4e1;
+}
+
+
+
+.stocks-card .row{
+ 
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.534);
+    color: white;
+    text-shadow: 4px 4px 16px rgb(0, 0, 0);
+}
+
+.stocks-card .row h2{
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+
+.buy-button{
+    background: #A1FFCE;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border: none;
+color: black;
+font-weight: 700;
+font-family: 'Poppins';
+font-size: 18px;
+}

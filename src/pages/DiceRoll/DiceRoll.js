@@ -430,6 +430,8 @@ const DiceRoll = () => {
     }, 1000);
   };
   if (isLoaded) {
+
+
     return (
       <>
         <ScrollToTop />
@@ -449,7 +451,7 @@ const DiceRoll = () => {
                 </h5>
                 <button
                   type="button"
-                  class="close"
+                  class="close "
                   data-dismiss="modal"
                   aria-label="Close"
                 >
@@ -478,7 +480,7 @@ const DiceRoll = () => {
                 <button
                   onClick={goToBuyFD}
                   data-dismiss="modal"
-                  className="btn btn-dark"
+                  className="btn btn-dark modal-card-button"
                 >
                   Click
                 </button>
@@ -489,7 +491,7 @@ const DiceRoll = () => {
                 <button
                   onClick={goToBuyIns}
                   data-dismiss="modal"
-                  className="btn btn-dark"
+                  className="btn btn-dark modal-card-button"
                 >
                   Click
                 </button>
@@ -497,7 +499,7 @@ const DiceRoll = () => {
               <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn  dice-page-btn"
+                  class="btn  dice-page-btn modal-card-button"
                   data-dismiss="modal"
                 >
                   Close

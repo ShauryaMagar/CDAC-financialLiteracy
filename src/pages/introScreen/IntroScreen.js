@@ -113,6 +113,7 @@ const IntroScreen = () => {
             }
         }
     }
+    
     return (
         <div className="intro-container" style={{marginTop:'0'}}>
             <div class="modal fade" id="Insurance" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -134,7 +135,7 @@ const IntroScreen = () => {
                                 <strong>Cost:</strong> Rs.5000
                             </div>
                             <div className="col-6">
-                                <button className="btn btn-dark" onClick={healthInsuranceHandler}>
+                                <button className="btn btn-dark modal-card-button" onClick={healthInsuranceHandler}>
                                     {
                                         health?'Sell':'Purchase'
                                     }
@@ -152,7 +153,7 @@ const IntroScreen = () => {
                                 <strong>Cost:</strong> Rs.7000
                             </div>
                             <div className="col-6">
-                                <button className="btn btn-dark" onClick={vehicleInsuranceHandler}>
+                                <button className="btn btn-dark modal-card-button" onClick={vehicleInsuranceHandler}>
                                     {
                                         vehicle?'Sell':'Purchase'
                                     }
@@ -170,7 +171,7 @@ const IntroScreen = () => {
                                 <strong>Cost:</strong> Rs.8000
                             </div>
                             <div className="col-6">
-                                <button className="btn btn-dark" onClick={houseInsuranceHandler}>
+                                <button className="btn btn-dark modal-card-button" onClick={houseInsuranceHandler}>
                                     {
                                         home?'Sell':'Purchase'
                                     }
@@ -180,7 +181,7 @@ const IntroScreen = () => {
                            
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark modal-card-button" data-dismiss="modal">Close</button>
                     </div>
                     </div>
                 </div>
@@ -197,7 +198,7 @@ const IntroScreen = () => {
                     <div class="modal-body">
                         <div className="container-fluid">
                             <div className="row justify-content-start">
-                                <div className="col-9">
+                                <div className="col-9" style={{paddingLeft:'0px'}}>
                                     Simply put, you buy a small or a very tiny portion of a company when you buy a stock of the company(yes, you read it right), and the value of your stock changes according to the performance of the company and also may change due to other factors.If a company performs well, the prices of stock increases, sometimes giving huge returms!
                                 </div>
                                 <div className="col-3">
@@ -211,7 +212,7 @@ const IntroScreen = () => {
                             </div>
                             <div className="row">
                                     You can purchase stocks of 4 companies in this game:
-                                    <ol>
+                                    <ol style={{paddingLeft:'15px'}}>
                                         <li>Pharmaceutical Company</li>
                                         <li>Steel Company</li>
                                         <li>Oil and Natural Gas company</li>
@@ -227,7 +228,7 @@ const IntroScreen = () => {
                            
                     
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark modal-card-button" data-dismiss="modal">Close</button>
                     </div>
                     </div>
                 </div>
@@ -256,7 +257,7 @@ const IntroScreen = () => {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark modal-card-button" data-dismiss="modal">Close</button>
                     </div>
                     </div>
                 </div>
@@ -291,19 +292,19 @@ const IntroScreen = () => {
                                         <input id="fdInput" value={inpFD} onChange={onChangeHandler} className="form-control">
                                         </input>
                                         <br/>
-                                        <button className='btn btn-dark' type='submit'> Purchase</button>
+                                        <button className='btn btn-dark modal-card-button' type='submit'> Purchase</button>
                                     </form>
                             </div>
                             <div className="row">
                                 Currently Purchased: {FD}
                             </div>
                             <div className="row">
-                                <button className="btn btn-dark" onClick={sellFD}>Sell</button>
+                                <button className="btn btn-dark modal-card-button" onClick={sellFD}>Sell</button>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark modal-card-button" data-dismiss="modal">Close</button>
                     </div>
                     </div>
                 </div>

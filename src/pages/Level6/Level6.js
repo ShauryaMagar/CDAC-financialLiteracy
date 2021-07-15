@@ -1,6 +1,7 @@
 import React from 'react';
 import Img from './images/stock.jpg';
 import { useHistory } from 'react-router';
+import './Level6.css'
 const Level6=()=>{
     const history=useHistory();
     const handleClick=()=>{
@@ -10,27 +11,26 @@ const Level6=()=>{
     }
     return(
         <>
-            <div className="container">
+        <div className="news-steel-back">
+            <div className="container news-steel"  >
                 <div className="row justify-content-center" style={{marginTop:"2rem"}}>
-                    <div className="col-11" style={{textAlign:"center"}}>
-                        <p><h1>News Headlines about Government planning to expand railways</h1></p> 
+                    <div className="col-12" style={{textAlign:"center",paddingTop:'2rem'}}>
+                    <p><h3>Such events affect the behaviour of stock market. It is advisable to take a look at the stock market and the stocks owned by you.</h3></p>
+
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col-11">
-                        <p><h3>Such events affect the behaviour of stock market. It is advisable to take a look at the stock market and the stocks owned by you.</h3></p>
+                    <div className="col-12">
+                        {/* <p><h3>Such events affect the behaviour of stock market. It is advisable to take a look at the stock market and the stocks owned by you.</h3></p> */}
                     </div>
                 </div>
-                <div className="row justify-content-center">
-                    <div className="col-11">
-                        <img src={Img} style={{height:"400px",width:"500px"}}/>
+
+                <div className="row justify-content-end" style={{marginTop:"22rem",paddingBottom:'5rem',backgroundColor:'transparent'}}>
+                    <div className="col-12" style={{textAlign:"right"}}>
+                        <button className="btn btn-dark modal-card-button" onClick={handleClick} style={{fontSize:'20px',boxShadow:'5px 5px 18px black'}}><i class="fas fa-arrow-circle-right"></i>  Take a look at stocks! </button>
                     </div>
                 </div>
-                <div className="row justify-content-end" style={{marginTop:"1rem"}}>
-                    <div className="col-11" style={{textAlign:"right"}}>
-                        <button className="btn btn-dark" onClick={handleClick}>Take a look at stocks!</button>
-                    </div>
-                </div>
+            </div>
             </div>
         </>
     );

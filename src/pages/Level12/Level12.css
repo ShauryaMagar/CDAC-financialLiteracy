@@ -1,0 +1,25 @@
+.news-oil{
+    background-image: url("./images/oil-gas.jpg");
+
+    background-size: cover;
+    color: white;
+    text-shadow: 5px 5px 18px white;
+
+    height: 585px;
+}
+
+
+.news-oil .row{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.514);
+
+}
+
+.news-oil-back{
+
+    background-image: url("./images/stock.jpg");
+
+    background-size: cover;
+padding-top: 2rem;
+padding-bottom: 6.5rem;
+}

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 import "./DiceRoll.css";
 import ScrollToTop from "../../ScrollToTop";
-import { parseInt } from "lodash";
+import { parseInt, times } from "lodash";
 import { Line } from "react-chartjs-2";
 
 const DiceRoll = () => {
@@ -19,6 +19,7 @@ const DiceRoll = () => {
   const [steel, setSteel] = React.useState(0);
   const [oil, setOil] = React.useState(0);
   const [auto, setAuto] = React.useState(0);
+  const [timesRolled,setTimesRolled]=React.useState();
   const [passbook,setPassbook]=React.useState({});
   const medChange = Math.floor(Math.random() * 15) - 2;
   const steelChange = Math.floor(Math.random() * 15) - 2;
@@ -39,6 +40,7 @@ const DiceRoll = () => {
     setOil(retrievedObj.stocks.oil);
     setAuto(retrievedObj.stocks.auto);
     setPassbook(retrievedObj.passbook);
+    setTimesRolled(retrievedObj.timesRolled);
     setIsLoaded(true);
   }, []);
 
@@ -139,7 +141,13 @@ const DiceRoll = () => {
 
   function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
-    var generatedNum = getRandomNumber(1, 4);
+
+    if(30-parseInt(level)<=4){
+      generatedNum=30-parseInt(level);
+    }else{
+      var generatedNum = getRandomNumber(1, 4);
+    }
+    
     dice.forEach((die) => {
       toggleClasses(die);
 
@@ -177,6 +185,8 @@ const DiceRoll = () => {
       }
       obj12.push(obj);
     }
+    var times=timesRolled+1;
+    console.log(times)
     setTimeout(() => {
       setLevel(update);
 
@@ -213,37 +223,53 @@ const DiceRoll = () => {
       retrievedObject.currentLevel = update;
       retrievedObject.moneyInHand.push(money);
       retrievedObject.passbook=passbook;
-      if (retrievedObject.levelset1.length != 0) {
-        var levelShow = retrievedObject.levelset1;
-        var indexLevel = Math.floor(Math.random() * levelShow.length);
-        var finalShow = levelShow[indexLevel];
-        levelShow.splice(indexLevel, 1);
-        retrievedObject.levelset1 = levelShow;
-      } else if (retrievedObject.levelset2.length != 0) {
-        var levelShow = retrievedObject.levelset2;
-        var indexLevel = Math.floor(Math.random() * levelShow.length);
-        var finalShow = levelShow[indexLevel];
-        levelShow.splice(indexLevel, 1);
-        retrievedObject.levelset2 = levelShow;
-      } else if (retrievedObject.levelset3.length != 0) {
-        var levelShow = retrievedObject.levelset3;
-        var indexLevel = Math.floor(Math.random() * levelShow.length);
-        var finalShow = levelShow[indexLevel];
-        levelShow.splice(indexLevel, 1);
-        retrievedObject.levelset3 = levelShow;
-      } else if (retrievedObject.levelset4.length != 0) {
-        var levelShow = retrievedObject.levelset4;
-        var indexLevel = Math.floor(Math.random() * levelShow.length);
-        var finalShow = levelShow[indexLevel];
-        levelShow.splice(indexLevel, 1);
-        retrievedObject.levelset4 = levelShow;
-      }
+      retrievedObject.timesRolled = times;
+      if(times===1){
+        localStorage.setItem(
+          "financialLiteracy",
+          JSON.stringify(retrievedObject)
+        );
+        history.push('/2');
+      }else if(times===2){
+        localStorage.setItem(
+          "financialLiteracy",
+          JSON.stringify(retrievedObject)
+        );
+        history.push('/1.2');
+      }else{
+        if (retrievedObject.levelset1.length != 0) {
+          var levelShow = retrievedObject.levelset1;
+          var indexLevel = Math.floor(Math.random() * levelShow.length);
+          var finalShow = levelShow[indexLevel];
+          levelShow.splice(indexLevel, 1);
+          retrievedObject.levelset1 = levelShow;
+        } else if (retrievedObject.levelset2.length != 0) {
+          var levelShow = retrievedObject.levelset2;
+          var indexLevel = Math.floor(Math.random() * levelShow.length);
+          var finalShow = levelShow[indexLevel];
+          levelShow.splice(indexLevel, 1);
+          retrievedObject.levelset2 = levelShow;
+        } else if (retrievedObject.levelset3.length != 0) {
+          var levelShow = retrievedObject.levelset3;
+          var indexLevel = Math.floor(Math.random() * levelShow.length);
+          var finalShow = levelShow[indexLevel];
+          levelShow.splice(indexLevel, 1);
+          retrievedObject.levelset3 = levelShow;
+        } else if (retrievedObject.levelset4.length != 0) {
+          var levelShow = retrievedObject.levelset4;
+          var indexLevel = Math.floor(Math.random() * levelShow.length);
+          var finalShow = levelShow[indexLevel];
+          levelShow.splice(indexLevel, 1);
+          retrievedObject.levelset4 = levelShow;
+        }
 
-      localStorage.setItem(
-        "financialLiteracy",
-        JSON.stringify(retrievedObject)
-      );
-      history.push(`/${finalShow}`);
+        localStorage.setItem(
+          "financialLiteracy",
+          JSON.stringify(retrievedObject)
+        );
+        history.push(`/${finalShow}`);
+      }
+      
     }, 3500);
     setTimeout(() => {
       document.getElementById(update.toString()).style.background =
@@ -350,6 +376,11 @@ const DiceRoll = () => {
       "16",
       "17",
       "18",
+      '19',
+      '20',
+      '21',
+      '22',
+      '23'
     ],
 
     datasets: [

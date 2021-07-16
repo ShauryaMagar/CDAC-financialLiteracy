@@ -36,7 +36,7 @@ const Seven = ()=>{
         retrievedObject.moneyInHand.push(update);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         setTimeout(() => {
-            history.push('/start');
+            history.push('/moreFire');
         }, 1000)
     }
     if(ins){

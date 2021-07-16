@@ -72,8 +72,9 @@ const IntroScreen = () => {
                     sellingPrice:'5000',
                 }
             },
+            timesRolled:0,
             passbook:passbook,
-            levelset1: [1,2,3,4],
+            levelset1: [1,3,4],
             levelset2:[5,6,7,8],
             levelset3:[9,10,11,12],
             levelset4:[13],

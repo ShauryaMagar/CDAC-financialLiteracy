@@ -23,6 +23,9 @@ import SellPurchaseIns from '../pages/SellPurchaseIns/SellPurchaseIns';
 import SellPurchaseFD from '../pages/SellPurchaseFD/SellPurchaseFD';
 import Twelve from '../pages/Level12/Level12';
 import Thirteen from '../pages/Level13/Level13';
+import MoreFire from '../pages/Level7/MoreInfoFire';
+import MoreScam from '../pages/Level5/MoreScam';
+import MoreFake from '../pages/Level1/MoreFake';
 import Mcq from '../pages/MCQ/mcq';
 class App extends React.Component{
     
@@ -46,6 +49,9 @@ class App extends React.Component{
                         <Route exact path="/7" component={Six}/>
                         <Route exact path="/8" component={Seven}/>
                         <Route exact path="/9" component={Eight}/>
+                        <Route exact path="/moreFire" component={MoreFire}/>
+                        <Route exact path="/moreScam" component={MoreScam}/>
+                        <Route exact path="/moreFake" component={MoreFake}/>
                         <Route exact path="/10" component={Four}/>
                         <Route exact path="/SPStock" component={SellPurchase}/>
                         <Route exact path="/SPIns" component={SellPurchaseIns}/>

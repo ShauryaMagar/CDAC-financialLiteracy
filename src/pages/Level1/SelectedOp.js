@@ -30,7 +30,7 @@ const SelectedOp=(props)=>{
         setPassbook(obj12);
         retrievedObject.passbook=passbook;
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        history.push('/1.2')
+        history.push('/moreFake')
     }
     const WrongGuess=()=>{
         retrievedObject.moneyInHand.push(parseInt(money) -2000);
@@ -44,7 +44,7 @@ const SelectedOp=(props)=>{
         setPassbook(obj12);
         retrievedObject.passbook=passbook;
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        history.push('/1.2')
+        history.push('/moreFake')
     }
     if(!isLoaded){
         return(

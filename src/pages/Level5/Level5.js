@@ -35,7 +35,7 @@ const Level5=()=>{
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         alert("You've been scammed. Never Enter personal details on unknown websites. Rs 5000 deducted!");
         setTimeout(()=>{
-            history.push("/start");
+            history.push("/moreScam");
         },1000);
     }
     const rightChoice=()=>{
@@ -52,7 +52,7 @@ const Level5=()=>{
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         alert("Phew! That was close. You just saved yourself from a Scam. You've been rewarded Rs. 5000");
         setTimeout(() => {
-            history.push("/start");
+            history.push("/moreScam");
         }, 1000);
     }
     return(

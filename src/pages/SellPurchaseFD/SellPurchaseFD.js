@@ -7,11 +7,13 @@ const SellPurchaseFD=()=>{
     const [fd,setFd]=useState(0);
     const [passbook,setPassbook]=useState()
     const [turns,setTurns]=useState(0);
+    const [moneyArray,setMoneyArray]=useState();
     const history=useHistory();
     useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setAmt(parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]));
+        setMoneyArray(parseInt(retrievedObj.moneyInHand));
         setFd(parseInt(retrievedObj.fixedDeposit.purchased));
         setPassbook(retrievedObj.passbook);
         setTurns(parseInt(retrievedObj.fixedDeposit.turnsLeft));

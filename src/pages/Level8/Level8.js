@@ -17,14 +17,14 @@ const Eight=()=>{
         setRetrievedObject(retrievedObj);
 
         setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
-        setSteel(retrievedObj.stocks.steel);
+        setSteel(parseInt(retrievedObj.stocks.steel));
 
     },[])
 
 
 
     const nextPage=()=>{
-        var update=parseFloat(steel*0.4)+parseFloat(steel);
+        var update=parseInt(steel*0.4)+parseInt(steel);
         
         // let addAmt=parseFloat(amt)+update
      

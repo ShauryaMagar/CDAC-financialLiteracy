@@ -53,7 +53,7 @@ const Thirteen = () => {
               </div>
               <div>
                 <h4>
-                  As stated earlier, the government has promoted renewable energy sources which had les to
+                  As stated earlier, the government has promoted renewable energy sources which had led to
                   the decrease in oil prices of the Crude Oil Industry.
                 </h4>
               </div>

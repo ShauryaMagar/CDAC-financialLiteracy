@@ -1,6 +1,7 @@
 import React from 'react';
 import {Modal,Button} from 'react-bootstrap';
 import { useHistory} from "react-router-dom";
+import Photo from './elex.png';
 function Mid(){
     const [op,setOp]=React.useState();
     const [right,setRight]=React.useState(false);
@@ -29,7 +30,7 @@ function Mid(){
         <div className="container" style={{marginTop:"5%"}}>
             <div className="row justify-content-center" style={{textAlign:"center"}}>
                 <div className="col-11">
-                   <p><h1>Now since you have purchased stocks, here are few things to be kept in mind.</h1></p> 
+                   <p><h1>Before you purchase stocks, here are few things to be kept in mind.</h1></p> 
                 </div>
             </div>
             <div className="row justify-content-center">
@@ -39,7 +40,7 @@ function Mid(){
                         <p>When you purchase a stock in a company, you're literally purchasing a part of a company. If that company makes profit and expands, the value of your stocks also increases.</p>
                         <p>For example, if a company named "BSNL" starts providing Internet connectivity at extremely low rates, it is obvious that people would like to use their services. Now as more people start using their services, the company ends up making more profit. Therefore, the people who invested in this company at the right time, end up making good profits.</p>
                         <p>Throughout the game, keep an eye on newspaper clippings. They'll tell you about the various activities taking place all over the country. These activities may influence stock prices.</p>
-                        <p>"ADD AN IMAGE OF AN EXAMPLE CLIPPING"</p>
+                        <div style={{textAlign:'center'}}><img style={{height:'30%',width:'50%',borderRadius:'5px',marginBottom:'20px'}} src={Photo} alt="stock market"/></div>
                         <p>Based on the above clipping, which company you should be investing in?</p>
                         
                         <form onSubmit={submitHandler}>

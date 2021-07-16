@@ -12,7 +12,7 @@ body{
     font-family: 'Baloo Tammudu 2', cursive;
 }
 
-.justify-content-around button{
+.justify-content-around  .btn-lg{
     background-color: tomato;
 }
 

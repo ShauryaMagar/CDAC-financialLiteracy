@@ -53,7 +53,7 @@ const IntroScreen = () => {
             let obj1 = {
                 name: 'House Insurance',
                 type: 'debit',
-                amount: 9000
+                amount: 8000
             }
             passbook.push(obj1);
         }
@@ -347,7 +347,7 @@ const IntroScreen = () => {
             <div className="row justify-content-around">
                 <div className="col-2">
                     <Link exact to="/">
-                        <button className="btn  btn-lg btn-dark">Back</button>
+                        <button className="btn  btn-danger">Back</button>
                     </Link>
                 </div>
 

@@ -38,8 +38,21 @@ background-repeat: no-repeat; */
   /* background: -webkit-linear-gradient(to top, #A6FFCB, #12D8FA);
   background: linear-gradient(to top, #A6FFCB, #12fafa); */
 }
-
-
+.iButton{
+  background-color: white;
+  border-radius: 50%;
+  width: 40px;
+  margin-left: 10px;
+}
+.iButtonContent{
+  margin-bottom: 30px;
+font-family: "Poppins";
+font-weight: 500;
+border-radius: 15px;
+border: 3px solid black;
+padding-left: 20px;
+background-color: white;
+}
 .dice-roll-page{
   background: #1FA2FF; 
   background: -webkit-linear-gradient(to top, #A6FFCB, #12D8FA, #1FA2FF);  

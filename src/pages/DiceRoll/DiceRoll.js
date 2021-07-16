@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { useEffect } from "react";
 import { useEffectX } from "use-effect-x";
+import Popup from 'reactjs-popup';
 import { useHistory, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
@@ -509,7 +510,7 @@ const DiceRoll = () => {
             <div class="modal-content">
               <div class="modal-header" style={{ textAlign: "center" }}>
                 <h5 class="modal-title" id="exampleModalLongTitle">
-                  Insurance
+                  Assets
                 </h5>
                 <button
                   type="button"
@@ -669,7 +670,7 @@ const DiceRoll = () => {
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className="col-4">
+                  <div className="col-6">
                     <button
                       className="btn dice-page-btn-2"
                       onClick={handleShow}
@@ -677,22 +678,47 @@ const DiceRoll = () => {
                     >
                       Stock Market
                     </button>
+                    <Popup
+                      trigger={open => (
+                        <button className="btn iButton">i</button>
+                      )}
+                      position="top center"
+                      closeOnDocumentClick
+                    > 
+                    <div className="iButtonContent">
+                    Virtual Stock market. The value keeps updating after every move
+
+                    </div>
+                    </Popup>
                   </div>
-                  <div className="col-3" style={{ marginLeft: "40px" }}>
+                  <div className="col-4" style={{ marginLeft: "40px",fontSize:'20px',fontFamily:'Poppins',fontWeight:'600' }}>
                     <strong>
                       ₹{" "}
                       {
                         retrievedObject.moneyInHand[
                           retrievedObject.moneyInHand.length - 1
                         ]
-                      }
+                      } 
+                      <Popup
+                      trigger={open => (
+                        <button className="btn iButton">i</button>
+                      )}
+                      position="top center"
+                      closeOnDocumentClick
+                    > 
+                    <div className="iButtonContent">
+                    Money in-hand. You can use this money to purchase stocks/insurance and other assets 
+
+                    </div>
+                    </Popup>
                     </strong>
+                    
                     <br />
                     <strong>PIN: 2345</strong>
                   </div>
                 </div>
                 <div className="row" style={{ marginTop: "2rem" }}>
-                  <div className="col-4">
+                  <div className="col-6">
                     <button
                       className="btn  dice-page-btn-2"
                       style={{ color: "white" }}
@@ -701,8 +727,20 @@ const DiceRoll = () => {
                     >
                       Assets
                     </button>
+                    <Popup
+                      trigger={open => (
+                        <button className="btn iButton">i</button>
+                      )}
+                      position="top center"
+                      closeOnDocumentClick
+                    > 
+                    <div className="iButtonContent">
+                    All the insurance/Fixed deposits owned 
+
+                    </div>
+                    </Popup>
                   </div>
-                  <div className="col-4">
+                  <div className="col-6">
                     <button
                       className="btn dice-page-btn-2"
                       style={{ color: "white" }}
@@ -710,6 +748,18 @@ const DiceRoll = () => {
                     >
                       Pass Book
                     </button>
+                    <Popup
+                      trigger={open => (
+                        <button className="btn iButton">i</button>
+                      )}
+                      position="top center"
+                      closeOnDocumentClick
+                    > 
+                    <div className="iButtonContent">
+                    Track all your expenses here
+
+                    </div>
+                    </Popup>
                   </div>
                 </div>
               </div>

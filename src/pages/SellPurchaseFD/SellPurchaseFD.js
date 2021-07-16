@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { useHistory } from 'react-router';
+import './SellPurchaseFD.css'
+
 const SellPurchaseFD=()=>{
     const [retrievedObject,setRetrievedObject]=useState({});
     const [amt,setAmt]=useState(0);
@@ -60,23 +62,27 @@ const SellPurchaseFD=()=>{
         localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
         setTimeout(() => {
             history.push("/start")
-        }, 2000)
+        }, 500)
     }
     return(
-        <div className="container">
-            <div className="row justify-content-between" style={{marginTop:'1rem'}}>
+        <div className='spfd-back'>
+                    <div className="row justify-content-between" style={{paddingTop:'2rem'}}>
                 <div className="col-2">
-                    <button onClick={nextPage} className="btn btn-dark">
-                        Back
-                    </button>
+                <button onClick={nextPage} className="btn btn-danger" style={{marginLeft:'2rem'}}>
+        Back
+    </button>
                 </div>
-                <div className="col-2">
-                    <strong>Rs {amt}</strong>
+                <div className="col-2" style={{fontSize:'20px',fontFamily:'Poppins',fontWeight:'600'}}>
+                    <strong>Rs. {amt}</strong>
                 </div>
             </div>
+        <div className="container  spfd-content " style={{marginTop:'2rem',borderRadius:'15px',border:'4px solid black',paddingBottom:'4rem'}}>
+
+
             <div className="row justify-content-center" style={{marginTop:'1rem'}}>
                 <div className="col-10" style={{textAlign:'center'}}>
-                    <p><h1>Fixed Deposits</h1></p>
+                   <h1 style={{fontFamily:'Poppins',fontWeight:'800'}}>Fixed Deposits</h1>
+                    <hr />
                     <p>Rate of Interest: 15%</p>
                     <p>Maturity time: 4 turns</p>
                     <p>Selling Fixed deposits before maturity will result in some loss.</p>
@@ -99,16 +105,18 @@ const SellPurchaseFD=()=>{
                 <div className="col-5" style={{textAlign:'center'}}>
                     {
                         fd!=0?
-                        <button onClick={sellFD} className="btn btn-dark">Sell</button>
+                        <button onClick={sellFD}  className="btn btn-primary" style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px'}}>Sell</button>
                         :
                         <form onSubmit={buyFD}>
-                            <input type="tel" value={bFD} onChange={handleChange}/><br/>
-                            <button style={{marginTop:"1rem"}} type='submit' className="btn btn-dark">Purchase</button>
+                            <input type="tel" value={bFD} onChange={handleChange} style={{padding:'8px',border:'2px solid black',borderRadius:'10px'}}/><br/>
+
+                            <button className="btn btn-primary" type='submit' style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px'}}>Purchase</button>
                         </form>
                             
                     }
                 </div>
             </div>
+        </div>
         </div>
     );
 }

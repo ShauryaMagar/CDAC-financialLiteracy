@@ -1,5 +1,10 @@
 import React,{useEffect,useState} from 'react';
 import { useHistory } from 'react-router';
+import "./SellPurchaseIns.css"
+import HealthIns from './images/health-ins.png'
+import HouseIns from './images/house-ins.png'
+import VehicleIns from './images/car-insurance.png'
+
 const SellPurchaseIns = () =>{
     const [amt,setAmt]=useState(0);
     const [health,setHealth]=useState(false);
@@ -114,20 +119,21 @@ const SellPurchaseIns = () =>{
         }, 2000)
     }
     return(
-        <div className="container">
-            <div className="row justify-content-center" style={{marginTop:'2rem'}}>
+        <div className="spins-back">
+        <div className="container spins-content">
+            <div className="row justify-content-center" style={{paddingTop:'3rem'}}>
                 <div className="col-10" style={{textAlign:'center'}}>
-                    <h1>Purchase/Sell Insurance</h1>
+                    <h1 style={{fontFamily:'Poppins',fontWeight:'700'}}>Purchase/Sell Insurance</h1>
                 </div>
             </div>
             <div className="row justify-content-between">
                 <div className="col-2">
-                    <button onClick={goBack} className="btn btn-dark">
+                    <button onClick={goBack} className="btn btn-danger">
                         Back
                     </button>
                 </div>
-                <div className="col-2">
-                    <strong>Money: Rs {amt}</strong>
+                <div className="col-2" style={{fontSize:'20px',fontFamily:'Poppins',fontWeight:'600'}}>
+                    <strong>Rs. {amt}</strong>
                 </div>
             </div>
             <div className="row justify-content-center" style={{marginTop:"1rem"}}>
@@ -135,42 +141,46 @@ const SellPurchaseIns = () =>{
                     <p>Selling Price of Insurance is lower as compared to the price it is purchased at.</p>
                 </div>
             </div>
-            <div className="row justify-content-center" style={{marginTop:"1rem"}}>
+            <div className="row justify-content-center health-ins-card" style={{marginTop:"1rem"}}>
                 <div className="col-5">
-                    <p><h2>Health Insurance</h2></p>
+                   <h2>Health Insurance</h2>
                     <p>Saves from huge bills when hospitalised</p>
                     <p>Selling Price: Rs 3000</p>
                     <p>Purchase Price: Rs 5000</p>
                     <p>Premium: Rs 200 per turn</p>
                 </div>
                 <div className="col-5" style={{textAlign:'center'}}>
-                    {health?<button onClick={sellHealth} className="btn btn-dark">Sell</button>:<button onClick={purHealth} className="btn btn-dark">Purchase</button>}
+                    {health?<button onClick={sellHealth} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Sell</button>:<button onClick={purHealth} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Purchase</button>}
+                   <br/> <img src={HealthIns} className="animate__animated animate__pulse animate__infinite" height='180px'/>
                 </div>
             </div>
-            <div className="row justify-content-center" style={{marginTop:"1rem"}}>
+            <div className="row justify-content-center house-ins-card" style={{marginTop:"1rem"}}>
                 <div className="col-5" >
-                    <p><h2>House Insurance</h2></p>
+                 <h2>House Insurance</h2>
                     <p>Saves from huge damages in case of any accident in House</p>
                     <p>Selling Price: Rs 5000</p>
                     <p>Purchase Price: Rs 8000</p>
                     <p>Premium: Rs 200 per turn</p>
                 </div>
                 <div className="col-5" style={{textAlign:'center'}}>
-                    {home?<button onClick={sellHome} className="btn btn-dark">Sell</button>:<button onClick={purHome} className="btn btn-dark">Purchase</button>}
+                    {home?<button onClick={sellHome}className="btn btn-primary" style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Sell</button>:<button onClick={purHome} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Purchase</button>}
+                    <br/> <img className="animate__animated animate__fadeInUp" src={HouseIns} height='180px'/>
                 </div>
             </div>
-            <div className="row justify-content-center" style={{marginTop:"1rem"}}>
+            <div className="row justify-content-center vehicle-ins-card" style={{marginTop:"1rem"}}>
                 <div className="col-5">
-                    <p><h2>Vehicle Insurance</h2></p>
+                    <h2>Vehicle Insurance</h2>
                     <p>Saves from huge damages in case of any vehicular accident</p>
                     <p>Selling Price: Rs 4000</p>
                     <p>Purchase Price: Rs 7000</p>
                     <p>Premium: Rs 200 per turn</p>
                 </div>
                 <div className="col-5" style={{textAlign:'center'}}>
-                    {vehicle?<button onClick={sellVehicle} className="btn btn-dark">Sell</button>:<button onClick={purVehicle} className="btn btn-dark">Purchase</button>}
+                    {vehicle?<button onClick={sellVehicle} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Sell</button>:<button onClick={purVehicle} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Purchase</button>}
+                    <br/> <img src={VehicleIns} className="animate__animated animate__fadeInLeftBig animate__delay-2s" height='180px'/>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

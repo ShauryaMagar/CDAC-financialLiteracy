@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { useHistory } from 'react-router';
+import "./SellPurchaseStock.css"
+
 const SellPurchaseStock=()=>{
     const history=useHistory();
     const [retrievedObject,setRetrievedObject]= useState({});
@@ -166,48 +168,48 @@ const SellPurchaseStock=()=>{
     const changeSteel=(e)=>setBsteel(e.target.value);
     const displayOil=(
             <form onSubmit={purchaseOil}>
-                <input type="text" value={boil} onChange={changeOil}/>
-                <button className="btn btn-dark" type="submit">Purchase</button>
+                <input type="text" value={boil} onChange={changeOil} style={{border:'2px solid black', padding:'8px',borderRadius:'10px',outline:'none',fontWeight:'600',fontFamily:'Poppins'}}/>
+                <button className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}} type="submit">Purchase</button>
             </form>
     )
     const displayMed=(
             <form onSubmit={purchaseMed}>
-                <input type="text" value={bmed} onChange={changeMed}/>
-                <button className="btn btn-dark" type="submit">Purchase</button>
+                <input type="text" value={bmed} onChange={changeMed} style={{border:'2px solid black', padding:'8px',borderRadius:'10px',outline:'none',fontWeight:'600',fontFamily:'Poppins'}}/>
+                <button className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}type="submit">Purchase</button>
             </form>
     )
     const displaySteel=(
             <form onSubmit={purchaseSteel}>
-                <input type="text" value={bsteel} onChange={changeSteel}/>
-                <button className="btn btn-dark" type="submit">Purchase</button>
+                <input type="text" value={bsteel} onChange={changeSteel} style={{border:'2px solid black', padding:'8px',borderRadius:'10px',outline:'none',fontWeight:'600',fontFamily:'Poppins'}}/>
+                <button className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}} type="submit">Purchase</button>
             </form>
     )
     const displayAuto=(
             <form onSubmit={purchaseAuto}>
-                <input type="text"  value={bauto} onChange={changeAuto}/>
-                <button className="btn btn-dark" type="submit">Purchase</button>
+                <input type="text"  value={bauto} onChange={changeAuto} style={{border:'2px solid black', padding:'8px',borderRadius:'10px',outline:'none',fontWeight:'600',fontFamily:'Poppins'}}/>
+                <button className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}} type="submit">Purchase</button>
             </form>
         
     )
     return (
         <>
 
-        <div className="container">
+        <div className="container spstock-content">
             <div className="row justify-content-center" style={{marginTop:"2rem"}}>
-                <div className="col-8" style={{textAlign:"center"}}>
-                   <h1>Sell/Purchase Stocks</h1> 
+                <div className="col-10" style={{textAlign:"center"}}>
+                   <h1 style={{fontFamily:'Poppins',fontWeight:'700'}}>Sell/Purchase Stocks</h1> 
                 </div>
-                <div className="col-3">
-                    Money: Rs {amt}
+                <div className="col-2" style={{fontSize:'20px',fontFamily:'Poppins',fontWeight:'600'}}>
+                    Rs. {amt}
                 </div>
             </div>
             <div className="row justify-content-around" style={{marginTop:"1rem"}}>
                 <div className="col-2">
-                    Add Oil image here
+                   <p>Add Oil image here</p> 
                 </div>
                 <div className="col-4">
-                    Current Value: {oil} <br/>
-                    {oil===0?"":<button onClick={sellOil} className="btn btn-dark">Sell</button>}
+                  <p>Current Value: {oil}</p>   <br/>
+                    {oil===0?"":<button onClick={sellOil} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
                     {oil===0?displayOil:""}
@@ -216,11 +218,11 @@ const SellPurchaseStock=()=>{
             </div>
             <div className="row justify-content-around" style={{marginTop:"1rem"}}>
                 <div className="col-2">
-                    Add Pharma image here
+                    <p>Add Pharma image here</p>
                 </div>
                 <div className="col-4">
-                    Current Value: {med} <br/>
-                    {med===0?"":<button onClick={sellMed} className="btn btn-dark">Sell</button>}
+                <p>Current Value: {med}</p> <br/>
+                    {med===0?"":<button onClick={sellMed} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
                     {med===0?displayMed:""}
@@ -229,22 +231,22 @@ const SellPurchaseStock=()=>{
             </div>
             <div className="row justify-content-around" style={{marginTop:"1rem"}}>
                 <div className="col-2">
-                    Add steel image here
+                <p>Add Steel image here</p>
                 </div>
                 <div className="col-4">
-                    Current Value: {steel} <br/>
-                    {steel===0?"":<button onClick={sellSteel} className="btn btn-dark">Sell</button>}
+                <p>Current Value: {steel}</p> <br/>
+                    {steel===0?"":<button onClick={sellSteel} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
                     {steel===0?displaySteel:""}
                 </div>
             </div><div className="row justify-content-around" style={{marginTop:"1rem"}}>
                 <div className="col-2">
-                    Add auto image here
+                <p>Add auto image here</p>
                 </div>
                 <div className="col-4">
-                    Current Value: {auto} <br/>
-                    {auto===0?"":<button onClick={sellAuto} className="btn btn-dark">Sell</button>}
+                <p>Current Value: {auto}</p> <br/>
+                    {auto===0?"":<button onClick={sellAuto} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
                     {auto===0?displayAuto:""}

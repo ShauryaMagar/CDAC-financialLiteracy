@@ -6,7 +6,7 @@ import "./mcq.css";
 
 const question = {
   q:"PAN means:",
-  a:"  A kind of utensil",
+  a:"  Permanent Annual Number",
   b:"  Primary Account Number",
   c:"  Permanent Account Number",
   d:"  None of above",

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Increase from './upward-arrow.png'
 import './Level8.css'
 import { bottom } from '@popperjs/core';
+import SellPurchaseStock from '../SellPurchaseStock/SellPurchaseStock';
 
 const Eight=()=>{
     const history=useHistory();
@@ -37,7 +38,19 @@ const Eight=()=>{
         },750)
     }
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
+const SellPurchaseStock=()=>{
+    var update = parseInt(steel * 0.4) + parseInt(steel);
 
+    // let addAmt=parseFloat(amt)+update
+
+    retrievedObject.stocks.steel = update;
+
+    // retrievedObject.moneyInHand=addAmt;
+    localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
+    setTimeout(() => {
+        history.push("/SPStock")
+    }, 750)
+}
 if(retrievedObj.stocks.steel){
     return (
         <>
@@ -64,8 +77,7 @@ if(retrievedObj.stocks.steel){
                            The Price has increased by a whopping 40% to ₹ {parseFloat(steel)*0.4+parseFloat(steel)}
                            <br/><br/>
                            <button className="btn btn-light btn-lg" onClick={nextPage}>Next</button>
-                           <br/><br/>
-                           <Link to="/SPStock"><button className="btn btn-light btn-lg" >Sell / Buy Stocks</button></Link>
+                           <br/><br/><button onClick={SellPurchaseStock} className="btn btn-light btn-lg" >Sell / Buy Stocks</button>
                         </h4>
                     </div>
                 </div>

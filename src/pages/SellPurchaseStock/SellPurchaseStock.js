@@ -79,78 +79,98 @@ const SellPurchaseStock=()=>{
     }
     const purchaseOil=(e)=>{
         e.preventDefault();
-        if(amt-boil<1000){
-            alert("Too low");
+        if (boil == "" || !Number.isInteger(parseInt(boil))) {
+            alert("Enter Number")
         }else{
-            setAmt(amt-boil);
-            let obj12 = passbook;
-            let obj = {
-                name: "Oil stocks purchased",
-                type: 'debit',
-                amount: boil
+            if (amt - boil < 100) {
+                alert("Too low");
+            } else {
+                setAmt(amt - boil);
+                let obj12 = passbook;
+                let obj = {
+                    name: "Oil stocks purchased",
+                    type: 'debit',
+                    amount: boil
+                }
+                obj12.push(obj);
+                setPassbook(obj12);
+                setOil(boil);
+                setBoil(0);
             }
-            obj12.push(obj);
-            setPassbook(obj12);
-            setOil(boil);
-            setBoil(0);
         }
+        
         
     }
     const purchaseMed=(e)=>{
         e.preventDefault();
-        if(amt-bmed<1000){
-            alert("Too low");
+        if (bmed == "" || !Number.isInteger(parseInt(bmed))) {
+            alert("Enter Number")
         }else{
-            setAmt(amt-bmed);
-            let obj12 = passbook;
-            let obj = {
-                name: "Pharmaceutical stocks purchased",
-                type: 'debit',
-                amount: bmed
+            if (amt - bmed < 100) {
+                alert("Too low");
+            } else {
+                setAmt(amt - bmed);
+                let obj12 = passbook;
+                let obj = {
+                    name: "Pharmaceutical stocks purchased",
+                    type: 'debit',
+                    amount: bmed
+                }
+                obj12.push(obj);
+                setPassbook(obj12);
+                setMed(bmed);
+                setBmed(0);
             }
-            obj12.push(obj);
-            setPassbook(obj12);
-            setMed(bmed);
-            setBmed(0);
         }
+        
     }
     const purchaseSteel=(e)=>{
         e.preventDefault();
-        if(amt-bsteel<1000){
-            alert("Too low");
+        if (bsteel == "" || !Number.isInteger(parseInt(bsteel))){
+            alert("Enter Number")
         }else{
-            setAmt(amt-bsteel);
-            let obj12 = passbook;
-            let obj = {
-                name: "Steel stocks purchased",
-                type: 'debit',
-                amount: bsteel
+            if (amt - bsteel < 100) {
+                alert("Too low");
+            } else {
+                setAmt(amt - bsteel);
+                let obj12 = passbook;
+                let obj = {
+                    name: "Steel stocks purchased",
+                    type: 'debit',
+                    amount: bsteel
+                }
+                obj12.push(obj);
+                setPassbook(obj12);
+                setSteel(bsteel);
+                setBsteel(0);
             }
-            obj12.push(obj);
-            setPassbook(obj12);
-            setSteel(bsteel);
-            setBsteel(0);
         }
     }
     const purchaseAuto = (e) => {
         e.preventDefault();
-        if(amt-bauto<1000){
-            alert("Too low");
+        if (bauto == "" || !Number.isInteger(parseInt(bauto))){
+            alert("Enter Number")
         }else{
-            setAmt(amt-bauto);
-            let obj12 = passbook;
-            let obj = {
-                name: "Automobile stocks purchased",
-                type: 'debit',
-                amount: bauto
+            if (amt - bauto < 100) {
+                alert("Too low");
+            } else {
+                setAmt(amt - bauto);
+                let obj12 = passbook;
+                let obj = {
+                    name: "Automobile stocks purchased",
+                    type: 'debit',
+                    amount: bauto
+                }
+                obj12.push(obj);
+                setPassbook(obj12);
+                setAuto(bauto);
+                setBauto(0);
             }
-            obj12.push(obj);
-            setPassbook(obj12);
-            setAuto(bauto);
-            setBauto(0);
         }
+        
     }
     const nextPage=()=>{
+
         retrievedObject.stocks.med=med;
         retrievedObject.stocks.steel = steel;
         retrievedObject.passbook=passbook;

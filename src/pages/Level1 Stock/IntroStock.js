@@ -13,6 +13,9 @@ const IntroStock=()=>{
     const [oil,setOil]=React.useState(0);
     const [passbook,setPassbook]=React.useState();
     const [auto,setAuto]=React.useState(0);
+    const [CVV,setCVV]=React.useState("");
+    const [creditNo,setCreditNo]=React.useState("");
+    const [pin,setPin]=React.useState("");
     useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
@@ -70,36 +73,87 @@ const IntroStock=()=>{
             history.push('/start');
         }, 1000)
     }
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        var pin1=pin;
+        var CVV1=CVV;
+        var creditNo1=creditNo;
+        pin1=pin1.replaceAll(" ","").trim();
+        CVV1=CVV1.replaceAll(" ","").trim();
+        creditNo1=creditNo1.replaceAll(" ","").trim();
+        if(pin1!='2345'||CVV1!='418'||creditNo1!='2658418599340206'){
+            alert("Enter proper Details!");
+            setShow(true);
+        }else{
+            setPin("");
+            setCVV("");
+            setCreditNo("");
+            setShow(false)
+        }
+    };
     const handleShow = () => setShow(true);
     const history = useHistory();
     const submitOil=(e)=>{
         e.preventDefault();
-        let num = oil;
-        setAmt(amt - num);
-        setShow(true);
+        if (oil == "" || !Number.isInteger(parseInt(oil))) {
+            alert("Enter Number")
+        } else {
+            if (amt - oil < 100) {
+                alert("Money In hand will be less than 100.");
+            } else {
+                let num = oil;
+                setOil(num);
+                setAmt(amt - num);
+                setShow(true);
+            }
+        }
     }
     const submitMed = (e) => {
         e.preventDefault();
-        let num = med;
-        setMed(num);
-        setAmt(amt - num);
-        setShow(true);
+        if (med == "" || !Number.isInteger(parseInt(med))) {
+            alert("Enter Number")
+        } else {
+            if (amt - med < 100) {
+                alert("Money In hand will be less than 100.");
+            } else {
+                let num = med;
+                setMed(num);
+                setAmt(amt - num);
+                setShow(true);
+            }
+        }
     }
     const submitSteel = (e) => {
 
         e.preventDefault();
-        let num = steel;
-        setSteel(num);
-        setAmt(amt-num);
-        setShow(true);
+        if (steel == "" || !Number.isInteger(parseInt(steel))) {
+            alert("Enter Number")
+        } else {
+            if (amt - steel < 100) {
+                alert("Money In hand will be less than 100.");
+            } else {
+                let num = steel;
+                setSteel(num);
+                setAmt(amt - num);
+                setShow(true);
+            }
+        }
+        
     }
     const submitAuto = (e) => {
         e.preventDefault();
-        let num = auto;
-        setAuto(num);
-        setAmt(amt-num);
-        setShow(true);
+        if (auto == "" || !Number.isInteger(parseInt(auto))) {
+            alert("Enter Number")
+        } else {
+            if (amt - auto < 100) {
+                alert("Money In hand will be less than 100.");
+            } else {
+                let num = auto;
+                setAuto(num);
+                setAmt(amt - num);
+                setShow(true);
+            }
+        }
+        
     }
     const changeOil=(e)=>{
         setOil(e.target.value)
@@ -111,6 +165,9 @@ const IntroStock=()=>{
         setSteel(e.target.value);
     }
     const changeAuto =(e)=> setAuto(e.target.value);
+    const handlePin=(e)=>setPin(e.target.value);
+    const handleCreditNo=e=>setCreditNo(e.target.value);
+    const handleCVV=e=>setCVV(e.target.value);
      if (isLoaded) {
             return (
         <>
@@ -269,15 +326,15 @@ const IntroStock=()=>{
                 <div className="row justify-content-center" style={{marginTop:"1rem"}}>
                     <div className="col-10">
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-lg" id="PIN" aria-describedby="emailHelp" placeholder="Enter Your PIN"/>
+                            <input type="email" class="form-control form-control-lg" id="PIN" value={pin} onChange={handlePin} aria-describedby="emailHelp" placeholder="Enter Your PIN"/>
                                             
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-lg" id="CVV" aria-describedby="emailHelp" placeholder="Enter Your CVV"/>
+                            <input type="email" class="form-control form-control-lg" id="CVV" value={CVV} onChange={handleCVV} aria-describedby="emailHelp" placeholder="Enter Your CVV"/>
                                             
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-lg" id="Card Number" aria-describedby="emailHelp" placeholder="Enter Your CVV"/>
+                            <input type="email" class="form-control form-control-lg" id="Card Number" value={creditNo} onChange={handleCreditNo} aria-describedby="emailHelp" placeholder="Enter Your Card Number"/>
                                             
                         </div>
                     </div>

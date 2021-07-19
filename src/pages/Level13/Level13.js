@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Decrease from "./images/downward-arrow.png";
 import "./Level13.css";
 import { bottom } from "@popperjs/core";
+import SellPurchaseStock from "../SellPurchaseStock/SellPurchaseStock";
 
 const Thirteen = () => {
   const history = useHistory();
@@ -32,6 +33,19 @@ const Thirteen = () => {
       history.push("/start");
     }, 1000);
   };
+  const SellPurchaseStock=()=>{
+    var update = parseFloat(oil) - parseFloat(oil * 0.3);
+
+    // let addAmt=parseFloat(amt)+update
+
+    retrievedObject.stocks.oil = update;
+
+    // retrievedObject.moneyInHand=addAmt;
+    localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
+    setTimeout(() => {
+      history.push("/SPStock");
+    }, 1000);
+  }
   let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
 
   if (retrievedObj.stocks.oil) {
@@ -79,11 +93,9 @@ const Thirteen = () => {
                   </button>
                   <br />
                   <br />
-                  <Link to="/SPStock">
-                    <button className="btn btn-light btn-lg">
+                    <button onClick={SellPurchaseStock} className="btn btn-light btn-lg">
                       Sell / Buy Stocks
                     </button>
-                  </Link>
                 </h4>
               </div>
             </div>

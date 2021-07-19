@@ -20,6 +20,7 @@ const DiceRoll = () => {
   const [steel, setSteel] = React.useState(0);
   const [oil, setOil] = React.useState(0);
   const [auto, setAuto] = React.useState(0);
+  const [net,setNet]=React.useState([]);
   const [timesRolled,setTimesRolled]=React.useState();
   const [passbook,setPassbook]=React.useState({});
   const medChange = Math.floor(Math.random() * 15) - 2;
@@ -41,6 +42,11 @@ const DiceRoll = () => {
     setOil(retrievedObj.stocks.oil);
     setAuto(retrievedObj.stocks.auto);
     setPassbook(retrievedObj.passbook);
+    var nw = parseInt(retrievedObj.stocks.med) + parseInt(retrievedObj.stocks.steel) + parseInt(retrievedObj.stocks.oil) + parseInt(retrievedObj.stocks.auto) + parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]) + parseInt(retrievedObj.fixedDeposit.purchased);
+    console.log(nw)
+    var nwArr=retrievedObj.netWorth;
+    nwArr.push(nw);
+    setNet(nwArr);
     setTimesRolled(retrievedObj.timesRolled);
     setIsLoaded(true);
   }, []);
@@ -329,20 +335,22 @@ const DiceRoll = () => {
   // retrievedObject.stocks.steel=(parseInt(steel)+(parseInt(steel)*steelChange)/100);
   // retrievedObject.currentLevel=update;
   // localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-  let retrievedObt = JSON.parse(localStorage.getItem("financialLiteracy"));
-  var totalStocksFdValue =
-    parseFloat(retrievedObt.stocks.oil) +
-    parseFloat(retrievedObt.stocks.med) +
-    parseFloat(retrievedObt.stocks.auto) +
-    parseFloat(retrievedObt.stocks.steel) +
-    parseFloat(retrievedObt.fixedDeposit.purchased);
-  // var moneycurrent=retrievedObt.moneyInHand
-  var netWorth = retrievedObt.moneyInHand.map(function (value) {
-    return value + totalStocksFdValue;
-  });
-  for (var i = 0; i < netWorth.length; i++) {
-    if (netWorth[i] == netWorth[i + 1]) {
-      netWorth.splice(i, 1);
+  // let retrievedObt = JSON.parse(localStorage.getItem("financialLiteracy"));
+  // var totalStocksFdValue =
+  //   parseFloat(retrievedObt.stocks.oil) +
+  //   parseFloat(retrievedObt.stocks.med) +
+  //   parseFloat(retrievedObt.stocks.auto) +
+  //   parseFloat(retrievedObt.stocks.steel) +
+  //   parseFloat(retrievedObt.fixedDeposit.purchased);
+  // // var moneycurrent=retrievedObt.moneyInHand
+  // console.log(retrievedObt);
+  // var netWorth = retrievedObt.moneyInHand.map(function (value) {
+  //   return value + totalStocksFdValue;
+  // });
+  
+  for (var i = 0; i < net.length; i++) {
+    if (net[i] == net[i + 1]) {
+      net.splice(i, 1);
     } else {
       continue;
     }
@@ -387,7 +395,7 @@ const DiceRoll = () => {
     datasets: [
       {
         label: "Net Worth",
-        data: netWorth,
+        data: net,
         fill: true,
         backgroundColor: "#00ff7349",
         borderColor: "#00ff73",

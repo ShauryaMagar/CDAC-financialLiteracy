@@ -9,6 +9,9 @@ const Three=()=>{
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money,setMoney]=React.useState(0);
     const [passbook,setPassbook]=React.useState();
+    const [CVV, setCVV] = React.useState("");
+    const [creditNo, setCreditNo] = React.useState("");
+    const [pin, setPin] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
@@ -20,22 +23,37 @@ const Three=()=>{
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const onSubmit=()=>{
-        let obj12=passbook;
-        let obj={
-            name:'First Financial Transaction',
-            type:'credit',
-            amount:2000
+        var pin1 = pin;
+        var CVV1 = CVV;
+        var creditNo1 = creditNo;
+        pin1 = pin1.replaceAll(" ", "").trim();
+        CVV1 = CVV1.replaceAll(" ", "").trim();
+        creditNo1 = creditNo1.replaceAll(" ", "").trim();
+        if (pin1 != '2345' || CVV1 != '418' || creditNo1 != '2658418599340206') {
+            alert("Enter proper Details!");
+            setShow(true);
+        } else {
+            let obj12 = passbook;
+            let obj = {
+                name: 'First Financial Transaction',
+                type: 'credit',
+                amount: 2000
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
+            retrievedObject.passbook = passbook
+            retrievedObject.moneyInHand.push(parseInt(money) + 2000);
+            localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
+            alert("You've been awarded Rs 2000 for completing your first financial transaction");
+            setTimeout(() => {
+                history.push('/start');
+            }, 1000);
         }
-        obj12.push(obj);
-        setPassbook(obj12);
-        retrievedObject.passbook=passbook
-        retrievedObject.moneyInHand.push(parseInt(money)+2000);
-        localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        alert("You've been awarded Rs 2000 for completing your first financial transaction");
-        setTimeout(()=>{
-            history.push('/start');
-        },1000);
+        
     }
+    const handlePin = (e) => setPin(e.target.value);
+    const handleCreditNo = e => setCreditNo(e.target.value);
+    const handleCVV = e => setCVV(e.target.value);
     return(
         <>
         <Modal show={show} onHide={handleClose} animation={false}>
@@ -120,15 +138,15 @@ const Three=()=>{
                                     <div className="row justify-content-start" style={{marginTop:'2rem'}}>
                                         <div className="col-12">
                                             <div class="form-group">
-                                            <input type="email" class="form-control form-control-lg" id="Credit Card number" aria-describedby="emailHelp" placeholder="Enter Your credit card number"/>
+                                            <input type="email" value={creditNo} onChange={handleCreditNo} class="form-control form-control-lg" id="Credit Card number" aria-describedby="emailHelp" placeholder="Enter Your credit card number"/>
                                             
                                         </div>
                                          <div class="form-group">
-                                            <input type="email" class="form-control form-control-lg" id="PIN" aria-describedby="emailHelp" placeholder="Enter Your PIN"/>
+                                            <input type="email" value={pin} onChange={handlePin} class="form-control form-control-lg" id="PIN" aria-describedby="emailHelp" placeholder="Enter Your PIN"/>
                                             
                                         </div>
                                          <div class="form-group">
-                                            <input type="email" class="form-control form-control-lg" id="CVV" aria-describedby="emailHelp" placeholder="Enter Your CVV"/>
+                                            <input type="email" value={CVV} onChange={handleCVV} class="form-control form-control-lg" id="CVV" aria-describedby="emailHelp" placeholder="Enter Your CVV"/>
                                             
                                         </div>
                                         </div>

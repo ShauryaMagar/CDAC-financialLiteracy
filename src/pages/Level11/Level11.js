@@ -32,6 +32,19 @@ const Eleven = () => {
       history.push("/start");
     }, 1000);
   };
+  const SellPurchase=()=>{
+    var update = parseFloat(med * 0.4) + parseFloat(med);
+
+    // let addAmt=parseFloat(amt)+update
+
+    retrievedObject.stocks.med = update;
+
+    // retrievedObject.moneyInHand=addAmt;
+    localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
+    setTimeout(() => {
+      history.push("/SPStock");
+    }, 1000);
+  }
   let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
 
   if (retrievedObj.stocks.med) {
@@ -79,11 +92,9 @@ const Eleven = () => {
                   </button>
                   <br />
                   <br />
-                  <Link to="/SPStock">
-                    <button className="btn btn-light btn-lg">
+                    <button onClick={SellPurchase} className="btn btn-light btn-lg">
                       Sell / Buy Stocks
                     </button>
-                  </Link>
                 </h4>
               </div>
             </div>

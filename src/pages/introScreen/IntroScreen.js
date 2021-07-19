@@ -17,6 +17,8 @@ const IntroScreen = () => {
         var input =inpFD;
         if(amt-input<0){
             alert("not possible");
+        }else if(input=="" || !Number.isInteger(parseInt(input))){
+            alert("Input a number");
         }else{
             setAmt(amt-input);
             setFD(input);
@@ -25,6 +27,7 @@ const IntroScreen = () => {
     }
     const onSubmission = () => {
         const passbook=[];
+        const netWorth=[];
         if(FD!=0){
             let obj1={
                 name:'Fixed Deposit',
@@ -72,6 +75,7 @@ const IntroScreen = () => {
                     sellingPrice:'5000',
                 }
             },
+            netWorth:[parseInt(amt)+parseInt(FD)],
             timesRolled:0,
             passbook:passbook,
             levelset1: [1,3,4],

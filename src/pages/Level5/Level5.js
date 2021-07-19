@@ -11,6 +11,8 @@ const Level5=()=>{
     const [money, setMoney] = React.useState(0);
     const [show, setShow] = React.useState(false);
     const [passbook,setPassbook]=React.useState();
+    const [pin, setPin] = React.useState("");
+    const [CVV, setCVV] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
@@ -22,21 +24,29 @@ const Level5=()=>{
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const wrongChoice=()=>{
-        let obj12=passbook;
-        let obj={
-            name:'Online Banking Scam',
-            type:'debit',
-            amount:5000
+        var pin1 = pin;
+        var CVV1 = CVV;
+        pin1 = pin1.replaceAll(" ", "").trim();
+        CVV1 = CVV1.replaceAll(" ", "").trim();
+        if (pin1 != '2345' || CVV1 != '418') {
+            alert("Enter proper Details!");
+        } else{
+            let obj12 = passbook;
+            let obj = {
+                name: 'Online Banking Scam',
+                type: 'debit',
+                amount: 5000
+            }
+            obj12.push(obj);
+            setPassbook(obj12);
+            retrievedObject.passbook = passbook;
+            retrievedObject.moneyInHand.push(parseInt(money) - 5000);
+            localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
+            alert("You've been scammed. Never Enter personal details on unknown websites. Rs 5000 deducted!");
+            setTimeout(() => {
+                history.push("/moreScam");
+            }, 1000);
         }
-        obj12.push(obj);
-        setPassbook(obj12);
-        retrievedObject.passbook=passbook;
-        retrievedObject.moneyInHand.push(parseInt(money)-5000);
-        localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        alert("You've been scammed. Never Enter personal details on unknown websites. Rs 5000 deducted!");
-        setTimeout(()=>{
-            history.push("/moreScam");
-        },1000);
     }
     const rightChoice=()=>{
         let obj12 = passbook;
@@ -55,6 +65,8 @@ const Level5=()=>{
             history.push("/moreScam");
         }, 1000);
     }
+    const handlePin = (e) => setPin(e.target.value);
+    const handleCVV = e => setCVV(e.target.value);
     return(
         <div style={{backgroundColor:'black',paddingTop:'4rem'}}>
         <Modal show={show} onHide={handleClose} animation={false}>
@@ -88,11 +100,11 @@ const Level5=()=>{
                                     <div className="col-10">
                                            
                                          <div class="form-group">
-                                            <input type="email" class="form-control form-control-lg" id="PIN" aria-describedby="emailHelp" placeholder="Enter Your PIN"/>
+                                            <input type="email" value={pin} onChange={handlePin} class="form-control form-control-lg" id="PIN" aria-describedby="emailHelp" placeholder="Enter Your PIN"/>
                                             
                                         </div>
                                          <div class="form-group">
-                                            <input type="email" class="form-control form-control-lg" id="CVV" aria-describedby="emailHelp" placeholder="Enter Your CVV"/>
+                                            <input type="email" value={CVV} onChange={handleCVV} class="form-control form-control-lg" id="CVV" aria-describedby="emailHelp" placeholder="Enter Your CVV"/>
                                             
                                         </div>
                                         <div className="form-group row">

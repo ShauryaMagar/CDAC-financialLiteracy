@@ -2,3 +2,42 @@
     font-family: 'Poppins';
     font-weight: 500;
 }
+
+.purchase-card{
+    border-radius: 15px;
+    border:2px solid black
+
+}
+
+
+.spstock-back{
+    background: #c9d6ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #c9d6ff, #e2e2e2); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #c9d6ff, #e2e2e2);
+}
+
+.purchase-card-oil{
+    background: #CAC531;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #CAC531, #F3F9A7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #CAC531, #F3F9A7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.purchase-card-pharma{
+    background: #43C6AC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #43C6AC, #F8FFAE);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #43C6AC, #F8FFAE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.purchase-card-steel{
+    background: #ada996; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ada996,  #eaeaea); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ada996,  #eaeaea); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.purchase-card-automobile{
+    background: #757f9a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #757f9a, #d7dde8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #757f9a, #d7dde8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

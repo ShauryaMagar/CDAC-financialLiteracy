@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import Hospital from "./images/hospital.png";
+import './Level10.css'
 const Ten = () => {
   const history = useHistory();
   const [isLoaded, setIsLoaded] = React.useState(false);
@@ -52,10 +53,11 @@ const Ten = () => {
   if (health) {
     return (
       <>
+      <div className='hospi-back'>
         <div className="container-fluid">
           <div
             className="row justify-content-center"
-            style={{ marginTop: "2rem" }}
+            style={{ paddingTop: "2rem" }}
           >
             <div
               className="col-10"
@@ -64,9 +66,11 @@ const Ten = () => {
                 color: "black",
                 textAlign: "center",
                 padding: "2rem",
+                border:'5px solid black',
+                borderRadius:'20px'
               }}
             >
-              <div style={{ textAlign: "right" }}>Balance: {amt}</div>
+              <div style={{ textAlign: "right" ,fontFamily:'Poppins',fontWeight:'700'}}>Balance: {amt}</div>
               <div>
                 <h1>
                   {" "}
@@ -98,15 +102,17 @@ const Ten = () => {
             </div>
           </div>
         </div>{" "}
+        </div>
       </>
     );
   } else {
     return (
       <>
+      <div className='hospi-back'>
         <div className="container-fluid">
           <div
             className="row justify-content-center"
-            style={{ marginTop: "2rem" }}
+            style={{ paddingTop: "2rem" }}
           >
             <div
               className="col-10"
@@ -115,9 +121,11 @@ const Ten = () => {
                 color: "black",
                 textAlign: "center",
                 padding: "2rem",
+                border:'5px solid black',
+                borderRadius:'20px'
               }}
             >
-              <div style={{ textAlign: "right" }}>Balance: {amt}</div>
+              <div style={{ textAlign: "right",fontFamily:'Poppins',fontWeight:'700'}}>Balance: {amt}</div>
               <div>
                 <h1>
                   {" "}
@@ -146,6 +154,7 @@ const Ten = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </>
     );

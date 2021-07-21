@@ -78,8 +78,8 @@ const Three=()=>{
                              <div className="col-6">
                                 <h1>Bill Payment</h1>
                              </div>
-                             <div className="col-3">
-                                 PIN: 2134
+                             <div className="col-3" style={{fontWeight:'700',fontFamily:'Poppins'}}>
+                                 PIN: 2345
                              </div>
                             </div>
                             <div className="row justify-content-center">

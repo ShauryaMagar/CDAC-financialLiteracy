@@ -1,6 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import { useHistory } from 'react-router';
 import "./SellPurchaseStock.css"
+import Oil from './images/factory.png'
+import Pharma from './images/vitamin.png'
+import Steel from './images/beam.png'
+import Auto from './images/automobile.png'
 
 const SellPurchaseStock=()=>{
     const history=useHistory();
@@ -180,7 +184,7 @@ const SellPurchaseStock=()=>{
         localStorage.setItem("financialLiteracy", JSON.stringify(retrievedObject));
         setTimeout(()=>{
             history.push("/start")
-        },2000)
+        },500)
     }
     const changeOil=(e)=>setBoil(e.target.value);
     const changeMed=(e)=>setBmed(e.target.value);
@@ -213,21 +217,26 @@ const SellPurchaseStock=()=>{
     )
     return (
         <>
-
+    <div className="spstock-back">
         <div className="container spstock-content">
-            <div className="row justify-content-center" style={{marginTop:"2rem"}}>
-                <div className="col-10" style={{textAlign:"center"}}>
+            <div className="row justify-content-center" style={{paddingTop:"2rem"}}>
+                <div className="col-8" style={{textAlign:"center"}}>
                    <h1 style={{fontFamily:'Poppins',fontWeight:'700'}}>Sell/Purchase Stocks</h1> 
                 </div>
-                <div className="col-2" style={{fontSize:'20px',fontFamily:'Poppins',fontWeight:'600'}}>
+                <div className="col-2" style={{fontSize:'20px',fontFamily:'Poppins',fontWeight:'700'}}>
                     Rs. {amt}
                 </div>
-            </div>
-            <div className="row justify-content-around" style={{marginTop:"1rem"}}>
                 <div className="col-2">
-                   <p>Add Oil image here</p> 
+                    <button className="btn btn-dark  btn-block" onClick={nextPage} style={{fontFamily:'Poppins',fontWeight:'700'}}>Next Page</button>
                 </div>
-                <div className="col-4">
+            </div>
+            
+            <div className="row justify-content-around purchase-card purchase-card-oil" style={{marginTop:"1rem",paddingLeft:'20px'}}>
+                <div className="col-3">
+                    <h2 style={{fontFamily:'Poppins',fontWeight:'700',textAlign:'center'}}>Oil & Gas</h2>
+                   <center> <img src={Oil} height='100px'/> </center>
+                </div>
+                <div className="col-3">
                   <p>Current Value: {oil}</p>   <br/>
                     {oil===0?"":<button onClick={sellOil} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
@@ -236,11 +245,12 @@ const SellPurchaseStock=()=>{
                 </div>
                 
             </div>
-            <div className="row justify-content-around" style={{marginTop:"1rem"}}>
-                <div className="col-2">
-                    <p>Add Pharma image here</p>
+            <div className="row justify-content-around purchase-card purchase-card-pharma" style={{marginTop:"1rem",paddingLeft:'20px'}}>
+                <div className="col-3">
+                <h2 style={{fontFamily:'Poppins',fontWeight:'700',textAlign:'center'}}>Pharmaceutical</h2>
+                   <center> <img src={Pharma} height='100px'/> </center> 
                 </div>
-                <div className="col-4">
+                <div className="col-3">
                 <p>Current Value: {med}</p> <br/>
                     {med===0?"":<button onClick={sellMed} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
@@ -249,22 +259,24 @@ const SellPurchaseStock=()=>{
                 </div>
                 
             </div>
-            <div className="row justify-content-around" style={{marginTop:"1rem"}}>
-                <div className="col-2">
-                <p>Add Steel image here</p>
+            <div className="row justify-content-around purchase-card purchase-card-steel" style={{marginTop:"1rem",paddingLeft:'20px'}}>
+                <div className="col-3">
+                <h2 style={{fontFamily:'Poppins',fontWeight:'700',textAlign:'center'}}>Steel</h2>
+                   <center> <img src={Steel} height='100px'/> </center>
                 </div>
-                <div className="col-4">
+                <div className="col-3">
                 <p>Current Value: {steel}</p> <br/>
                     {steel===0?"":<button onClick={sellSteel} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
                     {steel===0?displaySteel:""}
                 </div>
-            </div><div className="row justify-content-around" style={{marginTop:"1rem"}}>
-                <div className="col-2">
-                <p>Add auto image here</p>
+            </div><div className="row justify-content-around purchase-card purchase-card-automobile" style={{marginTop:"1rem",paddingLeft:'20px'}}>
+                <div className="col-3">
+                <h2 style={{fontFamily:'Poppins',fontWeight:'700',textAlign:'center'}}>Automobile</h2>
+                   <center> <img src={Auto} height='100px'/> </center>
                 </div>
-                <div className="col-4">
+                <div className="col-3">
                 <p>Current Value: {auto}</p> <br/>
                     {auto===0?"":<button onClick={sellAuto} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
@@ -273,13 +285,9 @@ const SellPurchaseStock=()=>{
                 </div>
                 
             </div>
-            <div className="row justify-content-end" style={{marginTop:'2rem'}}>
-                <div className="col-4">
-                    <button className="btn btn-dark" onClick={nextPage}>Next Page</button>
-                </div>
-            </div>
+<br/><br/>
         </div>
-
+        </div>
         </>
     );
 };

@@ -1114,6 +1114,7 @@ const DiceRoll = () => {
             </Button>
           </Modal.Footer>
         </Modal>
+        
       </>
     );
   } else {

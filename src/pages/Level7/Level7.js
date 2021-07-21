@@ -59,6 +59,7 @@ const Seven = ()=>{
                     <div>
                         <img src={Fire} alt="House fire"/>
                     </div>
+                    <br/>
                     <div>
                         <h4>
                             Congratulations! You already had an insurance, so you don't have to pay any amount.<br/>

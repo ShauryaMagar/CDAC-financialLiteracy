@@ -5,7 +5,7 @@ import {Modal,Button} from 'react-bootstrap';
 import "./mcq.css";
 
 const question = {
-  q:"PAN means:",
+  q:"What does PAN stand for?",
   a:"  Permanent Annual Number",
   b:"  Primary Account Number",
   c:"  Permanent Account Number",
@@ -42,26 +42,27 @@ const Mcq = () => {
   const nextPage=()=>{
       setTimeout(()=>{
           history.push("/start");
-      },2000)
+      },500)
   }
   return(
     <>
+    <div className='mcq-back'>
     <div className = " container ">
     <div className = "row">
-    <div className = "col-6 question-body">
-    <h2 className = "heading">Quick Question</h2><br/>
-    <h4>{question.q}</h4><br/>
+    <div className = "col-8 question-body">
+    <h2 className = "heading"><i className="fas fa-question animate__animated animate__heartBeat animate__infinite" style={{color:'red',marginRight:'10px'}}></i>  Trivia Question <i className="fas fa-question animate__animated animate__heartBeat animate__infinite " style={{color:'red'}}></i></h2><br/><br/>
+    <h4 style={{fontWeight:'600'}}>{question.q}</h4><br/>
     <form onSubmit={submitHandler}>
         <p>
-            <input type="radio" id="a" name="answer" value="a" onChange={handleChange} />
-            <label for="a"> {question.a}</label><br/>
-            <input type="radio" id="b" name="answer" value="b" onChange={handleChange}/>
+            <input type="radio" id="a" name="answer" value="a" onChange={handleChange} style={{transform:'scale(1.2)'}} />
+             <label for="a"> {question.a}</label><br/>
+            <input type="radio" id="b" name="answer" value="b" onChange={handleChange} style={{transform:'scale(1.2)'}}/>
             <label for="b">{question.b}</label><br/>
-            <input type="radio" id="c" name="answer" value="c" onChange={handleChange}/>
+            <input type="radio" id="c" name="answer" value="c" onChange={handleChange} style={{transform:'scale(1.2)'}}/>
             <label for="c">{question.c}</label><br/>
-            <input type="radio" id="d" name="answer" value="d"onChange={handleChange} />
+            <input type="radio" id="d" name="answer" value="d"onChange={handleChange} style={{transform:'scale(1.2)'}}/>
             <label for="d">{question.d}</label><br/><br/>
-            <button type="submit" className="btn btn-dark">Submit</button>
+            <button type="submit" className="btn btn-primary btn-block" style={{fontFamily:'Poppins',fontWeight:'700',fontSize:'18px'}}>Submit</button>
         </p>
     </form>
     </div>
@@ -89,7 +90,7 @@ const Mcq = () => {
         </Modal.Footer>
     </Modal>
 
-
+    </div>
 
     </div>
     </>

@@ -1,11 +1,31 @@
 .question-body{
-    border: 2px solid black;
-    margin: 30px;
-    margin-left: 10% auto;
+    border: 5px solid rgb(0, 255, 128);
+    
+    margin: auto;
     padding: 20px;
     border-radius: 15px;
+    background-color: rgb(179, 245, 214);
   }
   
   .heading{
     text-align: center;
+    padding-top: 20px;
+    font-weight: 700;
+    font-size: 36px;
+  }
+
+  .mcq-back{
+    padding-top: 100px;
+    font-family: 'Poppins';
+    padding-bottom: 13.8rem;
+    background: #141e30; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #141e30, #243b55); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #141e30, #243b55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  .question-body label{
+    margin-left: 20px;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 500;
   }

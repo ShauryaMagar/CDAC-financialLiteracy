@@ -1,7 +1,8 @@
 import React from 'react';
 import Img from './images/stock.jpg';
 import { useHistory } from 'react-router';
-import './Level6.css'
+import './Level6.css';
+
 const Level6=()=>{
     const history=useHistory();
     const handleClick=()=>{
@@ -9,6 +10,7 @@ const Level6=()=>{
             history.push("/SPStock");
         },1000);
     }
+
     return(
         <>
         <div className="news-steel-back">
@@ -32,7 +34,9 @@ const Level6=()=>{
                 </div>
             </div>
             </div>
+
         </>
+
     );
 }
 

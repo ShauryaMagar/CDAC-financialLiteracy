@@ -73,11 +73,15 @@ const Two = ()=>{
                     </div>
                 </div>
                 <div className="col-2">
-                <img src={Boom1} alt="Car accident" className="animate__animated animate__heartBeat animate__infinite" height="200px"/>
+                    <img src={Boom1} alt="Car accident" className="animate__animated animate__heartBeat animate__infinite" height="200px"/>
                     <img src={Spark} alt="Car accident" className="animate__animated animate__hinge" height="160px" style={{marginLeft:'100px'}}/>
                 </div>
             </div>
         </div>
+        <div>
+            <img src={CarAnimation} alt="Moving Car" className="animate__animated animate__fadeOutRightBig animate__delay-1s" height='265px' />
+        </div>
+        
         </>
     );
     }else{
@@ -121,6 +125,7 @@ const Two = ()=>{
         <div>
             <img src={CarAnimation} alt="Moving Car" className="animate__animated animate__fadeOutRightBig animate__delay-1s" height='265px' />
         </div>
+        
         </>
         )}
         

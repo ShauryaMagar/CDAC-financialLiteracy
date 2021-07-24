@@ -27,13 +27,14 @@ const IntroScreen = () => {
     }
     const onSubmission = () => {
         const passbook=[];
-        const netWorth=[];
+        let netWorth=parseInt(amt);
         if(FD!=0){
             let obj1={
                 name:'Fixed Deposit',
                 type:'debit',
                 amount:FD,
             }
+            netWorth=netWorth+parseInt(FD)
             passbook.push(obj1);
         }
         if(health){
@@ -42,6 +43,7 @@ const IntroScreen = () => {
                 type:'debit',
                 amount:5000
             }
+            netWorth = netWorth + 3000
             passbook.push(obj1);
         }
         if(vehicle){
@@ -50,6 +52,7 @@ const IntroScreen = () => {
                 type: 'debit',
                 amount: 7000
             }
+            netWorth = netWorth + 4000
             passbook.push(obj1);
         }
         if (home) {
@@ -58,8 +61,11 @@ const IntroScreen = () => {
                 type: 'debit',
                 amount: 8000
             }
+            netWorth = netWorth + 5000
             passbook.push(obj1);
         }
+
+
         const financialObject= {
             insurance: {
                 healthIns: {
@@ -75,7 +81,7 @@ const IntroScreen = () => {
                     sellingPrice:'5000',
                 }
             },
-            netWorth:[parseInt(amt)+parseInt(FD)],
+            netWorth:[netWorth],
             timesRolled:0,
             passbook:passbook,
             levelset1: [1,3,4],

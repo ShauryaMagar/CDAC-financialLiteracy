@@ -26,7 +26,10 @@ import Thirteen from '../pages/Level13/Level13';
 import MoreFire from '../pages/Level7/MoreInfoFire';
 import MoreScam from '../pages/Level5/MoreScam';
 import MoreFake from '../pages/Level1/MoreFake';
-import Mcq from '../pages/MCQ/mcq';
+import Mcq1 from '../pages/MCQ/mcq1';
+import Mcq2 from '../pages/MCQ/Mcq2';
+import Mcq3 from '../pages/MCQ/Mcq3';
+import Mcq4 from '../pages/MCQ/Mcq4';
 class App extends React.Component{
     
     render(){
@@ -62,8 +65,10 @@ class App extends React.Component{
                         <Route exact path="/13" component={Eleven}/>
                         <Route exact path="/14" component={Twelve}/>
               <Route exact path="/15" component={Thirteen}/>
-              <Route exact path="/16" component={Mcq}/>
-
+              <Route exact path="/16" component={Mcq1}/>
+              <Route exact path="/17" component={Mcq2}/>
+              <Route exact path="/18" component={Mcq3}/>
+                <Route exact path="/19" component={Mcq4}/>
 					</div>
 				</Switch>
 			</Router>

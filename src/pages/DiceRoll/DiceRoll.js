@@ -15,6 +15,7 @@ const DiceRoll = () => {
   const [retrievedObject, setRetrievedObject] = React.useState({});
   const [numberGot, setNumberGot] = React.useState(0);
   const [level, setLevel] = React.useState(0);
+  const [lotMoney,setlotMoney]=React.useState(false);
   const [show, setShow] = React.useState(false);
   const [med, setMed] = React.useState(0);
   const [steel, setSteel] = React.useState(0);
@@ -23,6 +24,7 @@ const DiceRoll = () => {
   const [net,setNet]=React.useState([]);
   const [timesRolled,setTimesRolled]=React.useState();
   const [passbook,setPassbook]=React.useState({});
+  const [showFD,setShowFD]=React.useState(false);
   const medChange = Math.floor(Math.random() * 15) - 2;
   const steelChange = Math.floor(Math.random() * 15) - 2;
   const oilChange = Math.floor(Math.random() * 15) - 2;
@@ -32,6 +34,10 @@ const DiceRoll = () => {
   const [passbookShow,setPassbookShow]=React.useState(false);
   const handlePassbookClose = () => setPassbookShow(false);
   const handlePassbookShow = () => setPassbookShow(true);
+   const handleFDClose = () => setShowFD(false);
+   const handleFDShow = () => setShowFD(true);
+   const handleMoneyClose = () => setlotMoney(false);
+   const handleMoneyShow = () => setlotMoney(true);
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
@@ -43,7 +49,21 @@ const DiceRoll = () => {
     setAuto(retrievedObj.stocks.auto);
     setPassbook(retrievedObj.passbook);
     var nw = parseInt(retrievedObj.stocks.med) + parseInt(retrievedObj.stocks.steel) + parseInt(retrievedObj.stocks.oil) + parseInt(retrievedObj.stocks.auto) + parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]) + parseInt(retrievedObj.fixedDeposit.purchased);
-    console.log(nw)
+    if(retrievedObj.insurance.healthIns.purchased){
+      nw = nw + parseInt(retrievedObj.insurance.healthIns.sellingPrice)
+    }
+    if (retrievedObj.insurance.vehicleIns.purchased) {
+      nw = nw + parseInt(retrievedObj.insurance.vehicleIns.sellingPrice)
+    }
+    if (retrievedObj.insurance.homeIns.purchased) {
+      nw = nw + parseInt(retrievedObj.insurance.homeIns.sellingPrice)
+    }
+    if(parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1])>=9000){
+      handleMoneyShow();
+    }
+    if (retrievedObj.fixedDeposit.turnsLeft == 0){
+      handleFDShow();
+    }
     var nwArr=retrievedObj.netWorth;
     nwArr.push(nw);
     setNet(nwArr);
@@ -612,6 +632,30 @@ const DiceRoll = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <Modal show={showFD} onHide={handleFDClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>FD Matured</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Money with Rate of Interest has been transferred to your bank Account!<br/>
+          If you want to purchase a FD again, you can purchase it by clicking the Assets Button
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleFDClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal show={lotMoney} onHide={handleMoneyClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>You're Doing great!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have a lot of money in hand. Consider investing it in Insurance, Fixed Deposit, or Stocks. For Insurance and Fixed Deposit, click on Assets, and for Stocks, click on stocks button</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleMoneyClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
         <div className="dice-roll-page">
           <div className="container-fluid" style={{ paddingTop: "2rem" }}>
           <div className="row">
@@ -677,6 +721,23 @@ const DiceRoll = () => {
                 </button>
               </div>
               <div className="col-4">
+                <div className="row justify-content-center">
+                  <div className="col-10" style={{textAlign:'center',fontSize:'20px',fontFamily:'Poppins',fontWeight:'600', marginBottom:'1rem'}}>
+                    <strong>Net Worth:  ₹{" "} {net[net.length-1]}</strong>
+                    <Popup
+                      trigger={open => (
+                        <button className="btn iButton">i</button>
+                      )}
+                      position="top center"
+                      closeOnDocumentClick
+                    > 
+                    <div className="iButtonContent">
+                    Value of all assets. Selling Price of insurance+Fixed Deposit+Stocks+Money-in-hand
+
+                    </div>
+                    </Popup>
+                  </div>
+                </div>
                 <div className="row">
                   <div className="col-6">
                     <button
@@ -715,7 +776,7 @@ const DiceRoll = () => {
                       closeOnDocumentClick
                     > 
                     <div className="iButtonContent">
-                    Money in-hand. You can use this money to purchase stocks/insurance and other assets 
+                    Money in-hand. Only this money can be used to purchase stocks/insurance and other assets 
 
                     </div>
                     </Popup>
@@ -1081,8 +1142,8 @@ const DiceRoll = () => {
             <p>
               <h2>Steel:</h2>
             </p>
-            <p>Previous value: {steel}</p>
-            <p>Increase:{steelChange}%</p>
+            <p>Previous value:  {steel}</p>
+            <p>Increase:   {steelChange}%</p>
             <p>
               New value:
               {parseInt(steel) + (parseInt(steel) * steelChange) / 100}
@@ -1090,23 +1151,24 @@ const DiceRoll = () => {
             <p>
               <h2>Oil:</h2>
             </p>
-            <p>Previous value:{oil}</p>
-            <p>Increase:{oilChange}%</p>
-            <p>New value:{parseInt(oil) + (parseInt(oil) * oilChange) / 100}</p>
+            <p>Previous value:   {oil}</p>
+            <p>Increase:   {oilChange}%</p>
+            <p>New value:   {parseInt(oil) + (parseInt(oil) * oilChange) / 100}</p>
             <p>
               <h2>Auto:</h2>
             </p>
-            <p>Previous value:{auto}</p>
-            <p>Increase:{autoChange}%</p>
+            <p>Previous value:   {auto}</p>
+            <p>Increase:   {autoChange}%</p>
             <p>
-              New value:{parseInt(auto) + (parseInt(auto) * autoChange) / 100}
+              New value:   {parseInt(auto) + (parseInt(auto) * autoChange) / 100}
             </p>
             <p>
               <h2>Pharmaceutical:</h2>
             </p>
-            <p>Previous value:{med}</p>
-            <p>Increase:{medChange}%</p>
-            <p>New value:{parseInt(med) + (parseInt(med) * medChange) / 100}</p>
+            <p>Previous value:   {med}</p>
+            <p>Increase:   {medChange}%</p>
+            <p>New value:   {parseInt(med) + (parseInt(med) * medChange) / 100}</p>
+            {timesRolled>=2?<p><button className="btn btn-dark">Sell/Purchase Stocks</button></p>:""}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

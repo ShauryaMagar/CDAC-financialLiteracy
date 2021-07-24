@@ -84,8 +84,8 @@ const IntroScreen = () => {
             netWorth:[netWorth],
             timesRolled:0,
             passbook:passbook,
-            levelset1: [1,6,4,16,17,18,19],//misc
-            levelset2:[3,8,12],//ins
+            levelset1: [1,6,4,19,3,8,12],//misc
+            levelset2: [16, 17, 18], //ins
             levelset3:[7,11,14],//stock start
             levelset4:[9,13,15],//stock end
             moneyInHand: [amt],

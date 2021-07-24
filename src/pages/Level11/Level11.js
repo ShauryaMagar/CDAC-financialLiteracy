@@ -10,11 +10,16 @@ const Eleven = () => {
   const [retrievedObject, setRetrievedObject] = useState({});
   const [amt, setAmt] = useState(0);
   const [med, setMed] = useState(0);
+  const [steel,setSteel]=useState(0);
+  const [oil,setOil]=useState(0);
+  const [auto,setAuto]=useState(0);
 
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
-
+    setSteel(retrievedObj.stocks.steel);
+    setAuto(retrievedObj.stocks.auto);
+    setOil(retrievedObj.stocks.oil);
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
     setMed(retrievedObj.stocks.med);
   }, []);
@@ -23,7 +28,12 @@ const Eleven = () => {
     var update = parseFloat(med * 0.4) + parseFloat(med);
 
     // let addAmt=parseFloat(amt)+update
-
+    var st=parseInt(steel)-parseInt(steel*0.3);
+    var o = parseInt(oil) - parseInt(oil * 0.3);
+    var au = parseInt(auto) - parseInt(auto * 0.3);
+    retrievedObject.stocks.oil=o;
+    retrievedObject.stocks.steel=st;
+    retrievedObject.stocks.auto=au;
     retrievedObject.stocks.med = update;
 
     // retrievedObject.moneyInHand=addAmt;
@@ -36,7 +46,12 @@ const Eleven = () => {
     var update = parseFloat(med * 0.4) + parseFloat(med);
 
     // let addAmt=parseFloat(amt)+update
-
+    var st = parseInt(steel) - parseInt(steel * 0.3);
+    var o = parseInt(oil) - parseInt(oil * 0.3);
+    var au = parseInt(auto) - parseInt(auto * 0.3);
+    retrievedObject.stocks.oil = o;
+    retrievedObject.stocks.steel = st;
+    retrievedObject.stocks.auto = au;
     retrievedObject.stocks.med = update;
 
     // retrievedObject.moneyInHand=addAmt;
@@ -85,6 +100,9 @@ const Eleven = () => {
                   <br />
                   The Price has increased by a whopping 40% to ₹{" "}
                   {parseFloat(med) * 0.4 + parseFloat(med)}
+                  <br />
+                  <br />
+                  Price of other stocks has fallen sharply
                   <br />
                   <br />
                   <button className="btn btn-light btn-lg" onClick={nextPage}>
@@ -146,11 +164,9 @@ const Eleven = () => {
                   </button>
                   <br />
                   <br />
-                  <Link to="/SPStock">
-                    <button className="btn btn-light btn-lg">
+                    <button onClick={SellPurchase} className="btn btn-light btn-lg">
                       Sell / Buy Stocks
                     </button>
-                  </Link>
                 </h4>
               </div>
             </div>

@@ -262,14 +262,14 @@ const DiceRoll = () => {
         );
         history.push('/2');
       }else if(times===2){
-        retrievedObject.times=4;
+        retrievedObject.times=5;
         localStorage.setItem(
           "financialLiteracy",
           JSON.stringify(retrievedObject)
         );
         history.push('/1.2');
       }else{
-        if(times%4===0){
+        if(times%5===0){
           localStorage.setItem(
             "financialLiteracy",
             JSON.stringify(retrievedObject)
@@ -292,7 +292,7 @@ const DiceRoll = () => {
               var finalStart = retrievedObject.levelset3[randInd];
               retrievedObject.levelset3.splice(randInd, 1);
               retrievedObject.currentInd = randInd;
-              retrievedObject.next = Math.floor(Math.random() * (2) + 1)
+              retrievedObject.next = Math.floor(Math.random() * (2))
               localStorage.setItem(
                 "financialLiteracy",
                 JSON.stringify(retrievedObject)
@@ -303,7 +303,7 @@ const DiceRoll = () => {
               var finalEndLevel = retrievedObject.levelset4[finalEnd];
               retrievedObject.levelset4.splice(finalEnd, 1);
               retrievedObject.currentInd = -1;
-              retrievedObject.ins = 0;
+             retrievedObject.ins = 0;
               localStorage.setItem(
                 "financialLiteracy",
                 JSON.stringify(retrievedObject)
@@ -320,7 +320,7 @@ const DiceRoll = () => {
               );
               history.push(`/${miscNext}`);
             }
-          }
+         }
         }
         
         

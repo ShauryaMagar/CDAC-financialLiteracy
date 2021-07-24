@@ -21,7 +21,7 @@ const Thirteen = () => {
   }, []);
 
   const nextPage = () => {
-    var update =  parseFloat(oil)-parseFloat(oil * 0.3);
+    var update =  parseFloat(oil)-parseFloat(oil * 0.5);
 
     // let addAmt=parseFloat(amt)+update
 
@@ -34,7 +34,7 @@ const Thirteen = () => {
     }, 1000);
   };
   const SellPurchaseStock=()=>{
-    var update = parseFloat(oil) - parseFloat(oil * 0.3);
+    var update = parseFloat(oil) - parseFloat(oil * 0.5);
 
     // let addAmt=parseFloat(amt)+update
 
@@ -84,8 +84,8 @@ const Thirteen = () => {
                   You had bought oil stocks worth ₹ {parseFloat(oil)}
                   <br />
                   <br />
-                  The price has decreased by 30% to ₹{" "}
-                  {parseFloat(oil) - parseFloat(oil) * 0.3}
+                  The price has decreased by 50% to ₹{" "}
+                  {parseFloat(oil) - parseFloat(oil) * 0.5}
                   <br />
                   <br />
                   <button className="btn btn-light btn-lg" onClick={nextPage}>

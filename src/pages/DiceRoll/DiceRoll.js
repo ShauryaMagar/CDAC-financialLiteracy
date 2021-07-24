@@ -22,6 +22,8 @@ const DiceRoll = () => {
   const [oil, setOil] = React.useState(0);
   const [auto, setAuto] = React.useState(0);
   const [net,setNet]=React.useState([]);
+  const [next,setNext]=React.useState(0);
+  const [currentInd,setCurrentInd]=React.useState(0);
   const [timesRolled,setTimesRolled]=React.useState();
   const [passbook,setPassbook]=React.useState({});
   const [showFD,setShowFD]=React.useState(false);
@@ -69,6 +71,8 @@ const DiceRoll = () => {
     setNet(nwArr);
     setTimesRolled(retrievedObj.timesRolled);
     setIsLoaded(true);
+    setCurrentInd(retrievedObj.currentInd);
+    setNext(retrievedObj.next);
   }, []);
 
   useEffectX(() => {
@@ -169,8 +173,8 @@ const DiceRoll = () => {
   function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
 
-    if(30-parseInt(level)<=4){
-      generatedNum=30-parseInt(level);
+    if(31-parseInt(level)<=4){
+      generatedNum=31-parseInt(level);
     }else{
       var generatedNum = getRandomNumber(1, 4);
     }
@@ -258,43 +262,68 @@ const DiceRoll = () => {
         );
         history.push('/2');
       }else if(times===2){
+        retrievedObject.times=4;
         localStorage.setItem(
           "financialLiteracy",
           JSON.stringify(retrievedObject)
         );
         history.push('/1.2');
       }else{
-        if (retrievedObject.levelset1.length != 0) {
-          var levelShow = retrievedObject.levelset1;
-          var indexLevel = Math.floor(Math.random() * levelShow.length);
-          var finalShow = levelShow[indexLevel];
-          levelShow.splice(indexLevel, 1);
-          retrievedObject.levelset1 = levelShow;
-        } else if (retrievedObject.levelset2.length != 0) {
-          var levelShow = retrievedObject.levelset2;
-          var indexLevel = Math.floor(Math.random() * levelShow.length);
-          var finalShow = levelShow[indexLevel];
-          levelShow.splice(indexLevel, 1);
-          retrievedObject.levelset2 = levelShow;
-        } else if (retrievedObject.levelset3.length != 0) {
-          var levelShow = retrievedObject.levelset3;
-          var indexLevel = Math.floor(Math.random() * levelShow.length);
-          var finalShow = levelShow[indexLevel];
-          levelShow.splice(indexLevel, 1);
-          retrievedObject.levelset3 = levelShow;
-        } else if (retrievedObject.levelset4.length != 0) {
-          var levelShow = retrievedObject.levelset4;
-          var indexLevel = Math.floor(Math.random() * levelShow.length);
-          var finalShow = levelShow[indexLevel];
-          levelShow.splice(indexLevel, 1);
-          retrievedObject.levelset4 = levelShow;
+        if(times%4===0){
+          localStorage.setItem(
+            "financialLiteracy",
+            JSON.stringify(retrievedObject)
+          );
+          history.push('/5');
+        }else{
+          if (retrievedObject.ins != -1) {
+            var randIns = Math.floor(Math.random() * retrievedObject.levelset2.length);
+            var finalIns = retrievedObject.levelset2[randIns];
+            retrievedObject.levelset2.splice(randIns, 1);
+            retrievedObject.ins = -1;
+            localStorage.setItem(
+              "financialLiteracy",
+              JSON.stringify(retrievedObject)
+            );
+            history.push(`/${finalIns}`);
+          } else {
+            if (currentInd == -1) {
+              var randInd = Math.floor(Math.random() * retrievedObject.levelset3.length);
+              var finalStart = retrievedObject.levelset3[randInd];
+              retrievedObject.levelset3.splice(randInd, 1);
+              retrievedObject.currentInd = randInd;
+              retrievedObject.next = Math.floor(Math.random() * (2) + 1)
+              localStorage.setItem(
+                "financialLiteracy",
+                JSON.stringify(retrievedObject)
+              );
+              history.push(`/${finalStart}`);
+            } else if (next == -1) {
+              var finalEnd = currentInd;
+              var finalEndLevel = retrievedObject.levelset4[finalEnd];
+              retrievedObject.levelset4.splice(finalEnd, 1);
+              retrievedObject.currentInd = -1;
+              retrievedObject.ins = 0;
+              localStorage.setItem(
+                "financialLiteracy",
+                JSON.stringify(retrievedObject)
+              );
+              history.push(`/${finalEndLevel}`);
+            } else {
+              retrievedObject.next = next-1;
+              var randInd = Math.floor(Math.random() * retrievedObject.levelset1.length);
+              var miscNext = retrievedObject.levelset1[randInd];
+              retrievedObject.levelset1.splice(randInd, 1);
+              localStorage.setItem(
+                "financialLiteracy",
+                JSON.stringify(retrievedObject)
+              );
+              history.push(`/${miscNext}`);
+            }
+          }
         }
-
-        localStorage.setItem(
-          "financialLiteracy",
-          JSON.stringify(retrievedObject)
-        );
-        history.push(`/${finalShow}`);
+        
+        
       }
       
     }, 3500);

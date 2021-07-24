@@ -60,7 +60,7 @@ const SellPurchaseIns = () =>{
     }
     const purHealth=()=>{
         
-        if(parseInt(amt)-5000<1000){
+        if(parseInt(amt)-5000<100){
             alert("Too low");
         }else{
             setHealth(true);
@@ -76,7 +76,7 @@ const SellPurchaseIns = () =>{
         }
     }
     const purHome=()=>{
-        if(amt-8000<1000){
+        if(amt-8000<100){
             alert("Too low");
         }else{
             setHome(true);
@@ -92,7 +92,7 @@ const SellPurchaseIns = () =>{
         }
     }
     const purVehicle=()=>{
-        if(amt-7000){
+        if(amt-7000<100){
             alert("Too low");
         }else{
             setVehicle(true);

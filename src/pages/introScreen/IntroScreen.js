@@ -84,10 +84,10 @@ const IntroScreen = () => {
             netWorth:[netWorth],
             timesRolled:0,
             passbook:passbook,
-            levelset1: [1,3,4],
-            levelset2:[5,6,7,8],
-            levelset3:[9,10,11,12],
-            levelset4:[13],
+            levelset1: [1,6,4,16,17,18,19],//misc
+            levelset2:[3,8,12],//ins
+            levelset3:[7,11,14],//stock start
+            levelset4:[9,13,15],//stock end
             moneyInHand: [amt],
             fixedDeposit:{
                 purchased: FD,
@@ -100,6 +100,9 @@ const IntroScreen = () => {
                 oil:0,
             },
             currentLevel:0,
+            currentInd:-1,
+            next:-1,
+            ins:-1
         }
         localStorage.setItem('financialLiteracy', JSON.stringify(financialObject));
         

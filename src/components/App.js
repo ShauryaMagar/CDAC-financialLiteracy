@@ -30,8 +30,11 @@ import Mcq1 from '../pages/MCQ/mcq1';
 import Mcq2 from '../pages/MCQ/Mcq2';
 import Mcq3 from '../pages/MCQ/Mcq3';
 import Mcq4 from '../pages/MCQ/Mcq4';
+import FakeWebsite from '../pages/fakeWebsite/fakeWebsite';
+import MoreScam2 from '../pages/fakeWebsite/MoreScam2';
+
 class App extends React.Component{
-    
+
     render(){
         return (
             <>
@@ -69,6 +72,8 @@ class App extends React.Component{
               <Route exact path="/17" component={Mcq2}/>
               <Route exact path="/18" component={Mcq3}/>
                 <Route exact path="/19" component={Mcq4}/>
+                <Route exact path="/20" component={FakeWebsite}/>
+        <Route exact path="/21" component={MoreScam2}/>
 					</div>
 				</Switch>
 			</Router>

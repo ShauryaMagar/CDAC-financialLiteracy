@@ -67,7 +67,7 @@ const IntroStock=()=>{
         if(amt != retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1]){
             retrievedObject.moneyInHand.push(amt);
         }
-     
+
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
         setTimeout(() => {
             history.push('/start');
@@ -137,7 +137,7 @@ const IntroStock=()=>{
                 setShow(true);
             }
         }
-        
+
     }
     const submitAuto = (e) => {
         e.preventDefault();
@@ -153,7 +153,7 @@ const IntroStock=()=>{
                 setShow(true);
             }
         }
-        
+
     }
     const changeOil=(e)=>{
         setOil(e.target.value)
@@ -171,32 +171,32 @@ const IntroStock=()=>{
      if (isLoaded) {
             return (
         <>
-        
+
         <div className="container-fluid back-intro-stock" style={{paddingTop:'2rem',paddingBottom:'1rem '}}>
-               
-            
+
+
             <div className="row">
                 <div className='col-2'>
                     <Link to='/start' style={{color:'white'}}><button className="btn btn-danger">Back</button></Link>
                 </div>
-                <div className="col-6"  style={{textAlign:'center'}}>               
+                <div className="col-6"  style={{textAlign:'center'}}>
                 </div>
                 <div className='col-4'>
                     <div className="row">
                         <div className="col-4">
-                            
+
                         </div>
                         <div className="col-4">
-                            
+
                                 <strong>Rs. {amt}</strong>
                                 <br/>
                                 <strong>PIN: 2345</strong>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-        
+
         <div style={{marginTop:"2rem"}}>
                 <div style={{textAlign:"center"}}>
                     <h1 style={{fontFamily: 'Poppins',fontWeight:'800',fontSize:'44px',textShadow:'5px 5px 18px gray'}}>
@@ -214,97 +214,89 @@ const IntroStock=()=>{
                 <div className="row " style={{padding:'30px'}}>
                     <div className="col-3 stocks-card stocks-card-oil" >
                         <div className="row justify-content-center" style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px',textAlign:'center'}}>
-                  
+
                                 <h2 ><u>Oil & Gas<br/> Company</u></h2>
-                 
-                            
+
+
                         </div>
 
                         <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
-                            <h4>Own stocks in a company.</h4>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                            d minim  nostrud exercitation ull efw  
-                            laboris nisi ut aliquip ex ea commodo consequat. </h5>
+                        <h4>An oil and gas company is a business entity that engages in the exploration,
+                         production, refinement, and distribution of oil and gas.</h4>
                         </div>
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
                         <h4>Purchase</h4>
                             <form onSubmit={submitOil}>
                                 <input type="text" onChange={changeOil} value={oil} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
-                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
+                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>
                             </form>
                         </div>
                         <br/>
-                            
+
                     </div>
                     <div className="col-3 stocks-card stocks-card-pharma" >
                         <div className="row justify-content-center " style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px'}}>
-                            
-                           <center> <h2><u>Pharmaceutical Company</u></h2></center>    
-                            
+
+                           <center> <h2><u>Pharmaceutical Company</u></h2></center>
+
                         </div>
                         <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
-                            <h4>Own stocks in a company.</h4> <br/>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                            d minim  nostrud exercitation ull efw  
-                            laboris nisi ut aliquip ex ea commodo consequat. </h5>
+                        <h4>A pharmaceutical company is a commercial business licensed
+                         to research, develop, market and/or distribute drugs, most commonly in the context of healthcare.</h4>
                         </div>
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
                         <h4>Purchase</h4>
                             <form onSubmit={submitMed}>
                                 <input type="text" onChange={changePharm} value={med} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
-                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
+                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>
                             </form>
-                                
-                            
+
+
                         </div>
                         <br/>
-                            
+
                     </div>
                     <div className="col-3 stocks-card stocks-card-steel" >
-                        <div className="row justify-content-center"  style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px',textAlign:'center'}}> 
-                            
+                        <div className="row justify-content-center"  style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px',textAlign:'center'}}>
+
                                 <h2><u>Steel <br/> Company</u></h2>
-                            
+
                         </div>
                         <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
-                            <h4>Own stocks in a company.</h4>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                            d minim  nostrud exercitation ull efw  
-                            laboris nisi ut aliquip ex ea commodo consequat.  </h5>
+                        <h4>Steel is the backbone of bridges, skyscrapers, railroads, automobiles, and appliances.
+                         This industry produce steel by melting iron ore, scrap metal, and other additives in furnaces
+                      </h4>
                         </div>
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem" ,borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
                         <h4>Purchase</h4>
                             <form onSubmit={submitSteel}>
                                 <input type="text" onChange={changeSteel} value={steel} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
-                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
+                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>
                             </form>
-                            
+
                         </div>
                         <br/>
-                            
+
                     </div>
                     <div className="col-3 stocks-card stocks-card-auto" >
-                        <div className="row justify-content-center"  style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px',textAlign:'center'}}> 
-                            
+                        <div className="row justify-content-center"  style={{borderTopLeftRadius:'15px',borderTopRightRadius:'15px',textAlign:'center'}}>
+
                                 <h2><u>Automobile <br/> Company</u></h2>
-                            
+
                         </div>
                         <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
-                            <h4>Own stocks in a company.</h4>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                            d minim  nostrud exercitation ull efw  
-                            laboris nisi ut aliquip ex ea commodo consequat.  </h5>
+                          <h4>Automobile industry is the business of producing and selling self-powered vehicles, including passenger cars, trucks, farm equipment, and other commercial vehicles</h4>
                         </div>
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
                             <h4>Purchase</h4>
                             <form onSubmit={submitAuto}>
                                 <input type="text" onChange={changeAuto} value={auto} class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
-                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>    
+                                <button className="btn btn-block btn-dark buy-button" type="submit" style={{marginTop:"1rem"}}>Buy</button>
                             </form>
-                            
+
                         </div>
                         <br/>
-                            
+
                     </div>
                 </div>
         </div>
@@ -327,15 +319,15 @@ const IntroStock=()=>{
                     <div className="col-10">
                         <div class="form-group">
                             <input type="email" class="form-control form-control-lg" id="PIN" value={pin} onChange={handlePin} aria-describedby="emailHelp" placeholder="Enter Your PIN"/>
-                                            
+
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control form-control-lg" id="CVV" value={CVV} onChange={handleCVV} aria-describedby="emailHelp" placeholder="Enter Your CVV"/>
-                                            
+
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control form-control-lg" id="Card Number" value={creditNo} onChange={handleCreditNo} aria-describedby="emailHelp" placeholder="Enter Your Card Number"/>
-                                            
+
                         </div>
                     </div>
                 </div>
@@ -358,7 +350,7 @@ const IntroStock=()=>{
                     <Link to='/intro' style={{color:'white'}}><button className="btn btn-dark">Back</button></Link>
                 </div>
                 <div className="col-6" style={{textAlign:'center'}}>
-                    <h1>roll the dice</h1>                
+                    <h1>roll the dice</h1>
                 </div>
                 <div className='col-2'>
                     <div className="row">
@@ -373,7 +365,7 @@ const IntroStock=()=>{
         </div>
         </>
         )
-        
+
     }
 }
 

@@ -6,8 +6,7 @@ import Lost from "./lost.png"
 import { Link } from "react-router-dom";
 
 const Last=(props)=>{
-    const location=useLocation();
-    const history=useHistory();
+
     const [money,setMoney]=React.useState(0);
     const [passbook,setPassbook]=React.useState();
     const [passbookShow,setPassbookShow]=React.useState(false);
@@ -24,34 +23,8 @@ const Last=(props)=>{
         setPassbook(retrievedObj.passbook);
         setIsLoaded(true);
     },[]);
-    const rightGuess=()=>{
-        retrievedObject.moneyInHand.push(parseInt(money) +1000);
-        let obj12=passbook;
-        let obj={
-            name:'Level Rewards',
-            type:'credit',
-            amount:1000
-        }
-        obj12.push(obj);
-        setPassbook(obj12);
-        retrievedObject.passbook=passbook;
-        localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        history.push('/moreFake')
-    }
-    const WrongGuess=()=>{
-        retrievedObject.moneyInHand.push(parseInt(money) -1000);
-        let obj12=passbook;
-        let obj={
-            name:'Fake Currency Scam',
-            type:'debit',
-            amount:1000
-        }
-        obj12.push(obj);
-        setPassbook(obj12);
-        retrievedObject.passbook=passbook;
-        localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        history.push('/moreFake')
-    }
+
+
     if(!isLoaded){
         return(
             <>Loading</>

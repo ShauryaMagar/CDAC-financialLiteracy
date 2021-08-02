@@ -789,7 +789,7 @@ const DiceRoll = () => {
                     </div>
                     </Popup>
                   </div>
-                  <div className="col-4" style={{ marginLeft: "40px",fontSize:'20px',fontFamily:'Poppins',fontWeight:'600' }}>
+                  <div className="col-6" style={{ marginLeft: "",fontSize:'20px',fontFamily:'Poppins',fontWeight:'600' }}>
                     <strong>
                       ₹{" "}
                       {
@@ -1197,7 +1197,7 @@ const DiceRoll = () => {
             <p>Previous value:   {med}</p>
             <p>Increase:   {medChange}%</p>
             <p>New value:   {parseInt(med) + (parseInt(med) * medChange) / 100}</p>
-            {timesRolled>=2?<p><button className="btn btn-dark">Sell/Purchase Stocks</button></p>:""}
+            {timesRolled>=2?<p><button className="btn btn-dark modal-card-button">Sell/Purchase Stocks</button></p>:""}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

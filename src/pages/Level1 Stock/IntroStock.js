@@ -172,7 +172,7 @@ const IntroStock=()=>{
             return (
         <>
 
-        <div className="container-fluid back-intro-stock" style={{paddingTop:'2rem',paddingBottom:'1rem '}}>
+        <div className="container-fluid back-intro-stock" style={{paddingTop:'2rem',paddingBottom:'3rem '}}>
 
 
             <div className="row">
@@ -220,10 +220,12 @@ const IntroStock=()=>{
 
                         </div>
 
-                        <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
+                        <div className="row justify-content-center" style={{padding:"1rem 1rem 4.5rem 1rem"}}>
                         <h4>An oil and gas company is a business entity that engages in the exploration,
                          production, refinement, and distribution of oil and gas.</h4>
+                       
                         </div>
+                      
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>
                         <h4>Purchase</h4>
                             <form onSubmit={submitOil}>
@@ -240,7 +242,7 @@ const IntroStock=()=>{
                            <center> <h2><u>Pharmaceutical Company</u></h2></center>
 
                         </div>
-                        <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
+                        <div className="row justify-content-center" style={{padding:"1rem 1rem 2.8rem 1rem"}}>
                         <h4>A pharmaceutical company is a commercial business licensed
                          to research, develop, market and/or distribute drugs, most commonly in the context of healthcare.</h4>
                         </div>
@@ -284,7 +286,7 @@ const IntroStock=()=>{
                                 <h2><u>Automobile <br/> Company</u></h2>
 
                         </div>
-                        <div className="row justify-content-center" style={{padding:"1rem 1rem 1rem 1rem"}}>
+                        <div className="row justify-content-center" style={{padding:"1rem 1rem 2.8rem 1rem"}}>
                           <h4>Automobile industry is the business of producing and selling self-powered vehicles, including passenger cars, trucks, farm equipment, and other commercial vehicles</h4>
                         </div>
                         <div className="row justify-content-center" style={{padding:"0rem 1rem 1rem 1rem",borderBottomLeftRadius:'15px',borderBottomRightRadius:'15px'}}>

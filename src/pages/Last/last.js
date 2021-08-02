@@ -47,7 +47,7 @@ const Last=()=>{
         if(netWorth<=20000){
         return(
             <>
-            <div className="last-page">
+            <div className="last-page lp-one">
             <div className="row justify-content-center">
             <div  className="col-10 exitButton" style={{}}>
                   <Link to="/intro" style={{ color: "white" }}>
@@ -72,7 +72,7 @@ const Last=()=>{
                         <div className="summary-card" >
                             <h3 style={{fontFamily:'Poppins',fontWeight:'500'}}>Game Summary:</h3>
                             <h4><strong>Net Worth:</strong> {netWorth}
-                            <span style={{marginLeft:"25%"}}><button className="btn btn-dark" onClick={handlePassbookShow}>View Passbook</button>
+                            <span style={{marginLeft:"25%"}}><button className="btn btn-dark modal-card-button" style={{fontFamily:'Poppins'}} onClick={handlePassbookShow}>View Passbook</button>
                             </span></h4>
                             <Modal show={passbookShow} onHide={handlePassbookClose}>
                             <Modal.Header closeButton>
@@ -110,52 +110,54 @@ const Last=()=>{
 
                         </div>
                         <div className = "summary-card" style={{paddingBottom:"2rem"}}>
-                            <table cellPadding="10px" width='90%' height='100%' style={{textAlign:"center"}}>
+                            <center>
+                            <table cellPadding="10px"  width='90%' height='100%' style={{textAlign:"center"}}>
 
-                                <tr style={{backgroundColor:"#b2beb5"}}>
-                                    <td colSpan="2" style={{textAlign:"right"}}>Money in hand</td>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td colSpan="2" style={{textAlign:"center"}}>Money in hand</td>
                                     <td> {money}</td>
                                 </tr>
-                                <tr style={{backgroundColor:"grey"}}>
+                                <tr style={{backgroundColor:"transparent"}}>
                                     <td rowSpan="4" style={{marginTop:'auto'}}>
                                         Stocks
                                     </td>
-                                      <td style={{textAlign:"right"}}>Oil</td>
+                                      <td style={{textAlign:"center"}}>Oil</td>
                                     <td>{retrievedObject.stocks.oil}</td>
                                 </tr>
-                                <tr style={{backgroundColor:"grey"}}>
+                                <tr style={{backgroundColor:"transparent"}}>
 
-                                    <td style={{textAlign:"right"}}>Pharma</td>
+                                    <td style={{textAlign:"center"}}>Pharma</td>
                                     <td>{retrievedObject.stocks.med}</td>
                                 </tr>
-                                <tr style={{backgroundColor:"grey"}}>
-                                    <td style={{textAlign:"right"}}>Auto</td>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td style={{textAlign:"center"}}>Auto</td>
                                     <td>{retrievedObject.stocks.auto}</td>
                                 </tr>
-                                <tr style={{backgroundColor:"grey"}}>
-                                    <td style={{textAlign:"right"}}>Steel</td>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td style={{textAlign:"center"}}>Steel</td>
                                     <td>{retrievedObject.stocks.steel}</td>
                                 </tr>
-                                <tr style={{backgroundColor:"#b2beb5"}}>
+                                <tr style={{backgroundColor:"transparent"}}>
                                     <td rowSpan="3">Insurance</td>
-                                      <td style={{textAlign:"right"}}>Health</td>
+                                      <td style={{textAlign:"center"}}>Health</td>
                                     <td>{health}</td>
                                 </tr>
-                                <tr style={{backgroundColor:"#b2beb5"}}>
-                                    <td style={{textAlign:"right"}}>Vehicle</td>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td style={{textAlign:"center"}}>Vehicle</td>
 
                                     <td>{vehicle}</td>
                                 </tr>
-                                <tr style={{backgroundColor:"#b2beb5"}}>
-                                    <td style={{textAlign:"right"}}>Home</td>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td style={{textAlign:"center"}}>Home</td>
                                     <td>{home}</td>
                                 </tr>
-                                <tr style={{backgroundColor:"grey"}}>
-                                    <td colSpan="2" style={{textAlign:"right"}}>Fixed Deposit</td>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td colSpan="2" style={{}}>Fixed Deposit</td>
                                     <td>{retrievedObject.fixedDeposit.purchased}</td>
                                 </tr>
 
                             </table>
+                            </center>
                         </div>
 
 
@@ -173,7 +175,7 @@ const Last=()=>{
     }else
         return(
             <>
-            <div className="last-page">
+            <div className="last-page lp-two">
             <div className="container-fluid">
             <div className="row justify-content-center">
             <div  className="col-10 exitButton" style={{}}>
@@ -198,7 +200,7 @@ const Last=()=>{
                     <div className="summary-card" >
                         <h3 style={{fontFamily:'Poppins',fontWeight:'500'}}>Game Summary:</h3>
                         <h4><strong>Net Worth:</strong> {netWorth}
-                        <span style={{marginLeft:"25%"}}><button className="btn btn-dark" onClick={handlePassbookShow}>View Passbook</button>
+                        <span style={{marginLeft:"25%"}}><button className="btn btn-dark modal-card-button" style={{fontFamily:'Poppins'}} onClick={handlePassbookShow}>View Passbook</button>
                         </span></h4>
                         <Modal show={passbookShow} onHide={handlePassbookClose}>
                         <Modal.Header closeButton>
@@ -236,53 +238,55 @@ const Last=()=>{
 
                     </div>
                     <div className = "summary-card" style={{paddingBottom:"2rem"}}>
-                        <table cellPadding="10px" width='90%' height='100%' style={{textAlign:"center"}}>
+                            <center>
+                            <table cellPadding="10px"  width='90%' height='100%' style={{textAlign:"center"}}>
 
-                            <tr style={{backgroundColor:"#b2beb5"}}>
-                                <td colSpan="2" style={{textAlign:"right"}}>Money in hand</td>
-                                <td> {money}</td>
-                            </tr>
-                            <tr style={{backgroundColor:"grey"}}>
-                                <td rowSpan="4" style={{marginTop:'auto'}}>
-                                    Stocks
-                                </td>
-                                  <td style={{textAlign:"right"}}>Oil</td>
-                                <td>{retrievedObject.stocks.oil}</td>
-                            </tr>
-                            <tr style={{backgroundColor:"grey"}}>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td colSpan="2" style={{textAlign:"center"}}>Money in hand</td>
+                                    <td> {money}</td>
+                                </tr>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td rowSpan="4" style={{marginTop:'auto'}}>
+                                        Stocks
+                                    </td>
+                                      <td style={{textAlign:"center"}}>Oil</td>
+                                    <td>{retrievedObject.stocks.oil}</td>
+                                </tr>
+                                <tr style={{backgroundColor:"transparent"}}>
 
-                                <td style={{textAlign:"right"}}>Pharma</td>
-                                <td>{retrievedObject.stocks.med}</td>
-                            </tr>
-                            <tr style={{backgroundColor:"grey"}}>
-                                <td style={{textAlign:"right"}}>Auto</td>
-                                <td>{retrievedObject.stocks.auto}</td>
-                            </tr>
-                            <tr style={{backgroundColor:"grey"}}>
-                                <td style={{textAlign:"right"}}>Steel</td>
-                                <td>{retrievedObject.stocks.steel}</td>
-                            </tr>
-                            <tr style={{backgroundColor:"#b2beb5"}}>
-                                <td rowSpan="3">Insurance</td>
-                                  <td style={{textAlign:"right"}}>Health</td>
-                                <td>{health}</td>
-                            </tr>
-                            <tr style={{backgroundColor:"#b2beb5"}}>
-                                <td style={{textAlign:"right"}}>Vehicle</td>
+                                    <td style={{textAlign:"center"}}>Pharma</td>
+                                    <td>{retrievedObject.stocks.med}</td>
+                                </tr>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td style={{textAlign:"center"}}>Auto</td>
+                                    <td>{retrievedObject.stocks.auto}</td>
+                                </tr>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td style={{textAlign:"center"}}>Steel</td>
+                                    <td>{retrievedObject.stocks.steel}</td>
+                                </tr>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td rowSpan="3">Insurance</td>
+                                      <td style={{textAlign:"center"}}>Health</td>
+                                    <td>{health}</td>
+                                </tr>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td style={{textAlign:"center"}}>Vehicle</td>
 
-                                <td>{vehicle}</td>
-                            </tr>
-                            <tr style={{backgroundColor:"#b2beb5"}}>
-                                <td style={{textAlign:"right"}}>Home</td>
-                                <td>{home}</td>
-                            </tr>
-                            <tr style={{backgroundColor:"grey"}}>
-                                <td colSpan="2" style={{textAlign:"right"}}>Fixed Deposit</td>
-                                <td>{retrievedObject.fixedDeposit.purchased}</td>
-                            </tr>
+                                    <td>{vehicle}</td>
+                                </tr>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td style={{textAlign:"center"}}>Home</td>
+                                    <td>{home}</td>
+                                </tr>
+                                <tr style={{backgroundColor:"transparent"}}>
+                                    <td colSpan="2" style={{}}>Fixed Deposit</td>
+                                    <td>{retrievedObject.fixedDeposit.purchased}</td>
+                                </tr>
 
-                        </table>
-                    </div>
+                            </table>
+                            </center>
+                        </div>
 
 
 

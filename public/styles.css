@@ -55,3 +55,21 @@
         transform: translate(0,3vh);
     }
 }
+
+.small-screen-size{
+  display: none;
+  font-family: 'Poppins';
+  font-weight: 900;
+  padding: 20px;
+  margin-top: 13%;
+  text-align: center;
+}
+
+@media(max-width:950px){
+    #root{
+      display:none
+    }
+    .small-screen-size{
+      display: block;
+    }
+}

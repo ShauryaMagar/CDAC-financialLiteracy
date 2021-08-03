@@ -5,6 +5,11 @@ import './Level9.css'
 
 const Nine=()=>{
     const history=useHistory();
+    React.useEffect(()=>{
+         window.onpopstate = e => {
+             history.push('/');
+         }
+    },[]);
     const handleClick=()=>{
         setTimeout(()=>{
             history.push("/SPStock");

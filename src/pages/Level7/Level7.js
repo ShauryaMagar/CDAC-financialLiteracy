@@ -10,9 +10,13 @@ const Seven = ()=>{
     const [passbook,setPassbook]=React.useState();
     const [ins,setIns]=React.useState(false);
     React.useEffect(()=>{
+         window.onpopstate = e => {
+             history.push('/');
+         }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setPassbook(retrievedObj.passbook);
+        window.scrollTo(0, 0);
         setIns(retrievedObj.insurance.homeIns.purchased);
         setIsLoaded(true);
     },[]);
@@ -44,7 +48,7 @@ const Seven = ()=>{
         <>
         <div className="container-fluid house-card">
             <div className="row justify-content-center" style={{paddingTop:'2rem'}}>
-                <div className="col-7" style={{backgroundColor:'',color:'white',textAlign:'center',padding:'2rem'}}>
+                <div className="col-10" style={{backgroundColor:'',color:'white',textAlign:'center',padding:'2rem'}}>
                     <div >
                         <h1><strong>House Caught Fire !</strong></h1>
                     </div>
@@ -76,7 +80,7 @@ const Seven = ()=>{
         <>
         <div className="container-fluid house-card">
             <div className="row justify-content-center" style={{paddingTop:'2rem'}}>
-                <div className="col-7" style={{backgroundColor:'',color:'white',textAlign:'center',padding:'2rem'}}>
+                <div className="col-10" style={{backgroundColor:'',color:'white',textAlign:'center',padding:'2rem'}}>
                     <div >
                         <h1><strong>House Caught Fire !</strong></h1>
                     </div>

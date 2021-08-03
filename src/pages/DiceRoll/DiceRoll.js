@@ -27,6 +27,7 @@ const DiceRoll = () => {
   const [timesRolled,setTimesRolled]=React.useState();
   const [passbook,setPassbook]=React.useState({});
   const [showFD,setShowFD]=React.useState(false);
+  const myRef = React.useRef(null)
   const medChange = Math.floor(Math.random() * 15) - 2;
   const steelChange = Math.floor(Math.random() * 15) - 2;
   const oilChange = Math.floor(Math.random() * 15) - 2;
@@ -40,11 +41,12 @@ const DiceRoll = () => {
    const handleFDShow = () => setShowFD(true);
    const handleMoneyClose = () => setlotMoney(false);
    const handleMoneyShow = () => setlotMoney(true);
+  const executeScroll = () => myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
     setLevel(retrievedObj.currentLevel);
-
+    window.scrollTo(0, 0);
     setMed(retrievedObj.stocks.med);
     setSteel(retrievedObj.stocks.steel);
     setOil(retrievedObj.stocks.oil);
@@ -60,11 +62,17 @@ const DiceRoll = () => {
     if (retrievedObj.insurance.homeIns.purchased) {
       nw = nw + parseInt(retrievedObj.insurance.homeIns.sellingPrice)
     }
-    if(parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1])>=9000){
-      handleMoneyShow();
+    
+    if (retrievedObj.timesRolled>1){
+      if (parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]) >= 9000) {
+        handleMoneyShow();
+      }
     }
     if (retrievedObj.fixedDeposit.turnsLeft == 0){
       handleFDShow();
+    }
+    window.onpopstate = e => {
+      history.push('/');
     }
     var nwArr=retrievedObj.netWorth;
     nwArr.push(nw);
@@ -164,8 +172,6 @@ const DiceRoll = () => {
       }
     }
   });
-
-  const location = useLocation();
   const history = useHistory();
 
   // ---------------------------------------------------------------------
@@ -216,11 +222,18 @@ const DiceRoll = () => {
       }
       obj12.push(obj);
     }
+    setTimeout(() => {
+      executeScroll();
+    }, 2000)
+    setTimeout(() => {
+      document.getElementById(update.toString()).style.background =
+        "rgb(120, 214, 107)";
+    }, 3500);
+    
     var times=timesRolled+1;
-    console.log(times)
     setTimeout(() => {
       setLevel(update);
-
+      
       if (retrievedObject.fixedDeposit.turnsLeft == 1) {
         retrievedObject.fixedDeposit.purchased =
           parseFloat(retrievedObject.fixedDeposit.purchased) +
@@ -255,6 +268,13 @@ const DiceRoll = () => {
       retrievedObject.moneyInHand.push(money);
       retrievedObject.passbook=passbook;
       retrievedObject.timesRolled = times;
+      if (retrievedObject.currentLevel >= 31) {
+        localStorage.setItem(
+          "financialLiteracy",
+          JSON.stringify(retrievedObject)
+        );
+        history.push('/23');
+      }else
       if(times===1){
         localStorage.setItem(
           "financialLiteracy",
@@ -326,11 +346,8 @@ const DiceRoll = () => {
         
       }
       
-    }, 3500);
-    setTimeout(() => {
-      document.getElementById(update.toString()).style.background =
-        "rgb(120, 214, 107)";
-    }, 2000);
+    }, 5500);
+    
   }
 
   //   function cLevel(){
@@ -432,13 +449,6 @@ const DiceRoll = () => {
       "14",
       "15",
       "16",
-      "17",
-      "18",
-      '19',
-      '20',
-      '21',
-      '22',
-      '23'
     ],
 
     datasets: [
@@ -549,12 +559,16 @@ const DiceRoll = () => {
       history.push("/SPIns");
     }, 1000);
   };
+  const goStock=()=>{
+    setTimeout(()=>{
+      history.push('./SPStock');
+    },1000);
+  }
   if (isLoaded) {
 
 
     return (
       <>
-        <ScrollToTop />
         <div
           class="modal fade"
           id="assets"
@@ -661,7 +675,18 @@ const DiceRoll = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Modal show={showFD} onHide={handleFDClose}>
+      <Modal centered show={lotMoney} onHide={handleMoneyClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>You're Doing great!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>You have a lot of money in hand. Consider investing it in Insurance, Fixed Deposit, or Stocks. For Insurance and Fixed Deposit, click on Assets, and for Stocks, click on stocks button</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleMoneyClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal centered show={showFD} onHide={handleFDClose}>
         <Modal.Header closeButton>
           <Modal.Title>FD Matured</Modal.Title>
         </Modal.Header>
@@ -674,17 +699,7 @@ const DiceRoll = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Modal show={lotMoney} onHide={handleMoneyClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>You're Doing great!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>You have a lot of money in hand. Consider investing it in Insurance, Fixed Deposit, or Stocks. For Insurance and Fixed Deposit, click on Assets, and for Stocks, click on stocks button</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleMoneyClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      
         <div className="dice-roll-page">
           <div className="container-fluid" style={{ paddingTop: "2rem" }}>
           <div className="row">
@@ -755,7 +770,7 @@ const DiceRoll = () => {
                     <strong>Net Worth:  ₹{" "} {net[net.length-1]}</strong>
                     <Popup
                       trigger={open => (
-                        <button className="btn iButton">i</button>
+                        <button className="btn iButton" style={{width:'35px'}}>i</button>
                       )}
                       position="top center"
                       closeOnDocumentClick
@@ -865,7 +880,7 @@ const DiceRoll = () => {
           </div>
 
           <div
-            className="container-fluid animate__animated animate__fadeInRight"
+            className="container-fluid animate__animated animate__fadeInRight" ref={myRef}
             style={{
               marginTop: "2rem",
               paddingBottom: "124px",
@@ -876,6 +891,7 @@ const DiceRoll = () => {
           >
             <div
               className="row r board-row"
+              
               style={{ marginRight: "30px", marginLeft: "30px" }}
             >
               <div className="" id="0"></div>
@@ -1197,7 +1213,7 @@ const DiceRoll = () => {
             <p>Previous value:   {med}</p>
             <p>Increase:   {medChange}%</p>
             <p>New value:   {parseInt(med) + (parseInt(med) * medChange) / 100}</p>
-            {timesRolled>=2?<p><button className="btn btn-dark modal-card-button">Sell/Purchase Stocks</button></p>:""}
+            {timesRolled>=2?<p><button onClick={goStock} className="btn btn-dark modal-card-button">Sell/Purchase Stocks</button></p>:""}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

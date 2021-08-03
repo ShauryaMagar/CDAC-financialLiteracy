@@ -3,7 +3,7 @@ import {useLocation,useHistory} from 'react-router-dom';
 import Know from './images/know.png';
 import './Level1.css'
 
-const SelectedOp=(props)=>{
+const SelectedOp=()=>{
     const location=useLocation();
     const history=useHistory();
     const selected=location.state.real;
@@ -12,6 +12,9 @@ const SelectedOp=(props)=>{
     const [passbook,setPassbook]=React.useState();
     const [retrievedObject, setRetrievedObject] = React.useState({});
     useEffect(()=>{
+         window.onpopstate = e => {
+             history.push('/');
+         }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);

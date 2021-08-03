@@ -18,6 +18,10 @@ const Eleven = () => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
     setSteel(retrievedObj.stocks.steel);
+    window.scrollTo(0, 0);
+     window.onpopstate = e => {
+       history.push('/');
+     }
     setAuto(retrievedObj.stocks.auto);
     setOil(retrievedObj.stocks.oil);
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);

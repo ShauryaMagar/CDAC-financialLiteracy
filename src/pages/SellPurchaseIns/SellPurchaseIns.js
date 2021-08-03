@@ -16,9 +16,13 @@ const SellPurchaseIns = () =>{
     useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
+        window.scrollTo(0, 0);
         setAmt(parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]));
         setHealth(retrievedObj.insurance.healthIns.purchased);
         setPassbook(retrievedObj.passbook);
+         window.onpopstate = e => {
+             history.push('/');
+         }
         setVehicle(retrievedObj.insurance.vehicleIns.purchased);
         setHome(retrievedObj.insurance.homeIns.purchased);
     }, [])

@@ -3,6 +3,11 @@ import { useHistory } from 'react-router';
 import Fire from './fire.png'
 const MoreInfoFire=()=>{
     const history=useHistory();
+    React.useEffect(()=>{
+         window.onpopstate = e => {
+             history.push('/');
+         }
+    },[]);
     const onSubmit=()=>{
         history.push('/start')
     }

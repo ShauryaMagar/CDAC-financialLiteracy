@@ -13,9 +13,13 @@ const Ten = () => {
   React.useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
+     window.onpopstate = e => {
+       history.push('/');
+     }
     setHealth(retrievedObj.insurance.healthIns.purchased);
     setIsLoaded(true);
     setPassbook(retrievedObj.passbook);
+    window.scrollTo(0, 0);
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
   }, []);
 

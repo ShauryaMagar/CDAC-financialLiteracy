@@ -14,6 +14,9 @@ const Two = ()=>{
     const [passbook,setPassbook]=React.useState();
     const [ins,setIns]=React.useState(false);
     React.useEffect(()=>{
+         window.onpopstate = e => {
+            history.push('/');
+        }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setIns(retrievedObj.insurance.vehicleIns.purchased);

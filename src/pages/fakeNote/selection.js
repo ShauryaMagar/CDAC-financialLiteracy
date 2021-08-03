@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import {useLocation,useHistory} from 'react-router-dom';
-import Know from './images/know.png';
-
+import Happy from './images/happy.jpg';
+import Sad from './images/sad.png';
 
 const Selection=(props)=>{
     const location=useLocation();
@@ -17,6 +17,9 @@ const Selection=(props)=>{
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setPassbook(retrievedObj.passbook);
         setIsLoaded(true);
+        window.onpopstate = e => {
+            history.push('/');
+        }
     },[]);
     const rightGuess=()=>{
         retrievedObject.moneyInHand.push(parseInt(money) +1000);
@@ -51,7 +54,7 @@ const Selection=(props)=>{
             <>Loading</>
         )
     }else{
-        if(!selected){
+        if(selected){
         return(
             <>
             <div className="container-fluid selected-page-right">
@@ -61,13 +64,17 @@ const Selection=(props)=>{
                             <h1>You made the right choice!</h1>
                         </div>
                         <div style={{marginTop:'1rem'}} onClick={rightGuess}>
-                            <h3>The note was authentic.</h3>
+                            <h3>The note was not authentic.</h3>
                             <p><h3>You're awarded Rs. 1000 as reward</h3></p>
                             <p><h3>Click after you're done reading</h3></p>
                         </div>
                     </div>
                     <div className="col-6">
-                        <img src={Know} style={{width:'100%', marginTop:"2.2rem"}} alt="Rbi guidelines"/>
+                        <img src={Happy} style={{width:'70%', marginTop:"2.2rem"}} alt="Rbi guidelines"/>
+                        <p>
+                          <h2>RBI currently issues notes of following denominations only: <br/>
+                            Rs 10, Rs 20, Rs 50, Rs 100, Rs 500, Rs 2000</h2>  
+                        </p>
                     </div>
                 </div>
             </div>
@@ -83,13 +90,17 @@ const Selection=(props)=>{
                             <h1>You made the wrong choice!</h1>
                         </div>
                         <div style={{marginTop:'1rem'}} onClick={WrongGuess}>
-                            <h3>The note was authentic.</h3>
+                            <h3>The note was not authentic.</h3>
                             <p><h3>Rs. 1000 are deducted</h3></p>
                             <p><h3>Click after you're done reading</h3></p>
                         </div>
                     </div>
                     <div className="col-6">
-                        <img src={Know} style={{width:'100%', marginTop:"2.2rem"}} alt="Rbi guidelines"/>
+                        <img src={Sad} style={{width:'70%', marginTop:"2.2rem"}} alt="Rbi guidelines"/>
+                        <p>
+                          <h2>RBI currently issues notes of following denominations only: <br/>
+                            Rs 10, Rs 20, Rs 50, Rs 100, Rs 500, Rs 2000</h2>  
+                        </p>
                     </div>
                 </div>
             </div>

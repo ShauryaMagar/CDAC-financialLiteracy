@@ -13,6 +13,12 @@ function Mid(){
         const val = e.target.value;
         setOp(val);
     }
+    React.useEffect(()=>{
+         window.onpopstate = e => {
+             history.push('/');
+         }
+        window.scrollTo(0, 0);
+    },[]);
      const history = useHistory();
       const handleRightClose = () => setRight(false);
       const handleRightShow = () => setRight(true);

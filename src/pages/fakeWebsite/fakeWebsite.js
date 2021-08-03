@@ -3,9 +3,9 @@ import {useHistory} from 'react-router-dom';
 import Ad from './ad.jpg';
 
 import {Modal,Button} from 'react-bootstrap';
-import CardImg from './card-img.jpg';
-
+import CardImg from './card-img.jpeg';
 import FakeLogo from './fakeLogo.png';
+import '../Level1/Level1.css';
 
 const FakeWebsite=()=>{
     const history=useHistory();
@@ -17,6 +17,9 @@ const FakeWebsite=()=>{
     const [CVV, setCVV] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
     React.useEffect(() => {
+        window.onpopstate = e => {
+            history.push('/');
+        }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setPassbook(retrievedObj.passbook);
@@ -109,7 +112,7 @@ const FakeWebsite=()=>{
                                         </div>
                                         <div className="form-group row">
                                             <div className="col-5">
-                                                <button className="btn btn-light" onClick={handleShow}>Click to see CVV and Pin Number</button>
+                                                <button className="btn btn-dark" onClick={handleShow}>Click to see CVV and Pin Number</button>
                                             </div>
                                             <div className="col-3">
                                                  <button className="btn btn-danger" onClick={wrongChoice}>Submit</button>

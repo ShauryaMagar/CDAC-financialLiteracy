@@ -3,8 +3,13 @@ import imgNote from "./images/img-note.jpg";
 import fakeNote from './images/fake-note.jpg';
 import {useHistory} from 'react-router-dom';
 import './Level1.css';
-const Landing=(props)=>{
+const Landing=()=>{
     const history=useHistory();
+    React.useEffect(()=>{
+        window.onpopstate = e => {
+            history.push('/');
+        }
+    },[]);
     const [option,setOption]=React.useState(false);
     const onImageClick=()=>{
         setOption(true);

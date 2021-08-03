@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import "./last.css"
 
 const Last=()=>{
+  const history=useHistory();
     const [money,setMoney]=React.useState(0);
         const [netWorth,setNetWorth]=React.useState(0);
         const [vehicle,setVehicle]=React.useState(0);
@@ -20,21 +21,25 @@ const Last=()=>{
 
     const [retrievedObject, setRetrievedObject] = React.useState({});
     useEffect(()=>{
+      window.onpopstate = e => {
+        history.push('/');
+      }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         console.log(retrievedObj);
         setRetrievedObject(retrievedObj);
+        window.scrollTo(0, 0);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setPassbook(retrievedObj.passbook);
         setNetWorth(retrievedObj.netWorth[retrievedObj.netWorth.length -1]);
         setIsLoaded(true);
     if(retrievedObj.insurance.healthIns.purchased){
-      setHealth(retrievedObj.insurance.healthIns.sellingPrice)
+      setHealth(parseInt(retrievedObj.insurance.healthIns.sellingPrice))
     }
     if(retrievedObj.insurance.vehicleIns.purchased){
-      setVehicle(retrievedObj.insurance.healthIns.sellingPrice)
+      setVehicle(parseInt(retrievedObj.insurance.vehicleIns.sellingPrice))
     }
     if(retrievedObj.insurance.homeIns.purchased){
-      setHome(retrievedObj.insurance.healthIns.sellingPrice)
+      setHome(parseInt(retrievedObj.insurance.homeIns.sellingPrice))
     }
     },[]);
 
@@ -44,7 +49,7 @@ const Last=()=>{
             <>Loading</>
         )
     }else{
-        if(netWorth<=20000){
+        if(netWorth>20000){
         return(
             <>
             <div className="last-page lp-one">
@@ -122,20 +127,20 @@ const Last=()=>{
                                         Stocks
                                     </td>
                                       <td style={{textAlign:"center"}}>Oil</td>
-                                    <td>{retrievedObject.stocks.oil}</td>
+                                    <td>{parseInt(retrievedObject.stocks.oil)}</td>
                                 </tr>
                                 <tr style={{backgroundColor:"transparent"}}>
 
                                     <td style={{textAlign:"center"}}>Pharma</td>
-                                    <td>{retrievedObject.stocks.med}</td>
+                                    <td>{parseInt(retrievedObject.stocks.med)}</td>
                                 </tr>
                                 <tr style={{backgroundColor:"transparent"}}>
                                     <td style={{textAlign:"center"}}>Auto</td>
-                                    <td>{retrievedObject.stocks.auto}</td>
+                                    <td>{parseInt(retrievedObject.stocks.auto)}</td>
                                 </tr>
                                 <tr style={{backgroundColor:"transparent"}}>
                                     <td style={{textAlign:"center"}}>Steel</td>
-                                    <td>{retrievedObject.stocks.steel}</td>
+                                    <td>{parseInt(retrievedObject.stocks.steel)}</td>
                                 </tr>
                                 <tr style={{backgroundColor:"transparent"}}>
                                     <td rowSpan="3">Insurance</td>
@@ -250,20 +255,20 @@ const Last=()=>{
                                         Stocks
                                     </td>
                                       <td style={{textAlign:"center"}}>Oil</td>
-                                    <td>{retrievedObject.stocks.oil}</td>
+                                    <td>{parseInt(retrievedObject.stocks.oil)}</td>
                                 </tr>
                                 <tr style={{backgroundColor:"transparent"}}>
 
                                     <td style={{textAlign:"center"}}>Pharma</td>
-                                    <td>{retrievedObject.stocks.med}</td>
+                                    <td>{parseInt(retrievedObject.stocks.med)}</td>
                                 </tr>
                                 <tr style={{backgroundColor:"transparent"}}>
                                     <td style={{textAlign:"center"}}>Auto</td>
-                                    <td>{retrievedObject.stocks.auto}</td>
+                                    <td>{parseInt(retrievedObject.stocks.auto)}</td>
                                 </tr>
                                 <tr style={{backgroundColor:"transparent"}}>
                                     <td style={{textAlign:"center"}}>Steel</td>
-                                    <td>{retrievedObject.stocks.steel}</td>
+                                    <td>{parseInt(retrievedObject.stocks.steel)}</td>
                                 </tr>
                                 <tr style={{backgroundColor:"transparent"}}>
                                     <td rowSpan="3">Insurance</td>

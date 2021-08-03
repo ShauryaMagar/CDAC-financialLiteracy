@@ -14,9 +14,12 @@ const Eight=()=>{
    
 
     useEffect(()=>{
+         window.onpopstate = e => {
+             history.push('/');
+         }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
-
+        window.scrollTo(0, 0);
         setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setSteel(parseInt(retrievedObj.stocks.steel));
 

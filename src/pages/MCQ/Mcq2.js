@@ -22,6 +22,10 @@ const Mcq2 = () => {
     setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
     setPassbook(retrievedObj.passbook);
     setRetrievedObject(retrievedObj);
+     window.onpopstate = e => {
+            history.push('/');
+        }
+    window.scrollTo(0, 0);
   },[])
   const [op,setOp]=React.useState();
   const [money,setMoney]=React.useState(0);

@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 import Ad from './ad.jpg';
 import Dollar from './dollar.jpg';
 import {Modal,Button} from 'react-bootstrap';
-import CardImg from './card-img.jpg';
+import CardImg from './card-img.jpeg';
 import Congrat from './congratulate.jpg';
 const Level5=()=>{
     const history=useHistory();
@@ -17,6 +17,9 @@ const Level5=()=>{
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
+         window.onpopstate = e => {
+             history.push('/');
+         }
         setPassbook(retrievedObj.passbook);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);

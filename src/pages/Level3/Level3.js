@@ -1,7 +1,7 @@
 import React from 'react';
 import './Level3.css';
 import {useHistory} from 'react-router-dom';
-import CardImg from './card-img.jpg';
+import CardImg from './card-img.jpeg';
 import {Modal,Button} from 'react-bootstrap';
 const Three=()=>{
     const history = useHistory();
@@ -18,6 +18,9 @@ const Three=()=>{
         setRetrievedObject(retrievedObj);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
+         window.onpopstate = e => {
+            history.push('/');
+        }
         setPassbook(retrievedObj.passbook);
     }, []);
     const handleClose = () => setShow(false);

@@ -17,6 +17,9 @@ const FakeWebsite=()=>{
     const [CVV, setCVV] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
     React.useEffect(() => {
+         window.onpopstate = e => {
+             history.push('/');
+         }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setPassbook(retrievedObj.passbook);

@@ -20,6 +20,9 @@ const Mcq4 = () => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]);
         setPassbook(retrievedObj.passbook);
+         window.onpopstate = e => {
+             history.push('/');
+         }
         setRetrievedObject(retrievedObj);
     }, [])
 

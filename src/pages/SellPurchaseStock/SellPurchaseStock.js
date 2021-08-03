@@ -20,10 +20,14 @@ const SellPurchaseStock=()=>{
     const [bmed,setBmed]=useState(0);
     const [passbook,setPassbook]=useState()
     useEffect(()=>{
+        window.scrollTo(0, 0);
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setMed(retrievedObj.stocks.med);
         setPassbook(retrievedObj.passbook);
+         window.onpopstate = e => {
+             history.push('/');
+         }
         setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setSteel(retrievedObj.stocks.steel);
         setOil(retrievedObj.stocks.oil);

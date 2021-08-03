@@ -15,7 +15,10 @@ const Thirteen = () => {
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
-
+    window.scrollTo(0, 0);
+     window.onpopstate = e => {
+       history.push('/');
+     }
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
     setOil(retrievedObj.stocks.oil);
   }, []);
@@ -122,7 +125,7 @@ const Thirteen = () => {
               </div>
               <div>
                 <h4>
-                As stated earlier, the government has promoted renewable energy sources which had les to
+                As stated earlier, the government has promoted renewable energy sources which had led to
                 the decrease in oil prices of the Crude Oil Industry.
                 </h4>
               </div>

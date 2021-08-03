@@ -32,6 +32,9 @@
     animation: upDown 4s infinite linear;
     animation-direction: alternate;
   }
+  #root{
+    scroll-behavior: smooth;
+  }
   @keyframes loader {
     0% { transform: rotate(0deg);}
     25% { transform: rotate(180deg);}
@@ -65,7 +68,7 @@
   text-align: center;
 }
 
-@media(max-width:950px){
+@media(max-width:1070px){
     #root{
       display:none
     }

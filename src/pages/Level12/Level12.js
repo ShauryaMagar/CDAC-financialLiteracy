@@ -4,6 +4,11 @@ import './Level12.css'
 
 const Twelve=()=>{
     const history=useHistory();
+    React.useEffect(()=>{
+         window.onpopstate = e => {
+             history.push('/');
+         }
+    },[]);
     const handleClick=()=>{
         setTimeout(()=>{
             history.push("/SPStock");

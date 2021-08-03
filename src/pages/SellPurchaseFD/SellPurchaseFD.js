@@ -14,6 +14,10 @@ const SellPurchaseFD=()=>{
     useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
+        window.scrollTo(0, 0);
+         window.onpopstate = e => {
+             history.push('/');
+         }
         setAmt(parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]));
         setMoneyArray(parseInt(retrievedObj.moneyInHand));
         setFd(parseInt(retrievedObj.fixedDeposit.purchased));

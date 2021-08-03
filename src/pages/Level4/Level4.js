@@ -24,7 +24,7 @@ const Level4=()=>{
             <Modal.Body>
                 <h4>It's your payday!!</h4>
                 <p>
-                You're receiving Rs. 5000 as your Payday. Use the money wisely in upcoming levels!
+                You're receiving Rs. 3000 as your Payday. Use the money wisely in upcoming levels!
                 </p>
             </Modal.Body>
             <Modal.Footer>
@@ -38,12 +38,12 @@ const Level4=()=>{
             let obj={
                 name:'PAY DAY',
                 type:'credit',
-                amount:5000
+                amount:3000
             }
             obj12.push(obj);
             setPassbook(obj12);
             retrievedObject.passbook=passbook;
-            retrievedObject.moneyInHand.push(parseInt(money) + 5000);
+            retrievedObject.moneyInHand.push(parseInt(money) + 3000);
             console.log(retrievedObject);
             localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
             history.push('/start');
@@ -55,7 +55,7 @@ const Level4=()=>{
                 <h1>Previously: {money}</h1><br/>
             </div>
             <div className="row justify-content-center">
-                <h1>Now: {parseInt(money)+5000}</h1>
+                <h1>Now: {parseInt(money)+3000}</h1>
                 <br/>
             </div>
             <div className="row justify-content-center">
@@ -72,6 +72,9 @@ const Level4=()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setPassbook(retrievedObj.passbook);
+         window.onpopstate = e => {
+             history.push('/');
+         }
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
     }, []);

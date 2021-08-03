@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {useHistory,useLocation} from 'react-router-dom';
 import {Modal,Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import cardImg from './images/card-img.jpg';
+import cardImg from './images/card-img.jpeg';
 import './IntroStock.css';
 const IntroStock=()=>{
     const [isLoaded, setIsLoaded] = React.useState(false);
@@ -13,20 +13,28 @@ const IntroStock=()=>{
     const [oil,setOil]=React.useState(0);
     const [passbook,setPassbook]=React.useState();
     const [auto,setAuto]=React.useState(0);
+    const [purchaseSteel, setPurchaseSteel] = React.useState(false);
+    const [purchaseMed, setPurchaseMed] = React.useState(false);
+    const [purchaseOil, setPurchaseOil] = React.useState(false);
+    const [purchaseAuto, setPurchaseAuto] = React.useState(false);
     const [CVV,setCVV]=React.useState("");
     const [creditNo,setCreditNo]=React.useState("");
     const [pin,setPin]=React.useState("");
     useEffect(() => {
+         window.onpopstate = e => {
+             history.push('/');
+         }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setIsLoaded(true);
+        window.scrollTo(0, 0);
         setPassbook(retrievedObj.passbook);
         setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
     }, []);
     const [show, setShow] = React.useState(false);
     const nextPage=()=>{
         let obj12=passbook;
-        if(steel!=0){
+        if (purchaseSteel) {
             var obj={
                 name:'Steel Stocks purchased',
                 type:'debit',
@@ -34,7 +42,7 @@ const IntroStock=()=>{
             }
             obj12.push(obj);
         }
-        if(oil!=0){
+        if (purchaseOil) {
             var obj={
                 name:'Oil Stocks purchased',
                 type:'debit',
@@ -42,7 +50,7 @@ const IntroStock=()=>{
             }
             obj12.push(obj);
         }
-        if(med!=0){
+        if (purchaseMed) {
             var obj={
                 name:'Pharmaceutical Stocks purchased',
                 type:'debit',
@@ -50,7 +58,7 @@ const IntroStock=()=>{
             }
             obj12.push(obj);
         }
-        if(auto!=0){
+        if(purchaseAuto){
             var obj={
                 name:'Automobile Stocks purchased',
                 type:'debit',
@@ -60,10 +68,14 @@ const IntroStock=()=>{
         }
         setPassbook(obj12);
         retrievedObject.passbook=passbook;
-        retrievedObject.stocks.steel=steel;
-        retrievedObject.stocks.oil=oil;
-        retrievedObject.stocks.med=med;
-        retrievedObject.stocks.auto=auto;
+        if(purchaseSteel)
+            retrievedObject.stocks.steel=steel;
+        if(purchaseOil)
+            retrievedObject.stocks.oil=oil;
+        if(purchaseMed)
+            retrievedObject.stocks.med=med;
+        if(purchaseAuto)
+            retrievedObject.stocks.auto=auto;
         if(amt != retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1]){
             retrievedObject.moneyInHand.push(amt);
         }
@@ -103,6 +115,7 @@ const IntroStock=()=>{
                 let num = oil;
                 setOil(num);
                 setAmt(amt - num);
+                setPurchaseOil(true);
                 setShow(true);
             }
         }
@@ -116,6 +129,7 @@ const IntroStock=()=>{
                 alert("Money In hand will be less than 100.");
             } else {
                 let num = med;
+                setPurchaseMed(true);
                 setMed(num);
                 setAmt(amt - num);
                 setShow(true);
@@ -132,6 +146,7 @@ const IntroStock=()=>{
                 alert("Money In hand will be less than 100.");
             } else {
                 let num = steel;
+                setPurchaseSteel(true);
                 setSteel(num);
                 setAmt(amt - num);
                 setShow(true);
@@ -148,6 +163,7 @@ const IntroStock=()=>{
                 alert("Money In hand will be less than 100.");
             } else {
                 let num = auto;
+                setPurchaseAuto(true);
                 setAuto(num);
                 setAmt(amt - num);
                 setShow(true);
@@ -315,6 +331,11 @@ const IntroStock=()=>{
                 <div className="row justify-content-center">
                     <div className="col-10">
                         <img src={cardImg} style={{height:"300px",width:"250px"}}/>
+                    </div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-10" style={{textAlign:'center', marginTop:'0.5rem'}}>
+                        Pin: 2345
                     </div>
                 </div>
                 <div className="row justify-content-center" style={{marginTop:"1rem"}}>

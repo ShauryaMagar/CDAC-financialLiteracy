@@ -4,7 +4,12 @@ import {useHistory} from 'react-router-dom';
  import SecondImg from './note.jpeg'
 
 
-const FakeNote=(props)=>{
+const FakeNote=()=>{
+    React.useEffect(()=>{
+        window.onpopstate = e => {
+            history.push('/');
+        }
+    },[])
     const history=useHistory();
     const [option,setOption]=React.useState(false);
     const onImageClick=()=>{

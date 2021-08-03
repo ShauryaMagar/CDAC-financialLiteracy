@@ -3,6 +3,11 @@ import { useHistory } from 'react-router';
 import Scam from './scam.png'
 const MoreScam=()=>{
     const history=useHistory();
+    React.useEffect(()=>{
+         window.onpopstate = e => {
+             history.push('/');
+         }
+    },[]);
     const onSubmit=()=>{
         history.push('/start')
     }

@@ -41,15 +41,15 @@ const Three=()=>{
             let obj12 = passbook;
             let obj = {
                 name: 'First Financial Transaction',
-                type: 'credit',
-                amount: 2000
+                type: 'debit',
+                amount: 2500
             }
             obj12.push(obj);
             setPassbook(obj12);
             retrievedObject.passbook = passbook
-            retrievedObject.moneyInHand.push(parseInt(money) + 2000);
+            retrievedObject.moneyInHand.push(parseInt(money) - 2500);
             localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-            alert("You've been awarded Rs 2000 for completing your first financial transaction");
+            // alert("You've been awarded Rs 2000 for completing your first financial transaction");
             setTimeout(() => {
                 history.push('/start');
             }, 1000);

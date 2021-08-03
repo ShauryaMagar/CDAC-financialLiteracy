@@ -58,14 +58,14 @@ const Level5=()=>{
         let obj = {
             name: 'Level rewards',
             type: 'credit',
-            amount: 5000
+            amount: 2500
         }
         obj12.push(obj);
         setPassbook(obj12);
         retrievedObject.passbook = passbook;
-        retrievedObject.moneyInHand.push(parseInt(money)+5000);
+        retrievedObject.moneyInHand.push(parseInt(money)+2500);
         localStorage.setItem('financialLiteracy', JSON.stringify(retrievedObject));
-        alert("Phew! That was close. You just saved yourself from a Scam. You've been rewarded Rs. 5000");
+        alert("Phew! That was close. You just saved yourself from a Scam. You've been rewarded Rs. 2500");
         setTimeout(() => {
             history.push("/moreScam");
         }, 1000);

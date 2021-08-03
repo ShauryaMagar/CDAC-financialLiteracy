@@ -79,6 +79,7 @@ const DiceRoll = () => {
     setIsLoaded(true);
     setCurrentInd(retrievedObj.currentInd);
     setNext(retrievedObj.next);
+    // eslint-disable-next-line 
   }, []);
 
   useEffectX(() => {

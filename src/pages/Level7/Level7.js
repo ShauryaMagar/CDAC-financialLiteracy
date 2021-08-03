@@ -5,12 +5,11 @@ import {useHistory} from 'react-router-dom';
 
 const Seven = ()=>{
     const history = useHistory();
+    // eslint-disable-next-line 
     const [isLoaded,setIsLoaded]=React.useState(false);
     const [retrievedObject,setRetrievedObject]=React.useState({});
     const [passbook,setPassbook]=React.useState();
     const [ins,setIns]=React.useState(false);
-    var abc=isLoaded;
-    abc=!abc;
     React.useEffect(()=>{
          window.onpopstate = e => {
              history.push('/');
@@ -21,6 +20,7 @@ const Seven = ()=>{
         window.scrollTo(0, 0);
         setIns(retrievedObj.insurance.homeIns.purchased);
         setIsLoaded(true);
+        // eslint-disable-next-line 
     },[]);
     const own=()=>{
         setTimeout(()=>{

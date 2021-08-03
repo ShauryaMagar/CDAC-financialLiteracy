@@ -30,6 +30,7 @@ const IntroStock=()=>{
         window.scrollTo(0, 0);
         setPassbook(retrievedObj.passbook);
         setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
+        // eslint-disable-next-line 
     }, []);
     const [show, setShow] = React.useState(false);
     const nextPage=()=>{

@@ -3,13 +3,12 @@ import {useHistory} from 'react-router-dom';
 import {Modal,Button} from 'react-bootstrap';
 const Level4=()=>{
     const history = useHistory();
+    // eslint-disable-next-line 
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money, setMoney] = React.useState(0);
     const [passbook,setPassbook]=React.useState()
     const [retrievedObject, setRetrievedObject] = React.useState({});
     const [modalShow, setModalShow] = React.useState(true);
-    var abc=isLoaded;
-    abc=!abc;
     function MyVerticallyCenteredModal(props) {
         return (
             <Modal
@@ -79,6 +78,7 @@ const Level4=()=>{
          }
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
+        // eslint-disable-next-line 
     }, []);
     
     const showTime=()=>{

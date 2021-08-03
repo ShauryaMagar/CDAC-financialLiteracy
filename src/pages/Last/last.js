@@ -42,6 +42,7 @@ const Last=()=>{
     if(retrievedObj.insurance.homeIns.purchased){
       setHome(parseInt(retrievedObj.insurance.homeIns.sellingPrice))
     }
+    // eslint-disable-next-line 
     },[]);
 
 

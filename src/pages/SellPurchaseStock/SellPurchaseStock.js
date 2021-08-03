@@ -32,6 +32,7 @@ const SellPurchaseStock=()=>{
         setSteel(retrievedObj.stocks.steel);
         setOil(retrievedObj.stocks.oil);
         setAuto(retrievedObj.stocks.auto);
+        // eslint-disable-next-line 
     },[])
     const sellAuto=()=>{
         let add = parseInt(amt);

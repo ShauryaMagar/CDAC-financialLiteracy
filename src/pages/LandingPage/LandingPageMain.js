@@ -9,7 +9,7 @@ class LandingPageMain extends React.Component{
                 <div className="container" style={{height:"10vh"}}>
                       <div className="row" >
                         <div className="col-3">
-                            <img src="cloud.png" alt="cloud image animation" className="cloud-image" style={{height:"7vh", zIndex:"0", marginTop:"15vh"}}></img>
+                            <img src="cloud.png" alt="cloud flowing" className="cloud-image" style={{height:"7vh", zIndex:"0", marginTop:"15vh"}}></img>
                         </div>
                         <div className="col-6">
                             <div className="title ">
@@ -25,7 +25,7 @@ class LandingPageMain extends React.Component{
                 </div>
                     <div className="row">
                         <div className="col-4">
-                            <img src="homeScreen2.svg" alt="home screen image" style={{width:"15vw",marginTop:"34vh"}}></img>
+                            <img src="homeScreen2.svg" alt="home flow" style={{width:"15vw",marginTop:"34vh"}}></img>
                         </div>
                         <div className="col-4">
                              <img src="cool-child.png" alt="mascot of project" className="cool-child-pic" style={{textAlign:"center",height:"40vh", position:"relative",marginTop:"10vh"}}></img>

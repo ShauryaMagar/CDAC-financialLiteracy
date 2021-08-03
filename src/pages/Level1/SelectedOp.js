@@ -20,6 +20,7 @@ const SelectedOp=()=>{
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setPassbook(retrievedObj.passbook);
         setIsLoaded(true);
+        // eslint-disable-next-line 
     },[]);
     const rightGuess=()=>{
         retrievedObject.moneyInHand.push(parseInt(money) +2000);

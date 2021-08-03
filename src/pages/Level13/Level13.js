@@ -7,10 +7,9 @@ import "./Level13.css";
 const Thirteen = () => {
   const history = useHistory();
   const [retrievedObject, setRetrievedObject] = useState({});
+  // eslint-disable-next-line 
   const [amt, setAmt] = useState(0);
   const [oil, setOil] = useState(0);
-  var abc=amt;
-  abc=amt+1000;
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
@@ -20,6 +19,7 @@ const Thirteen = () => {
      }
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
     setOil(retrievedObj.stocks.oil);
+    // eslint-disable-next-line 
   }, []);
 
   const nextPage = () => {

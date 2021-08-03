@@ -9,12 +9,11 @@ import Spark from './images/explosion (1).png'
 
 const Two = ()=>{
     const history = useHistory();
+    // eslint-disable-next-line 
     const [isLoaded,setIsLoaded]=React.useState(false);
     const [retrievedObject,setRetrievedObject]=React.useState({});
     const [passbook,setPassbook]=React.useState();
     const [ins,setIns]=React.useState(false);
-    var abc=isLoaded;
-    abc=!abc;
     React.useEffect(()=>{
          window.onpopstate = e => {
             history.push('/');
@@ -24,6 +23,7 @@ const Two = ()=>{
         setIns(retrievedObj.insurance.vehicleIns.purchased);
         setIsLoaded(true);
         setPassbook(retrievedObj.passbook);
+        // eslint-disable-next-line 
     },[]);
     const own=()=>{
         setTimeout(()=>{

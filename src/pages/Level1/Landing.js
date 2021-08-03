@@ -9,6 +9,7 @@ const Landing=()=>{
         window.onpopstate = e => {
             history.push('/');
         }
+        // eslint-disable-next-line 
     },[]);
     const [option,setOption]=React.useState(false);
     const onImageClick=()=>{

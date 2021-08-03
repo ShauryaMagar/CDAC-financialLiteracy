@@ -24,6 +24,7 @@ const Mcq4 = () => {
              history.push('/');
          }
         setRetrievedObject(retrievedObj);
+        // eslint-disable-next-line 
     }, [])
 
   const [op,setOp]=React.useState();

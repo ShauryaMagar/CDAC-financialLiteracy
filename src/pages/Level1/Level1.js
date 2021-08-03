@@ -7,11 +7,11 @@ const Level1 =()=>{
         window.onpopstate = e => {
             history.push('/');
         }
+        // eslint-disable-next-line 
     },[]);
     const [disp,setDisp]=React.useState(false);
+    // eslint-disable-next-line 
     const [fake,setFake]=React.useState(false);
-    var abc=fake;
-    abc=!abc;
     if(!disp){
         return(
             <div >

@@ -7,10 +7,9 @@ import './Level8.css'
 const Eight=()=>{
     const history=useHistory();
     const [retrievedObject,setRetrievedObject]= useState({});
+    // eslint-disable-next-line 
     const [amt,setAmt]=useState(0);
     const [steel, setSteel] = useState(0);
-    var abc=amt;
-    abc=abc+100;
 
     useEffect(()=>{
          window.onpopstate = e => {
@@ -21,7 +20,7 @@ const Eight=()=>{
         window.scrollTo(0, 0);
         setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setSteel(parseInt(retrievedObj.stocks.steel));
-
+// eslint-disable-next-line 
     },[])
 
 

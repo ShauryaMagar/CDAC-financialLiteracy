@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import {useHistory} from 'react-router-dom';
 import Ad from './ad.jpg';
 
@@ -9,6 +9,7 @@ import '../Level1/Level1.css';
 
 const FakeWebsite=()=>{
     const history=useHistory();
+    // eslint-disable-next-line 
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money, setMoney] = React.useState(0);
     const [show, setShow] = React.useState(false);
@@ -16,21 +17,18 @@ const FakeWebsite=()=>{
     const [pin, setPin] = React.useState("");
     const [CVV, setCVV] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
-    var abc=isLoaded;
-    abc=!abc;
-    const rendering = useCallback(()=> {
+
+    React.useEffect(() => {
         window.onpopstate = e => {
             history.push('/');
         }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setPassbook(retrievedObj.passbook);
-        setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]);
+        setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
-    },[]);
-    React.useEffect(() => {
-        rendering();
-    }, [rendering]);
+        // eslint-disable-next-line 
+    }, []);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const wrongChoice=()=>{

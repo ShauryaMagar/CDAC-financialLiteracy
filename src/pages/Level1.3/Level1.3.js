@@ -18,6 +18,7 @@ function Mid(){
              history.push('/');
          }
         window.scrollTo(0, 0);
+        // eslint-disable-next-line 
     },[]);
      const history = useHistory();
       const handleRightClose = () => setRight(false);

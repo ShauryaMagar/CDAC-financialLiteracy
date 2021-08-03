@@ -7,6 +7,7 @@ import CardImg from './card-img.jpeg';
 import Congrat from './congratulate.jpg';
 const Level5=()=>{
     const history=useHistory();
+    // eslint-disable-next-line 
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money, setMoney] = React.useState(0);
     const [show, setShow] = React.useState(false);
@@ -14,8 +15,6 @@ const Level5=()=>{
     const [pin, setPin] = React.useState("");
     const [CVV, setCVV] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
-    var abc=isLoaded;
-    abc=!abc;
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
@@ -25,6 +24,7 @@ const Level5=()=>{
         setPassbook(retrievedObj.passbook);
         setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
         setIsLoaded(true);
+        // eslint-disable-next-line 
     }, []);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

@@ -7,6 +7,7 @@ const MoreScam2=()=>{
         window.onpopstate = e => {
             history.push('/');
         }
+        // eslint-disable-next-line 
     },[])
     const onSubmit=()=>{
         history.push('/start')

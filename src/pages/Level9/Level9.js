@@ -9,6 +9,7 @@ const Nine=()=>{
          window.onpopstate = e => {
              history.push('/');
          }
+         // eslint-disable-next-line 
     },[]);
     const handleClick=()=>{
         setTimeout(()=>{

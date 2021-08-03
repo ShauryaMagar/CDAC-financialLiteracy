@@ -26,6 +26,7 @@ const Mcq2 = () => {
             history.push('/');
         }
     window.scrollTo(0, 0);
+    // eslint-disable-next-line 
   },[])
   const [op,setOp]=React.useState();
   const [money,setMoney]=React.useState(0);

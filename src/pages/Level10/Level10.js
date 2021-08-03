@@ -4,6 +4,7 @@ import Hospital from "./images/hospital.png";
 import './Level10.css'
 const Ten = () => {
   const history = useHistory();
+  // eslint-disable-next-line 
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [retrievedObject, setRetrievedObject] = React.useState({});
   const [health, setHealth] = React.useState(false);
@@ -21,12 +22,11 @@ const Ten = () => {
     setPassbook(retrievedObj.passbook);
     window.scrollTo(0, 0);
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
+    // eslint-disable-next-line 
   }, []);
 
   //onClick  when user has health insurance.
   // 1000 deducted
-  var abc=isLoaded;
-  abc= !abc;
   const own = () => {
     var update = amt - 0;
     setAmt(update);

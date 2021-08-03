@@ -24,6 +24,7 @@ const Mcq1 = () => {
          window.onpopstate = e => {
              history.push('/');
          }
+         // eslint-disable-next-line 
     }, [])
 
   const [op,setOp]=React.useState();

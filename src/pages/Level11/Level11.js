@@ -6,13 +6,12 @@ import "./Level11.css";
 const Eleven = () => {
   const history = useHistory();
   const [retrievedObject, setRetrievedObject] = useState({});
+  // eslint-disable-next-line 
   const [amt, setAmt] = useState(0);
   const [med, setMed] = useState(0);
   const [steel,setSteel]=useState(0);
   const [oil,setOil]=useState(0);
   const [auto,setAuto]=useState(0);
-  var abc=amt;
-  abc=abc+100;
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);
@@ -25,6 +24,7 @@ const Eleven = () => {
     setOil(retrievedObj.stocks.oil);
     setAmt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
     setMed(retrievedObj.stocks.med);
+    // eslint-disable-next-line 
   }, []);
 
   const nextPage = () => {

@@ -9,6 +9,7 @@ const SellPurchaseFD=()=>{
     const [fd,setFd]=useState(0);
     const [passbook,setPassbook]=useState()
     const [turns,setTurns]=useState(0);
+    // eslint-disable-next-line 
     const [moneyArray,setMoneyArray]=useState();
     const history=useHistory();
     
@@ -24,6 +25,7 @@ const SellPurchaseFD=()=>{
         setFd(parseInt(retrievedObj.fixedDeposit.purchased));
         setPassbook(retrievedObj.passbook);
         setTurns(parseInt(retrievedObj.fixedDeposit.turnsLeft));
+        // eslint-disable-next-line 
     },[])
     const handleChange=e=>setBFD(e.target.value);
     const buyFD=(e)=>{

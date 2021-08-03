@@ -6,6 +6,7 @@ import {Modal,Button} from 'react-bootstrap';
 const Three=()=>{
     const history = useHistory();
     const [show, setShow] = React.useState(false);
+    // eslint-disable-next-line 
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [money,setMoney]=React.useState(0);
     const [passbook,setPassbook]=React.useState();
@@ -13,8 +14,6 @@ const Three=()=>{
     const [creditNo, setCreditNo] = React.useState("");
     const [pin, setPin] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
-    var abc=isLoaded;
-    abc=!abc;
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
@@ -24,6 +23,7 @@ const Three=()=>{
             history.push('/');
         }
         setPassbook(retrievedObj.passbook);
+        // eslint-disable-next-line 
     }, []);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

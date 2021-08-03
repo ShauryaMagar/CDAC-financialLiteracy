@@ -25,6 +25,7 @@ const SellPurchaseIns = () =>{
          }
         setVehicle(retrievedObj.insurance.vehicleIns.purchased);
         setHome(retrievedObj.insurance.homeIns.purchased);
+        // eslint-disable-next-line 
     }, [])
     const sellHealth=()=>{
         setHealth(false);

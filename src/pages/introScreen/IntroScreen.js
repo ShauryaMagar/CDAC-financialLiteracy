@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './IntroScreen.css';
-import ScrollToTop from '../../ScrollToTop';
 
 const IntroScreen = () => {
     const [amt,setAmt]=React.useState(20000);
@@ -454,7 +453,6 @@ const IntroScreen = () => {
             </div>
             <br/><br/>
             <div >
-            <ScrollToTop />
                 <div className='' style={{textAlign:'center',paddingBottom:"80px"}}>
                     <Link to="/start" onClick={onSubmission} style={{color:'white' , fontFamily:"Bubblegum Sans"}}><button className="btn btn-lg start-button animate__animated animate__pulse animate__infinite" style={{fontSize:"32px"}}>Start!</button></Link>
                 </div> 

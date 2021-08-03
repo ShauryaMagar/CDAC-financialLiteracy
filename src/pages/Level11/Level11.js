@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
 import Increase from "./images/increase.png";
 import "./Level11.css";
-import { bottom } from "@popperjs/core";
 
 const Eleven = () => {
   const history = useHistory();
@@ -13,7 +11,8 @@ const Eleven = () => {
   const [steel,setSteel]=useState(0);
   const [oil,setOil]=useState(0);
   const [auto,setAuto]=useState(0);
-
+  var abc=amt;
+  abc=abc+100;
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);

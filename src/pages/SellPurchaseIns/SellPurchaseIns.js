@@ -155,7 +155,7 @@ const SellPurchaseIns = () =>{
                 </div>
                 <div className="col-5" style={{textAlign:'center'}}>
                     {health?<button onClick={sellHealth} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Sell</button>:<button onClick={purHealth} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Purchase</button>}
-                   <br/> <img src={HealthIns} className="animate__animated animate__pulse animate__infinite" height='180px'/>
+                   <br/> <img src={HealthIns} alt="health insurance" className="animate__animated animate__pulse animate__infinite" height='180px'/>
                 </div>
             </div>
             <div className="row justify-content-center house-ins-card" style={{marginTop:"1rem"}}>
@@ -168,7 +168,7 @@ const SellPurchaseIns = () =>{
                 </div>
                 <div className="col-5" style={{textAlign:'center'}}>
                     {home?<button onClick={sellHome}className="btn btn-primary" style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Sell</button>:<button onClick={purHome} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Purchase</button>}
-                    <br/> <img className="animate__animated animate__fadeInUp" src={HouseIns} height='180px'/>
+                    <br/> <img className="animate__animated animate__fadeInUp" alt='home insurance' src={HouseIns} height='180px'/>
                 </div>
             </div>
             <div className="row justify-content-center vehicle-ins-card" style={{marginTop:"1rem"}}>
@@ -181,7 +181,7 @@ const SellPurchaseIns = () =>{
                 </div>
                 <div className="col-5" style={{textAlign:'center'}}>
                     {vehicle?<button onClick={sellVehicle} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Sell</button>:<button onClick={purVehicle} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px',marginBottom:'10px'}}>Purchase</button>}
-                    <br/> <img src={VehicleIns} className="animate__animated animate__fadeInLeftBig animate__delay-2s" height='180px'/>
+                    <br/> <img src={VehicleIns} alt="vehicle insurance" className="animate__animated animate__fadeInLeftBig animate__delay-2s" height='180px'/>
                 </div>
             </div>
         </div>

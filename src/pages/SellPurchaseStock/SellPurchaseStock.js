@@ -87,7 +87,7 @@ const SellPurchaseStock=()=>{
     }
     const purchaseOil=(e)=>{
         e.preventDefault();
-        if (boil == "" || !Number.isInteger(parseInt(boil))) {
+        if (boil === "" || !Number.isInteger(parseInt(boil))) {
             alert("Enter Number")
         }else{
             if (amt - boil < 100) {
@@ -111,7 +111,7 @@ const SellPurchaseStock=()=>{
     }
     const purchaseMed=(e)=>{
         e.preventDefault();
-        if (bmed == "" || !Number.isInteger(parseInt(bmed))) {
+        if (bmed === "" || !Number.isInteger(parseInt(bmed))) {
             alert("Enter Number")
         }else{
             if (amt - bmed < 100) {
@@ -134,7 +134,7 @@ const SellPurchaseStock=()=>{
     }
     const purchaseSteel=(e)=>{
         e.preventDefault();
-        if (bsteel == "" || !Number.isInteger(parseInt(bsteel))){
+        if (bsteel === "" || !Number.isInteger(parseInt(bsteel))){
             alert("Enter Number")
         }else{
             if (amt - bsteel < 100) {
@@ -156,7 +156,7 @@ const SellPurchaseStock=()=>{
     }
     const purchaseAuto = (e) => {
         e.preventDefault();
-        if (bauto == "" || !Number.isInteger(parseInt(bauto))){
+        if (bauto === "" || !Number.isInteger(parseInt(bauto))){
             alert("Enter Number")
         }else{
             if (amt - bauto < 100) {
@@ -238,7 +238,7 @@ const SellPurchaseStock=()=>{
             <div className="row justify-content-around purchase-card purchase-card-oil" style={{marginTop:"1rem",paddingLeft:'20px'}}>
                 <div className="col-3">
                     <h2 style={{fontFamily:'Poppins',fontWeight:'700',textAlign:'center'}}>Oil & Gas</h2>
-                   <center> <img src={Oil} height='100px'/> </center>
+                   <center> <img alt="oil stock" src={Oil} height='100px'/> </center>
                 </div>
                 <div className="col-3">
                   <p>Current Value: {oil}</p>   <br/>
@@ -252,7 +252,7 @@ const SellPurchaseStock=()=>{
             <div className="row justify-content-around purchase-card purchase-card-pharma" style={{marginTop:"1rem",paddingLeft:'20px'}}>
                 <div className="col-3">
                 <h2 style={{fontFamily:'Poppins',fontWeight:'700',textAlign:'center'}}>Pharmaceutical</h2>
-                   <center> <img src={Pharma} height='100px'/> </center> 
+                   <center> <img alt="pharma stock" src={Pharma} height='100px'/> </center> 
                 </div>
                 <div className="col-3">
                 <p>Current Value: {med}</p> <br/>
@@ -266,7 +266,7 @@ const SellPurchaseStock=()=>{
             <div className="row justify-content-around purchase-card purchase-card-steel" style={{marginTop:"1rem",paddingLeft:'20px'}}>
                 <div className="col-3">
                 <h2 style={{fontFamily:'Poppins',fontWeight:'700',textAlign:'center'}}>Steel</h2>
-                   <center> <img src={Steel} height='100px'/> </center>
+                   <center> <img alt="steel stock" src={Steel} height='100px'/> </center>
                 </div>
                 <div className="col-3">
                 <p>Current Value: {steel}</p> <br/>
@@ -278,7 +278,7 @@ const SellPurchaseStock=()=>{
             </div><div className="row justify-content-around purchase-card purchase-card-automobile" style={{marginTop:"1rem",paddingLeft:'20px'}}>
                 <div className="col-3">
                 <h2 style={{fontFamily:'Poppins',fontWeight:'700',textAlign:'center'}}>Automobile</h2>
-                   <center> <img src={Auto} height='100px'/> </center>
+                   <center> <img alt="automobile stock" src={Auto} height='100px'/> </center>
                 </div>
                 <div className="col-3">
                 <p>Current Value: {auto}</p> <br/>

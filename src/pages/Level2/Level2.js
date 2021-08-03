@@ -13,6 +13,8 @@ const Two = ()=>{
     const [retrievedObject,setRetrievedObject]=React.useState({});
     const [passbook,setPassbook]=React.useState();
     const [ins,setIns]=React.useState(false);
+    var abc=isLoaded;
+    abc=!abc;
     React.useEffect(()=>{
          window.onpopstate = e => {
             history.push('/');

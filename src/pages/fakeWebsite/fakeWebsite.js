@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {useHistory} from 'react-router-dom';
 import Ad from './ad.jpg';
 
@@ -16,16 +16,21 @@ const FakeWebsite=()=>{
     const [pin, setPin] = React.useState("");
     const [CVV, setCVV] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
-    React.useEffect(() => {
+    var abc=isLoaded;
+    abc=!abc;
+    const rendering = useCallback(()=> {
         window.onpopstate = e => {
             history.push('/');
         }
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
         setPassbook(retrievedObj.passbook);
-        setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]);
+        setMoney(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]);
         setIsLoaded(true);
-    }, []);
+    },[]);
+    React.useEffect(() => {
+        rendering();
+    }, [rendering]);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const wrongChoice=()=>{
@@ -33,7 +38,7 @@ const FakeWebsite=()=>{
         var CVV1 = CVV;
         pin1 = pin1.replaceAll(" ", "").trim();
         CVV1 = CVV1.replaceAll(" ", "").trim();
-        if (pin1 != '2345' || CVV1 != '418') {
+        if (pin1 !== '2345' || CVV1 !== '418') {
             alert("Enter proper Details!");
         } else{
             let obj12 = passbook;

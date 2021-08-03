@@ -11,6 +11,7 @@ const SellPurchaseFD=()=>{
     const [turns,setTurns]=useState(0);
     const [moneyArray,setMoneyArray]=useState();
     const history=useHistory();
+    
     useEffect(()=>{
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
@@ -95,7 +96,7 @@ const SellPurchaseFD=()=>{
             <div className="row justify-content-center" style={{marginTop:'1rem'}}>
                 <div className="col-5">
                     <p>Currently Purchased: Rs {fd}</p>
-                    {fd!=0
+                    {fd!==0
                     ?
                     <>
                     <p>Time to Mature: {turns} dice rolls</p>
@@ -108,7 +109,7 @@ const SellPurchaseFD=()=>{
                 </div>
                 <div className="col-5" style={{textAlign:'center'}}>
                     {
-                        fd!=0?
+                        fd!==0?
                         <button onClick={sellFD}  className="btn btn-primary" style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',marginTop:"1rem",width:'220px'}}>Sell</button>
                         :
                         <form onSubmit={buyFD}>

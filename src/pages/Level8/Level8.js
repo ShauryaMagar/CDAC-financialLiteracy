@@ -3,15 +3,14 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import Increase from './upward-arrow.png'
 import './Level8.css'
-import { bottom } from '@popperjs/core';
-import SellPurchaseStock from '../SellPurchaseStock/SellPurchaseStock';
 
 const Eight=()=>{
     const history=useHistory();
     const [retrievedObject,setRetrievedObject]= useState({});
     const [amt,setAmt]=useState(0);
     const [steel, setSteel] = useState(0);
-   
+    var abc=amt;
+    abc=abc+100;
 
     useEffect(()=>{
          window.onpopstate = e => {

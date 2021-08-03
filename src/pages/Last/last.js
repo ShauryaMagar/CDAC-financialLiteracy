@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {useLocation,useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import { Modal, Button } from "react-bootstrap";
 import Trophy from "./trophy.png"
 import Lost from "./lost.png"
@@ -34,6 +34,7 @@ const Last=()=>{
         setIsLoaded(true);
     if(retrievedObj.insurance.healthIns.purchased){
       setHealth(parseInt(retrievedObj.insurance.healthIns.sellingPrice))
+      
     }
     if(retrievedObj.insurance.vehicleIns.purchased){
       setVehicle(parseInt(retrievedObj.insurance.vehicleIns.sellingPrice))
@@ -91,7 +92,7 @@ const Last=()=>{
                                         {pass.name}
                                       </div>
                                       {
-                                        pass.type=='debit'?
+                                        pass.type==='debit'?
                                         <div className='col-5' style={{color:'red'}}>
                                         -{pass.amount}
                                       </div>:
@@ -219,7 +220,7 @@ const Last=()=>{
                                     {pass.name}
                                   </div>
                                   {
-                                    pass.type=='debit'?
+                                    pass.type==='debit'?
                                     <div className='col-5' style={{color:'red'}}>
                                     -{pass.amount}
                                   </div>:
@@ -297,7 +298,7 @@ const Last=()=>{
 
                 </div>
                 <div className='col-5'style={{textAlign:"center"}}>
-                <img src={Lost} style={{marginTop:'2rem'}}></img>
+                <img src={Lost} alt="lost the game" style={{marginTop:'2rem'}}></img>
                 </div>
 
             </div>

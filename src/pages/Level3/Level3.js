@@ -13,6 +13,8 @@ const Three=()=>{
     const [creditNo, setCreditNo] = React.useState("");
     const [pin, setPin] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
+    var abc=isLoaded;
+    abc=!abc;
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
@@ -32,7 +34,7 @@ const Three=()=>{
         pin1 = pin1.replaceAll(" ", "").trim();
         CVV1 = CVV1.replaceAll(" ", "").trim();
         creditNo1 = creditNo1.replaceAll(" ", "").trim();
-        if (pin1 != '2345' || CVV1 != '418' || creditNo1 != '2658418599340206') {
+        if (pin1 !== '2345' || CVV1 !== '418' || creditNo1 !== '2658418599340206') {
             alert("Enter proper Details!");
             setShow(true);
         } else {

@@ -1,5 +1,4 @@
 import React from 'react';
-import Img from './images/stock.jpg';
 import { useHistory } from 'react-router';
 import './Level6.css';
 

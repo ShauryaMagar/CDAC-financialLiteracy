@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {useHistory,useLocation} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {Modal,Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import cardImg from './images/card-img.jpeg';
@@ -43,7 +43,7 @@ const IntroStock=()=>{
             obj12.push(obj);
         }
         if (purchaseOil) {
-            var obj={
+            obj={
                 name:'Oil Stocks purchased',
                 type:'debit',
                 amount:oil
@@ -51,7 +51,7 @@ const IntroStock=()=>{
             obj12.push(obj);
         }
         if (purchaseMed) {
-            var obj={
+            obj={
                 name:'Pharmaceutical Stocks purchased',
                 type:'debit',
                 amount:med
@@ -59,7 +59,7 @@ const IntroStock=()=>{
             obj12.push(obj);
         }
         if(purchaseAuto){
-            var obj={
+            obj={
                 name:'Automobile Stocks purchased',
                 type:'debit',
                 amount:auto
@@ -76,7 +76,7 @@ const IntroStock=()=>{
             retrievedObject.stocks.med=med;
         if(purchaseAuto)
             retrievedObject.stocks.auto=auto;
-        if(amt != retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1]){
+        if(amt !== retrievedObject.moneyInHand[retrievedObject.moneyInHand.length-1]){
             retrievedObject.moneyInHand.push(amt);
         }
 
@@ -92,7 +92,7 @@ const IntroStock=()=>{
         pin1=pin1.replaceAll(" ","").trim();
         CVV1=CVV1.replaceAll(" ","").trim();
         creditNo1=creditNo1.replaceAll(" ","").trim();
-        if(pin1!='2345'||CVV1!='418'||creditNo1!='2658418599340206'){
+        if(pin1!=='2345'||CVV1!=='418'||creditNo1!=='2658418599340206'){
             alert("Enter proper Details!");
             setShow(true);
         }else{
@@ -102,11 +102,11 @@ const IntroStock=()=>{
             setShow(false)
         }
     };
-    const handleShow = () => setShow(true);
+    //const handleShow = () => setShow(true);
     const history = useHistory();
     const submitOil=(e)=>{
         e.preventDefault();
-        if (oil == "" || !Number.isInteger(parseInt(oil))) {
+        if (oil === "" || !Number.isInteger(parseInt(oil))) {
             alert("Enter Number")
         } else {
             if (amt - oil < 100) {
@@ -122,7 +122,7 @@ const IntroStock=()=>{
     }
     const submitMed = (e) => {
         e.preventDefault();
-        if (med == "" || !Number.isInteger(parseInt(med))) {
+        if (med === "" || !Number.isInteger(parseInt(med))) {
             alert("Enter Number")
         } else {
             if (amt - med < 100) {
@@ -139,7 +139,7 @@ const IntroStock=()=>{
     const submitSteel = (e) => {
 
         e.preventDefault();
-        if (steel == "" || !Number.isInteger(parseInt(steel))) {
+        if (steel === "" || !Number.isInteger(parseInt(steel))) {
             alert("Enter Number")
         } else {
             if (amt - steel < 100) {
@@ -156,7 +156,7 @@ const IntroStock=()=>{
     }
     const submitAuto = (e) => {
         e.preventDefault();
-        if (auto == "" || !Number.isInteger(parseInt(auto))) {
+        if (auto === "" || !Number.isInteger(parseInt(auto))) {
             alert("Enter Number")
         } else {
             if (amt - auto < 100) {
@@ -330,7 +330,7 @@ const IntroStock=()=>{
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-10">
-                        <img src={cardImg} style={{height:"300px",width:"250px"}}/>
+                        <img src={cardImg} alt="credit card" style={{height:"300px",width:"250px"}}/>
                     </div>
                 </div>
                 <div className="row justify-content-center">

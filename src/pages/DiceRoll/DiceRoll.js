@@ -1,19 +1,17 @@
-import { render } from "@testing-library/react";
 import React, { useEffect } from "react";
 import { useEffectX } from "use-effect-x";
 import Popup from 'reactjs-popup';
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 import "./DiceRoll.css";
-import ScrollToTop from "../../ScrollToTop";
-import { parseInt, times } from "lodash";
+import { parseInt} from "lodash";
 import { Line } from "react-chartjs-2";
 
 const DiceRoll = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [retrievedObject, setRetrievedObject] = React.useState({});
-  const [numberGot, setNumberGot] = React.useState(0);
+  // const [numberGot, setNumberGot] = React.useState(0);
   const [level, setLevel] = React.useState(0);
   const [lotMoney,setlotMoney]=React.useState(false);
   const [show, setShow] = React.useState(false);
@@ -68,7 +66,7 @@ const DiceRoll = () => {
         handleMoneyShow();
       }
     }
-    if (retrievedObj.fixedDeposit.turnsLeft == 0){
+    if (retrievedObj.fixedDeposit.turnsLeft === 0){
       handleFDShow();
     }
     window.onpopstate = e => {
@@ -90,7 +88,7 @@ const DiceRoll = () => {
         "rgb(120, 214, 107)";
     }
 
-    if (retrievedObjt.fixedDeposit.turnsLeft == 0) {
+    if (retrievedObjt.fixedDeposit.turnsLeft === 0) {
       if (document.getElementById(level.toString())) {
         document.getElementById(level.toString()).innerHTML =
           "FD HAS MATURED! <br/> Balance has been updated";
@@ -160,13 +158,13 @@ const DiceRoll = () => {
 
     // }}
 
-    if (retrievedObjt.currentLevel == 8) {
+    if (retrievedObjt.currentLevel === 8) {
       if (document.getElementById("trans")) {
         document.getElementById("trans").style.background = "transparent";
       }
     }
 
-    if (retrievedObjt.currentLevel == 16) {
+    if (retrievedObjt.currentLevel === 16) {
       if (document.getElementById("trans2")) {
         document.getElementById("trans2").style.background = "transparent";
       }
@@ -178,11 +176,11 @@ const DiceRoll = () => {
 
   function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
-
+    var generatedNum;
     if(31-parseInt(level)<=4){
       generatedNum=31-parseInt(level);
     }else{
-      var generatedNum = getRandomNumber(1, 4);
+      generatedNum = getRandomNumber(1, 4);
     }
     
     dice.forEach((die) => {
@@ -206,7 +204,7 @@ const DiceRoll = () => {
     }
     if (retrievedObject.insurance.homeIns.purchased) {
       money = money - 200;
-      var obj = {
+      obj = {
         name: 'House Insurance Premium',
         type: 'debit',
         amount: 200
@@ -215,7 +213,7 @@ const DiceRoll = () => {
     }
     if (retrievedObject.insurance.vehicleIns.purchased) {
       money = money - 200;
-      var obj = {
+      obj = {
         name: 'Vehicle Insurance Premium',
         type: 'debit',
         amount: 200
@@ -234,7 +232,7 @@ const DiceRoll = () => {
     setTimeout(() => {
       setLevel(update);
       
-      if (retrievedObject.fixedDeposit.turnsLeft == 1) {
+      if (retrievedObject.fixedDeposit.turnsLeft === 1) {
         retrievedObject.fixedDeposit.purchased =
           parseFloat(retrievedObject.fixedDeposit.purchased) +
           parseFloat(retrievedObject.fixedDeposit.purchased) * 0.15;
@@ -296,7 +294,7 @@ const DiceRoll = () => {
           );
           history.push('/5');
         }else{
-          if (retrievedObject.ins != -1) {
+          if (retrievedObject.ins !== -1) {
             var randIns = Math.floor(Math.random() * retrievedObject.levelset2.length);
             var finalIns = retrievedObject.levelset2[randIns];
             retrievedObject.levelset2.splice(randIns, 1);
@@ -307,7 +305,7 @@ const DiceRoll = () => {
             );
             history.push(`/${finalIns}`);
           } else {
-            if (currentInd == -1) {
+            if (currentInd === -1) {
               var randInd = Math.floor(Math.random() * retrievedObject.levelset3.length);
               var finalStart = retrievedObject.levelset3[randInd];
               retrievedObject.levelset3.splice(randInd, 1);
@@ -318,7 +316,7 @@ const DiceRoll = () => {
                 JSON.stringify(retrievedObject)
               );
               history.push(`/${finalStart}`);
-            } else if (next == -1) {
+            } else if (next === -1) {
               var finalEnd = currentInd;
               var finalEndLevel = retrievedObject.levelset4[finalEnd];
               retrievedObject.levelset4.splice(finalEnd, 1);
@@ -331,7 +329,7 @@ const DiceRoll = () => {
               history.push(`/${finalEndLevel}`);
             } else {
               retrievedObject.next = next-1;
-              var randInd = Math.floor(Math.random() * retrievedObject.levelset1.length);
+              randInd = Math.floor(Math.random() * retrievedObject.levelset1.length);
               var miscNext = retrievedObject.levelset1[randInd];
               retrievedObject.levelset1.splice(randInd, 1);
               localStorage.setItem(
@@ -415,7 +413,7 @@ const DiceRoll = () => {
   // });
   
   for (var i = 0; i < net.length; i++) {
-    if (net[i] == net[i + 1]) {
+    if (net[i] === net[i + 1]) {
       net.splice(i, 1);
     } else {
       continue;
@@ -654,7 +652,7 @@ const DiceRoll = () => {
                     {pass.name}
                   </div>
                   {
-                    pass.type=='debit'?
+                    pass.type==='debit'?
                     <div className='col-5' style={{color:'red'}}>
                     -{pass.amount}
                   </div>:

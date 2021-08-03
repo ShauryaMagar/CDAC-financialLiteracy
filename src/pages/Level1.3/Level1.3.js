@@ -23,7 +23,7 @@ function Mid(){
       const handleRightClose = () => setRight(false);
       const handleRightShow = () => setRight(true);
       const handleWrongClose = () => setWrong(false);
-      const handleWrongShow = () => setWrong(true);
+      //const handleWrongShow = () => setWrong(true);
     const submitHandler=(e)=>{
         e.preventDefault();
         if(op==="elex"){

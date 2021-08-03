@@ -1,8 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Landing from './Landing';
-
-import SelectedOp from './SelectedOp';
 const Level1 =()=>{
     const history=useHistory();
     React.useEffect(()=>{
@@ -12,7 +10,8 @@ const Level1 =()=>{
     },[]);
     const [disp,setDisp]=React.useState(false);
     const [fake,setFake]=React.useState(false);
-    //fake;
+    var abc=fake;
+    abc=!abc;
     if(!disp){
         return(
             <div >

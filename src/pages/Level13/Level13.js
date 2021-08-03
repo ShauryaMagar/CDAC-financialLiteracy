@@ -3,15 +3,14 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import Decrease from "./images/downward-arrow.png";
 import "./Level13.css";
-import { bottom } from "@popperjs/core";
-import SellPurchaseStock from "../SellPurchaseStock/SellPurchaseStock";
 
 const Thirteen = () => {
   const history = useHistory();
   const [retrievedObject, setRetrievedObject] = useState({});
   const [amt, setAmt] = useState(0);
   const [oil, setOil] = useState(0);
-
+  var abc=amt;
+  abc=amt+1000;
   useEffect(() => {
     let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
     setRetrievedObject(retrievedObj);

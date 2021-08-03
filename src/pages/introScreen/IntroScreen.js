@@ -17,7 +17,7 @@ const IntroScreen = () => {
         var input =inpFD;
         if(amt-input<0){
             alert("not possible");
-        }else if(input=="" || !Number.isInteger(parseInt(input))){
+        }else if(input==="" || !Number.isInteger(parseInt(input))){
             alert("Input a number");
         }else{
             setAmt(amt-input);
@@ -28,7 +28,7 @@ const IntroScreen = () => {
     const onSubmission = () => {
         const passbook=[];
         let netWorth=parseInt(amt);
-        if(FD!=0){
+        if(FD!==0){
             let obj1={
                 name:'Fixed Deposit',
                 type:'debit',
@@ -250,7 +250,7 @@ const IntroScreen = () => {
                                     Simply put, you buy a small or a very tiny portion of a company when you buy a stock of the company(yes, you read it right), and the value of your stock changes according to the performance of the company and also may change due to other factors.If a company performs well, the prices of stock increases, sometimes giving huge returms!
                                 </div>
                                 <div className="col-3">
-                                    <img src="./stock-photo.png" alt="photo" style={{height:"50%",width:'100%'}}/>
+                                    <img src="./stock-photo.png" alt="stock market" style={{height:"50%",width:'100%'}}/>
                                 </div>
                             </div>
                             <div className="row">
@@ -366,7 +366,7 @@ const IntroScreen = () => {
 
                 <div className="col-5" style={{textAlign:'center'}}>
                     <h1 style={{fontSize:"64px", fontWeight:"500"}} className="animate__animated animate__flip animate__delay-1s">Let's get started!</h1>
-                    <img src="economics.png"  className="warn" style={{width:"90px"}}></img>   
+                    <img src="economics.png"  alt="start the game" className="warn" style={{width:"90px"}}></img>   
                 </div>
                 {/* <div className="col-1">
                                
@@ -378,7 +378,7 @@ const IntroScreen = () => {
             </div>
             <div className="row justify-content-center" style={{marginTop:'2rem'}}>
                 <div className="col-2" style={{textAlign:"center",marginTop:"auto",marginBottom:"auto"}}>
-                    <img src="warn.png"  className="warn" style={{width:"90px"}}></img>
+                    <img src="warn.png" alt="new game"  className="warn" style={{width:"90px"}}></img>
                 </div>
                 <div className="col-6 instruct-card animate__animated animate__bounceInDown " >
                     <h2>
@@ -386,13 +386,13 @@ const IntroScreen = () => {
                     </h2>
                 </div>
                 <div className="col-2" style={{textAlign:"center",marginTop:"auto",marginBottom:"auto"}}>
-                    <img src="warn.png"  className="warn" style={{width:"90px"}} ></img>
+                    <img src="warn.png" alt="auto insurance" className="warn" style={{width:"90px"}} ></img>
                 </div>
             </div>
             <div className="row justify-content-around" style={{marginTop:'2rem'}}>
                 <div className="col-6 "  style={{textAlign:'center' , marginBottom: "2rem"}}>
                 <div className="choice-card"  data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
-                <img src="life-insurance.png"  className="warn" style={{width:"64px"}}></img>
+                <img src="life-insurance.png" alt="life insurance"  className="warn" style={{width:"64px"}}></img>
                 <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Insurance</h1><br/>
                     <div >
@@ -408,7 +408,7 @@ const IntroScreen = () => {
                 </div>
                 <div className="col-6" style={{textAlign:'center' , marginBottom: "2rem"}}>
                 <div className="choice-card " data-aos="fade-left" data-aos-delay="100" data-aos-duration="800">
-                <img src="risk.png"  className="warn" style={{width:"64px"}}></img>
+                <img src="risk.png" alt="risk managemnet" className="warn" style={{width:"64px"}}></img>
                 <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Stocks</h1>
                     <div>
@@ -423,7 +423,7 @@ const IntroScreen = () => {
                 </div>
                 <div className="col-6 " style={{textAlign:'center' , marginBottom: "2rem"}}>
                 <div className="choice-card" data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
-                <img src="fraud.png"  className="warn" style={{width:"64px"}}></img>
+                <img src="fraud.png" alt="online frauds" className="warn" style={{width:"64px"}}></img>
                 <br/><br/>
                     <h1  style={{textDecoration:'underline'}}>Frauds</h1>
                     <div >
@@ -438,7 +438,7 @@ const IntroScreen = () => {
                 </div>
                 <div className="col-6 " style={{textAlign:'center' , marginBottom: "2rem"}}>
                     <div className="choice-card" data-aos="fade-left" data-aos-delay="100" data-aos-duration="800">
-                    <img src="fixed.png"  className="warn" style={{width:"64px"}}></img>
+                    <img src="fixed.png" alt="fixed deposits" className="warn" style={{width:"64px"}}></img>
                 <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Fixed Deposits</h1>
                     <div >

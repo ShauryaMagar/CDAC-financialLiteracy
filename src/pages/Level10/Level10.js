@@ -25,6 +25,8 @@ const Ten = () => {
 
   //onClick  when user has health insurance.
   // 1000 deducted
+  var abc=isLoaded;
+  abc= !abc;
   const own = () => {
     var update = amt - 0;
     setAmt(update);

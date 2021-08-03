@@ -14,6 +14,8 @@ const Level5=()=>{
     const [pin, setPin] = React.useState("");
     const [CVV, setCVV] = React.useState("");
     const [retrievedObject, setRetrievedObject] = React.useState({});
+    var abc=isLoaded;
+    abc=!abc;
     React.useEffect(() => {
         let retrievedObj = JSON.parse(localStorage.getItem("financialLiteracy"));
         setRetrievedObject(retrievedObj);
@@ -31,7 +33,7 @@ const Level5=()=>{
         var CVV1 = CVV;
         pin1 = pin1.replaceAll(" ", "").trim();
         CVV1 = CVV1.replaceAll(" ", "").trim();
-        if (pin1 != '2345' || CVV1 != '418') {
+        if (pin1 !== '2345' || CVV1 !== '418') {
             alert("Enter proper Details!");
         } else{
             let obj12 = passbook;

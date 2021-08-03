@@ -8,6 +8,8 @@ const Level4=()=>{
     const [passbook,setPassbook]=React.useState()
     const [retrievedObject, setRetrievedObject] = React.useState({});
     const [modalShow, setModalShow] = React.useState(true);
+    var abc=isLoaded;
+    abc=!abc;
     function MyVerticallyCenteredModal(props) {
         return (
             <Modal

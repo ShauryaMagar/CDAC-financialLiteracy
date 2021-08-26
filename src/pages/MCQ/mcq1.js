@@ -11,7 +11,7 @@ const question = {
   d:"  None of above",
   ans: "c",
   explain: "The Permanent Account Number (PAN) card, issued by the Income tax Department, is one of the most important documents nowadays. The card was issued in order to prevent tax evasion by individuals and entities as it links all financial transactions made by a particular individual or entity. 1000 Rs have been added to your account",
-  wrongText: "PAN stands for Permanent Account Number."
+  wrongText: "PAN stands for Permanent Account Number. The Permanent Account Number (PAN) card, issued by the Income tax Department, is one of the most important documents nowadays. The card was issued in order to prevent tax evasion by individuals and entities as it links all financial transactions made by a particular individual or entity."
 }
 
 
@@ -24,7 +24,7 @@ const Mcq1 = () => {
          window.onpopstate = e => {
              history.push('/');
          }
-         // eslint-disable-next-line 
+         // eslint-disable-next-line
     }, [])
 
   const [op,setOp]=React.useState();
@@ -106,7 +106,7 @@ const Mcq1 = () => {
         <Modal.Header>
         <Modal.Title>Wrong Answer.</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{question.wrongText}<br/><br/>{question.explain}</Modal.Body>
+        <Modal.Body>{question.wrongText}</Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={nextPage}>
             Next

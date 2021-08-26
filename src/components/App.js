@@ -37,14 +37,12 @@ import Selection from '../pages/fakeNote/selection';
 import Last from '../pages/Last/last';
 
 class App extends React.Component{
-
     render(){
         return (
             <>
                 <Router>
 				<Switch>
 					<div>
-
 						<Route exact path="/" component={LandingPageMain}></Route>
 						<Route exact path="/intro" component={IntroScreen}></Route>
                         <Route exact path="/start" component={DiceRoll}></Route>
@@ -70,16 +68,16 @@ class App extends React.Component{
                         <Route exact path="/12" component={Ten}/>
                         <Route exact path="/13" component={Eleven}/>
                         <Route exact path="/14" component={Twelve}/>
-              <Route exact path="/15" component={Thirteen}/>
-              <Route exact path="/16" component={Mcq1}/>
-              <Route exact path="/17" component={Mcq2}/>
-              <Route exact path="/18" component={Mcq3}/>
-                <Route exact path="/19" component={Mcq4}/>
-                <Route exact path="/20" component={FakeWebsite}/>
-        <Route exact path="/21" component={MoreScam2}/>
-          <Route exact path="/22" component={FakeNote}/>
-          <Route exact path="/22.1" component={Selection}/>
-          <Route exact path="/23" component={Last}/>
+                        <Route exact path="/15" component={Thirteen}/>
+                        <Route exact path="/16" component={Mcq1}/>
+                        <Route exact path="/17" component={Mcq2}/>
+                        <Route exact path="/18" component={Mcq3}/>
+                        <Route exact path="/19" component={Mcq4}/>
+                        <Route exact path="/20" component={FakeWebsite}/>
+                        <Route exact path="/21" component={MoreScam2}/>
+                        <Route exact path="/22" component={FakeNote}/>
+                        <Route exact path="/22.1" component={Selection}/>
+                        <Route exact path="/23" component={Last}/>
 					</div>
 				</Switch>
 			</Router>

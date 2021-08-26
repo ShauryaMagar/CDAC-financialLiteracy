@@ -104,7 +104,7 @@ const IntroScreen = () => {
             ins:-1
         }
         localStorage.setItem('financialLiteracy', JSON.stringify(financialObject));
-        
+
     }
     const onChangeHandler = (e) =>{
         setInpFD(e.target.value);
@@ -160,7 +160,7 @@ const IntroScreen = () => {
             }
         }
     }
-    
+
     return (
         <div className="intro-container" style={{marginTop:'0'}}>
             <div class="modal fade" id="Insurance" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -175,7 +175,7 @@ const IntroScreen = () => {
                     <div class="modal-body">
                         <strong>Health Insurance:</strong> If you own a health insurance, you will not have to pay huge hospital bills, in
                             case if you fall sick.Can be very benefial!<br/>
-                          
+
                           <div className="row justify-content-between">
                             <div className="col-6">
                                 <strong>Premium: </strong>Rs 200 / chance <br/>
@@ -189,11 +189,11 @@ const IntroScreen = () => {
                                 </button>
                             </div>
                           </div>
-                           
+
                     </div>
                     <div class="modal-body">
-                        <strong>Vehicle Insurance:</strong>  If you own a vehicle insurance, you will not have to pay huge repair bills, in case of an accident. Can be very benefial! If you own a vehicle insurance, you will not have to pay huge repair bills, in case of an accident. Can be very benefial!<br/>
-                          
+                        <strong>Vehicle Insurance:</strong>  If you own a vehicle insurance, you will not have to pay huge repair bills, in case of an accident. Can be very benefial!<br/>
+
                           <div className="row justify-content-between">
                             <div className="col-6">
                                 <strong>Premium: </strong>Rs 200 / chance <br/>
@@ -207,11 +207,11 @@ const IntroScreen = () => {
                                 </button>
                             </div>
                           </div>
-                           
+
                     </div>
                     <div class="modal-body">
                         <strong>House Insurance:</strong>  Saves you from high repairing prices if your house is damaged by a natural disaster/accident. Can be very benefial!<br/>
-                          
+
                           <div className="row justify-content-between">
                             <div className="col-6">
                                 <strong>Premium: </strong>Rs 200 / chance <br/>
@@ -225,7 +225,7 @@ const IntroScreen = () => {
                                 </button>
                             </div>
                           </div>
-                           
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark modal-card-button" data-dismiss="modal">Close</button>
@@ -271,9 +271,9 @@ const IntroScreen = () => {
                             </div>
                            </div>
                     </div>
-                    
-                           
-                    
+
+
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark modal-card-button" data-dismiss="modal">Close</button>
                     </div>
@@ -365,10 +365,10 @@ const IntroScreen = () => {
 
                 <div className="col-5" style={{textAlign:'center'}}>
                     <h1 style={{fontSize:"64px", fontWeight:"500"}} className="animate__animated animate__flip animate__delay-1s">Let's get started!</h1>
-                    <img src="economics.png"  alt="start the game" className="warn" style={{width:"90px"}}></img>   
+                    <img src="economics.png"  alt="start the game" className="warn" style={{width:"90px"}}></img>
                 </div>
                 {/* <div className="col-1">
-                               
+
                 </div> */}
                 <div className="col-2">
                         <h3>₹ {amt}</h3><br/>
@@ -395,9 +395,9 @@ const IntroScreen = () => {
                 <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Insurance</h1><br/>
                     <div >
-                        <h4>Insurance provide protection from unforseen mishaps.However, a small amount of money(premium) is deducted after every chance.</h4> 
+                        <h4>Insurance provide protection from unforseen mishaps.However, a small amount of money(premium) is deducted after every chance.</h4>
                     </div>
-                  
+
                     <div className="row justify-content-center" style={{paddingTop:'2.9rem'}}>
                         <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#Insurance">
                         Click
@@ -411,7 +411,7 @@ const IntroScreen = () => {
                 <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Stocks</h1>
                     <div>
-                        <h4> Purchasing a stock in a company basically means owning a part of company.If company grows, the value of stock purchased increases and hence, high returns can be expected.However, it has high risk. </h4> 
+                        <h4> Purchasing a stock in a company basically means owning a part of company.If company grows, the value of stock purchased increases and hence, high returns can be expected.However, it has high risk. </h4>
                     </div>
                     <div className="row justify-content-center" style={{padding:'1rem'}}>
                         <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#stocks">
@@ -426,7 +426,7 @@ const IntroScreen = () => {
                 <br/><br/>
                     <h1  style={{textDecoration:'underline'}}>Frauds</h1>
                     <div >
-                        <h4>You may encounter several types of financial frauds in this game. Beware of them!</h4> 
+                        <h4>You may encounter several types of financial frauds in this game. Beware of them!</h4>
                     </div>
                     <div className="row justify-content-center" style={{paddingTop:'4.5rem'}}>
                         <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#frauds">
@@ -441,7 +441,7 @@ const IntroScreen = () => {
                 <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Fixed Deposits</h1>
                     <div >
-                        <h4>Fixed Deposits are basically investments made in a bank. After a particular period of time, it matures and returns with some rate of interest. It has lowest risk associated.</h4> 
+                        <h4>Fixed Deposits are basically investments made in a bank. After a particular period of time, it matures and returns with some rate of interest. It has lowest risk associated.</h4>
                     </div>
                     <div className="row justify-content-center" style={{padding:'1rem'}}>
                         <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#fixedDeposits">
@@ -455,9 +455,9 @@ const IntroScreen = () => {
             <div >
                 <div className='' style={{textAlign:'center',paddingBottom:"80px"}}>
                     <Link to="/start" onClick={onSubmission} style={{color:'white' , fontFamily:"Bubblegum Sans"}}><button className="btn btn-lg start-button animate__animated animate__pulse animate__infinite" style={{fontSize:"32px"}}>Start!</button></Link>
-                </div> 
+                </div>
             </div>
-            
+
         </div>
     );
 }

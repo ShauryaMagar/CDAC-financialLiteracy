@@ -26,7 +26,7 @@ const Mcq2 = () => {
             history.push('/');
         }
     window.scrollTo(0, 0);
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   },[])
   const [op,setOp]=React.useState();
   const [money,setMoney]=React.useState(0);
@@ -108,14 +108,13 @@ const Mcq2 = () => {
         <Modal.Header>
         <Modal.Title>Wrong Answer.</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{question.wrongText}<br/><br/>{question.explain}</Modal.Body>
+        <Modal.Body>{question.wrongText}</Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={nextPage}>
             Next
         </Button>
         </Modal.Footer>
     </Modal>
-
     </div>
 
     </div>

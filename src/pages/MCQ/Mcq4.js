@@ -24,7 +24,7 @@ const Mcq4 = () => {
              history.push('/');
          }
         setRetrievedObject(retrievedObj);
-        // eslint-disable-next-line 
+        // eslint-disable-next-line
     }, [])
 
   const [op,setOp]=React.useState();
@@ -106,7 +106,7 @@ const Mcq4 = () => {
         <Modal.Header>
         <Modal.Title>Wrong Answer.</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{question.wrongText}<br/><br/>{question.explain}</Modal.Body>
+        <Modal.Body>{question.wrongText}</Modal.Body>
         <Modal.Footer>
         <Button variant="secondary" onClick={nextPage}>
             Next

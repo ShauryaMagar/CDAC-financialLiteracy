@@ -466,7 +466,19 @@ const DiceRoll = () => {
       //   borderColor: "#742774"
       // }
     ],
+    
   };
+ let options = {
+   scales: {
+     y: {
+       max: 45000,
+       min: 0,
+       ticks: {
+         stepSize: 2500
+       }
+     }
+   }
+ };
 
   const displayContentHealth = (sp) => {
     return (
@@ -711,7 +723,7 @@ const DiceRoll = () => {
           </div>        
             <div className="row">
               <div className="col-5">
-                <Line data={data} />
+                <Line options={options} data={data} />
               </div>
 
               <div className="col-3 " style={{ textAlign: "center" }}>

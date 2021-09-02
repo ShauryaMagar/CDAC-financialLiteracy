@@ -130,36 +130,36 @@ const IntroScreen = () => {
         setFD(0);
         setTurns(-3);
     }
-    const vehicleInsuranceHandler = () => {
-        var diff = amt - 7000;
-        if (vehicle) {
-            setVehicle(false);
-            var add = amt + 7000;
-            setAmt(add);
-        } else {
-            if (diff <= 0) {
-                alert("Can't Purchase");
-            } else {
-                setVehicle(true);
-                setAmt(diff);
-            }
-        }
-    }
-    const houseInsuranceHandler = () => {
-        var diff = amt - 8000;
-        if (home) {
-            setHome(false);
-            var add = amt + 8000;
-            setAmt(add);
-        } else {
-            if (diff <= 0) {
-                alert("Can't Purchase");
-            } else {
-                setHome(true);
-                setAmt(diff);
-            }
-        }
-    }
+    // const vehicleInsuranceHandler = () => {
+    //     var diff = amt - 7000;
+    //     if (vehicle) {
+    //         setVehicle(false);
+    //         var add = amt + 7000;
+    //         setAmt(add);
+    //     } else {
+    //         if (diff <= 0) {
+    //             alert("Can't Purchase");
+    //         } else {
+    //             setVehicle(true);
+    //             setAmt(diff);
+    //         }
+    //     }
+    // }
+    // const houseInsuranceHandler = () => {
+    //     var diff = amt - 8000;
+    //     if (home) {
+    //         setHome(false);
+    //         var add = amt + 8000;
+    //         setAmt(add);
+    //     } else {
+    //         if (diff <= 0) {
+    //             alert("Can't Purchase");
+    //         } else {
+    //             setHome(true);
+    //             setAmt(diff);
+    //         }
+    //     }
+    // }
 
     return (
         <div className="intro-container" style={{marginTop:'0'}}>
@@ -181,13 +181,13 @@ const IntroScreen = () => {
                                 <strong>Premium: </strong>Rs 200 / chance <br/>
                                 <strong>Cost:</strong> Rs.5000
                             </div>
-                            <div className="col-6">
+                            {/* <div className="col-6">
                                 <button className="btn btn-dark modal-card-button" onClick={healthInsuranceHandler}>
                                     {
                                         health?'Sell':'Purchase'
                                     }
                                 </button>
-                            </div>
+                            </div> */}
                           </div>
 
                     </div>
@@ -199,13 +199,13 @@ const IntroScreen = () => {
                                 <strong>Premium: </strong>Rs 200 / chance <br/>
                                 <strong>Cost:</strong> Rs.7000
                             </div>
-                            <div className="col-6">
+                            {/* <div className="col-6">
                                 <button className="btn btn-dark modal-card-button" onClick={vehicleInsuranceHandler}>
                                     {
                                         vehicle?'Sell':'Purchase'
                                     }
                                 </button>
-                            </div>
+                            </div> */}
                           </div>
 
                     </div>
@@ -217,13 +217,13 @@ const IntroScreen = () => {
                                 <strong>Premium: </strong>Rs 200 / chance <br/>
                                 <strong>Cost:</strong> Rs.8000
                             </div>
-                            <div className="col-6">
+                            {/* <div className="col-6">
                                 <button className="btn btn-dark modal-card-button" onClick={houseInsuranceHandler}>
                                     {
                                         home?'Sell':'Purchase'
                                     }
                                 </button>
-                            </div>
+                            </div> */}
                           </div>
 
                     </div>
@@ -280,7 +280,7 @@ const IntroScreen = () => {
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="frauds" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            {/* <div class="modal fade" id="frauds" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header" style={{textAlign:'center'}}>
@@ -308,7 +308,7 @@ const IntroScreen = () => {
                     </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div class="modal fade" id="fixedDeposits" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -333,7 +333,7 @@ const IntroScreen = () => {
                             Rate of Interest: 15 %    <br/>
                                 Maturity period: 4 dice rolls
                             </div><br/>
-                            <div className='row'>
+                            {/* <div className='row'>
                                     <form onSubmit={fdSubmit}>
                                         <label for="fdInput" className="form-label">Enter Amount:</label>
                                         <input id="fdInput" value={inpFD} onChange={onChangeHandler} className="form-control">
@@ -347,7 +347,7 @@ const IntroScreen = () => {
                             </div>
                             <div className="row">
                                 <button className="btn btn-dark modal-card-button" onClick={sellFD}>Sell</button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -356,7 +356,7 @@ const IntroScreen = () => {
                     </div>
                 </div>
             </div>
-            <div className="row justify-content-around">
+            <div className="row justify-content-around" style={{paddingTop:"1rem"}}>
                 <div className="col-2">
                     <Link exact to="/">
                         <button className="btn  btn-danger">Back</button>
@@ -364,24 +364,27 @@ const IntroScreen = () => {
                 </div>
 
                 <div className="col-5" style={{textAlign:'center'}}>
-                    <h1 style={{fontSize:"64px", fontWeight:"500"}} className="animate__animated animate__flip animate__delay-1s">Let's get started!</h1>
+                    <h1 style={{fontSize:"50px", fontWeight:"300"}} className="animate__animated animate__flip animate__delay-1s">Let's get started!</h1>
                     <img src="economics.png"  alt="start the game" className="warn" style={{width:"90px"}}></img>
                 </div>
                 {/* <div className="col-1">
 
                 </div> */}
                 <div className="col-2">
-                        <h3>₹ {amt}</h3><br/>
-                        <h3> PIN: 2345</h3>
+                        {/* <h3>₹ {amt}</h3><br/>
+                        <h3> PIN: 2345</h3> */}
+                        <div className='' style={{textAlign:'center',paddingBottom:"80px"}}>
+                            <Link to="/start" onClick={onSubmission} style={{color:'white' , fontFamily:"Bubblegum Sans"}}><button className="btn btn-lg start-button animate__animated animate__pulse animate__infinite" style={{fontSize:"32px"}}>Start!</button></Link>
+                        </div>
                 </div>
             </div>
-            <div className="row justify-content-center" style={{marginTop:'2rem'}}>
+            <div className="row justify-content-center" style={{marginTop:'0.5rem'}}>
                 <div className="col-2" style={{textAlign:"center",marginTop:"auto",marginBottom:"auto"}}>
                     <img src="warn.png" alt="new game"  className="warn" style={{width:"90px"}}></img>
                 </div>
                 <div className="col-6 instruct-card animate__animated animate__bounceInDown " >
                     <h2>
-                        You have Rs. 20000 with you. Make some wise choices. Click on the boxes below to know more!
+                        You have Rs. 20000 with you at the start of the game. Click on the boxes below to know more!
                     </h2>
                 </div>
                 <div className="col-2" style={{textAlign:"center",marginTop:"auto",marginBottom:"auto"}}>
@@ -389,7 +392,7 @@ const IntroScreen = () => {
                 </div>
             </div>
             <div className="row justify-content-around" style={{marginTop:'2rem'}}>
-                <div className="col-6 "  style={{textAlign:'center' , marginBottom: "2rem"}}>
+                <div className="col-4 "  style={{textAlign:'center' , marginBottom: "2rem"}}>
                 <div className="choice-card"  data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
                 <img src="life-insurance.png" alt="life insurance"  className="warn" style={{width:"64px"}}></img>
                 <br/><br/>
@@ -405,7 +408,7 @@ const IntroScreen = () => {
                     </div>
                     </div>
                 </div>
-                <div className="col-6" style={{textAlign:'center' , marginBottom: "2rem"}}>
+                <div className="col-4" style={{textAlign:'center' , marginBottom: "2rem"}}>
                 <div className="choice-card " data-aos="fade-left" data-aos-delay="100" data-aos-duration="800">
                 <img src="risk.png" alt="risk managemnet" className="warn" style={{width:"64px"}}></img>
                 <br/><br/>
@@ -420,7 +423,7 @@ const IntroScreen = () => {
                     </div>
                     </div>
                 </div>
-                <div className="col-6 " style={{textAlign:'center' , marginBottom: "2rem"}}>
+                {/* <div className="col-6 " style={{textAlign:'center' , marginBottom: "2rem"}}>
                 <div className="choice-card" data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
                 <img src="fraud.png" alt="online frauds" className="warn" style={{width:"64px"}}></img>
                 <br/><br/>
@@ -434,9 +437,9 @@ const IntroScreen = () => {
                         </button>
                     </div>
                 </div>
-                </div>
-                <div className="col-6 " style={{textAlign:'center' , marginBottom: "2rem"}}>
-                    <div className="choice-card" data-aos="fade-left" data-aos-delay="100" data-aos-duration="800">
+                </div> */}
+                <div className="col-4 " style={{textAlign:'center' , marginBottom: "2rem"}}>
+                    <div className="choice-card" data-aos="" data-aos-delay="100" data-aos-duration="800">
                     <img src="fixed.png" alt="fixed deposits" className="warn" style={{width:"64px"}}></img>
                 <br/><br/>
                     <h1 style={{textDecoration:'underline'}}>Fixed Deposits</h1>
@@ -453,9 +456,9 @@ const IntroScreen = () => {
             </div>
             <br/><br/>
             <div >
-                <div className='' style={{textAlign:'center',paddingBottom:"80px"}}>
+                {/* <div className='' style={{textAlign:'center',paddingBottom:"80px"}}>
                     <Link to="/start" onClick={onSubmission} style={{color:'white' , fontFamily:"Bubblegum Sans"}}><button className="btn btn-lg start-button animate__animated animate__pulse animate__infinite" style={{fontSize:"32px"}}>Start!</button></Link>
-                </div>
+                </div> */}
             </div>
 
         </div>

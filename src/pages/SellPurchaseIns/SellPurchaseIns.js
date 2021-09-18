@@ -30,6 +30,7 @@ const SellPurchaseIns = () =>{
     const sellHealth=()=>{
         setHealth(false);
         var obj12=passbook;
+        alert("Health Insurance sold at Rs 3000 Successfully");
         var obj={
             name:'Health Insurance sold',
             type:'credit',
@@ -42,6 +43,7 @@ const SellPurchaseIns = () =>{
     const sellVehicle=()=>{
         setVehicle(false);
         var obj12 = passbook;
+        alert("Vehicle Insurance sold at Rs 4000 Successfully");
         var obj = {
             name: 'Vehicle Insurance sold',
             type: 'credit',
@@ -53,6 +55,7 @@ const SellPurchaseIns = () =>{
     }
     const sellHome=()=>{
         setHome(false);
+        alert("House Insurance sold at Rs 5000 Successfully");
         var obj12 = passbook;
         var obj = {
             name: 'House Insurance sold',
@@ -69,6 +72,7 @@ const SellPurchaseIns = () =>{
             alert("Too low");
         }else{
             setHealth(true);
+            alert("Health Insurance Worth 5000 purchased Successfully");
             var obj12 = passbook;
             var obj = {
                 name: 'Health Insurance Purchased',
@@ -85,6 +89,7 @@ const SellPurchaseIns = () =>{
             alert("Too low");
         }else{
             setHome(true);
+            alert("House Insurance Worth 8000 purchased Successfully");
             var obj12 = passbook;
             var obj = {
                 name: 'House Insurance Purchased',
@@ -101,6 +106,7 @@ const SellPurchaseIns = () =>{
             alert("Too low");
         }else{
             setVehicle(true);
+            alert("Vehicle Insurance Worth 7000 purchased Successfully");
             var obj12 = passbook;
             var obj = {
                 name: 'Vehicle Insurance Purchased',

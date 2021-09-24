@@ -86,25 +86,28 @@ const IntroStock=()=>{
             history.push('/start');
         }, 1000)
     }
-    const handleClose = () => {
-        var pin1=pin;
-        var CVV1=CVV;
-        var creditNo1=creditNo;
-        pin1=pin1.replaceAll(" ","").trim();
-        CVV1=CVV1.replaceAll(" ","").trim();
-        creditNo1=creditNo1.replaceAll(" ","").trim();
-        if(pin1!=='2345'||CVV1!=='418'||creditNo1!=='2658418599340206'){
-            alert("Enter proper Details!");
-            setShow(true);
-        }else{
-            setPin("");
-            setCVV("");
-            setCreditNo("");
-            setShow(false)
-        }
-    };
+    // const handleClose = () => {
+    //     var pin1=pin;
+    //     var CVV1=CVV;
+    //     var creditNo1=creditNo;
+    //     pin1=pin1.replaceAll(" ","").trim();
+    //     CVV1=CVV1.replaceAll(" ","").trim();
+    //     creditNo1=creditNo1.replaceAll(" ","").trim();
+    //     if(pin1!=='2345'||CVV1!=='418'||creditNo1!=='2658418599340206'){
+    //         alert("Enter proper Details!");
+    //         setShow(true);
+    //     }else{
+    //         setPin("");
+    //         setCVV("");
+    //         setCreditNo("");
+    //         setShow(false)
+    //     }
+    // };
+
+
     //const handleShow = () => setShow(true);
     const history = useHistory();
+    
     const submitOil=(e)=>{
         e.preventDefault();
         if (oil === "" || !Number.isInteger(parseInt(oil))) {
@@ -114,6 +117,7 @@ const IntroStock=()=>{
                 alert("Money In hand will be less than 100.");
             } else {
                 let num = oil;
+                alert("Oil & Gas stocks worth Rs."+oil+" purchased !")
                 setOil(num);
                 setAmt(amt - num);
                 setPurchaseOil(true);
@@ -130,6 +134,7 @@ const IntroStock=()=>{
                 alert("Money In hand will be less than 100.");
             } else {
                 let num = med;
+                alert("Pharmaceutical stocks worth Rs."+med+" purchased !")
                 setPurchaseMed(true);
                 setMed(num);
                 setAmt(amt - num);
@@ -147,6 +152,7 @@ const IntroStock=()=>{
                 alert("Money In hand will be less than 100.");
             } else {
                 let num = steel;
+                alert("Steel stocks worth Rs."+steel+" purchased !")
                 setPurchaseSteel(true);
                 setSteel(num);
                 setAmt(amt - num);
@@ -164,6 +170,7 @@ const IntroStock=()=>{
                 alert("Money In hand will be less than 100.");
             } else {
                 let num = auto;
+                alert("Automobile stocks worth Rs."+auto+" purchased !")
                 setPurchaseAuto(true);
                 setAuto(num);
                 setAmt(amt - num);
@@ -194,7 +201,7 @@ const IntroStock=()=>{
 
             <div className="row">
                 <div className='col-2'>
-                    <Link to='/start' style={{color:'white'}}><button className="btn btn-danger">Back</button></Link>
+                    <Link to='/start' style={{color:'white'}}><button className="btn btn-danger" style={{width:'210px'}}>Cancel and Go Back</button></Link>
                 </div>
                 <div className="col-6"  style={{textAlign:'center'}}>
                 </div>
@@ -209,6 +216,9 @@ const IntroStock=()=>{
                                 <br/>
                                 <strong>PIN: 2345</strong>
                         </div>
+                        <div className="col-4">
+                        <button className="btn btn-primary" onClick={nextPage} style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'120px'}}>Next</button>
+                        </div>
                     </div>
 
                 </div>
@@ -219,14 +229,12 @@ const IntroStock=()=>{
                     <h1 style={{fontFamily: 'Poppins',fontWeight:'800',fontSize:'44px',textShadow:'5px 5px 18px gray'}}>
                         Purchase Stocks!
                     </h1>
+                    <br/>
+                    <p style={{fontWeight:'700',fontSize:'18px'}}>You can always buy or sell stocks from the stock market button on the homepage</p>
                 </div>
 
         </div>
-        <div className="row justify-content-lg-end" style={{marginRight:"3rem"}}>
 
-                    <button className="btn btn-primary" onClick={nextPage} style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px'}}>Next</button>
-
-                </div>
         <div style={{marginTop:"0.1rem"}} className="container-fluid">
                 <div className="row " style={{padding:'30px'}}>
                     <div className="col-3 stocks-card stocks-card-oil" >
@@ -323,7 +331,7 @@ const IntroStock=()=>{
 
         </div>
         </div>
-        <Modal show={show} onHide={handleClose}>
+        {/* <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -362,7 +370,7 @@ const IntroStock=()=>{
             Pay
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
         </>
     );
     }else{

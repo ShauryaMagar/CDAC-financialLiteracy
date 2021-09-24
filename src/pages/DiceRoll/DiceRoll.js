@@ -479,7 +479,7 @@ const DiceRoll = () => {
      }
    }
  };
-
+ 
   const displayContentHealth = (sp) => {
     return (
       <>
@@ -659,22 +659,24 @@ const DiceRoll = () => {
         </Modal.Header>
         <Modal.Body>
           <div className='container'>
-          {passbook.map(pass=>(
+          {passbook.  map(pass=>(<>
             <div className="row">
                   <div className='col-7'>
                     {pass.name}
                   </div>
                   {
                     pass.type==='debit'?
-                    <div className='col-5' style={{color:'red'}}>
+                    <div className='col-5' style={{color:'#FF0000',fontWeight:'700'}}>
                     -{pass.amount}
                   </div>:
-                   <div className='col-5' style={{color:'green'}}>
+                   <div className='col-5' style={{color:'#6ECB63',fontWeight:'700'}}>
                     +{pass.amount}
                   </div>
                   }
                   
             </div>
+       <hr style={{backgroundColor:'white'}}/>
+            </>
           ))
             
           }

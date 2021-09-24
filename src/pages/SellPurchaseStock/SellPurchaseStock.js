@@ -36,6 +36,7 @@ const SellPurchaseStock=()=>{
     },[])
     const sellAuto=()=>{
         let add = parseInt(amt);
+        alert("Automobile stocks worth Rs."+auto+" sold !")
         let obj12=passbook;
         let obj={
             name:"Automobile stocks sold",
@@ -49,6 +50,7 @@ const SellPurchaseStock=()=>{
     }
     const sellOil=()=>{
         let add = parseInt(amt);
+        alert("Oil & Gas stocks worth Rs."+oil+" sold !")
         let obj12 = passbook;
         let obj = {
             name: "Oil stocks sold",
@@ -62,6 +64,7 @@ const SellPurchaseStock=()=>{
     }
     const sellSteel=()=>{
         let add = parseInt(amt);
+        alert("Steel stocks worth Rs."+steel+" sold !")
         let obj12=passbook;
         let obj={
             name:"Steel stocks sold",
@@ -75,6 +78,7 @@ const SellPurchaseStock=()=>{
     }
     const sellMed=()=>{
         let add = parseInt(amt);
+        alert("Pharmaceutical stocks worth Rs."+med+" sold !")
         let obj12=passbook;
         let obj={
             name:"Pharmaceutical stocks sold",
@@ -95,6 +99,7 @@ const SellPurchaseStock=()=>{
                 alert("Too low");
             } else {
                 setAmt(amt - boil);
+                alert("Oil & Gas stocks worth Rs."+boil+" purchased")
                 let obj12 = passbook;
                 let obj = {
                     name: "Oil stocks purchased",
@@ -103,7 +108,7 @@ const SellPurchaseStock=()=>{
                 }
                 obj12.push(obj);
                 setPassbook(obj12);
-                setOil(boil);
+                setOil(parseInt(oil)+parseInt(boil));
                 setBoil(0);
             }
         }
@@ -119,6 +124,7 @@ const SellPurchaseStock=()=>{
                 alert("Too low");
             } else {
                 setAmt(amt - bmed);
+                alert("Pharmaceutical stocks worth Rs."+bmed+" purchased")
                 let obj12 = passbook;
                 let obj = {
                     name: "Pharmaceutical stocks purchased",
@@ -127,7 +133,7 @@ const SellPurchaseStock=()=>{
                 }
                 obj12.push(obj);
                 setPassbook(obj12);
-                setMed(bmed);
+                setMed(parseInt(med)+parseInt(bmed));
                 setBmed(0);
             }
         }
@@ -142,6 +148,7 @@ const SellPurchaseStock=()=>{
                 alert("Too low");
             } else {
                 setAmt(amt - bsteel);
+                alert("Steel stocks worth Rs."+bsteel+" purchased")
                 let obj12 = passbook;
                 let obj = {
                     name: "Steel stocks purchased",
@@ -150,7 +157,7 @@ const SellPurchaseStock=()=>{
                 }
                 obj12.push(obj);
                 setPassbook(obj12);
-                setSteel(bsteel);
+                setSteel(parseInt(steel)+parseInt(bsteel));
                 setBsteel(0);
             }
         }
@@ -164,6 +171,7 @@ const SellPurchaseStock=()=>{
                 alert("Too low");
             } else {
                 setAmt(amt - bauto);
+                alert("Automobile stocks worth Rs."+bauto+" purchased")
                 let obj12 = passbook;
                 let obj = {
                     name: "Automobile stocks purchased",
@@ -172,7 +180,7 @@ const SellPurchaseStock=()=>{
                 }
                 obj12.push(obj);
                 setPassbook(obj12);
-                setAuto(bauto);
+                setAuto(parseInt(auto)+parseInt(bauto));
                 setBauto(0);
             }
         }
@@ -191,6 +199,13 @@ const SellPurchaseStock=()=>{
             history.push("/start")
         },500)
     }
+
+    const backPage = () => {
+        setTimeout(() => {
+          history.push("/start");
+        }, 500);
+      };
+    
     const changeOil=(e)=>setBoil(e.target.value);
     const changeMed=(e)=>setBmed(e.target.value);
     const changeAuto=(e)=>setBauto(e.target.value);
@@ -225,7 +240,10 @@ const SellPurchaseStock=()=>{
     <div className="spstock-back">
         <div className="container spstock-content">
             <div className="row justify-content-center" style={{paddingTop:"2rem"}}>
-                <div className="col-8" style={{textAlign:"center"}}>
+            <div className="col-2">
+                    <button className="btn btn-danger" onClick={backPage} >Back</button>
+                </div>
+                <div className="col-6" style={{textAlign:"center"}}>
                    <h1 style={{fontFamily:'Poppins',fontWeight:'700'}}>Sell/Purchase Stocks</h1> 
                 </div>
                 <div className="col-2" style={{fontSize:'20px',fontFamily:'Poppins',fontWeight:'700'}}>
@@ -246,7 +264,7 @@ const SellPurchaseStock=()=>{
                     {oil===0?"":<button onClick={sellOil} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
-                    {oil===0?displayOil:""}
+                    {displayOil}
                 </div>
                 
             </div>
@@ -260,7 +278,7 @@ const SellPurchaseStock=()=>{
                     {med===0?"":<button onClick={sellMed} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
-                    {med===0?displayMed:""}
+                    {displayMed}
                 </div>
                 
             </div>
@@ -274,7 +292,7 @@ const SellPurchaseStock=()=>{
                     {steel===0?"":<button onClick={sellSteel} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
-                    {steel===0?displaySteel:""}
+                    {displaySteel}
                 </div>
             </div><div className="row justify-content-around purchase-card purchase-card-automobile" style={{marginTop:"1rem",paddingLeft:'20px'}}>
                 <div className="col-3">
@@ -286,7 +304,7 @@ const SellPurchaseStock=()=>{
                     {auto===0?"":<button onClick={sellAuto} className="btn btn-primary"  style={{fontWeight:'700',fontFamily:'Poppins',fontSize:'18px',width:'220px',marginBottom:'10px'}}>Sell</button>}
                 </div>
                 <div className="col-4">
-                    {auto===0?displayAuto:""}
+                    {displayAuto}
                 </div>
                 
             </div>

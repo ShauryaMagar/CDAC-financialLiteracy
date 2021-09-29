@@ -35,6 +35,7 @@ import MoreScam2 from '../pages/fakeWebsite/MoreScam2';
 import FakeNote from '../pages/fakeNote/fakeNote';
 import Selection from '../pages/fakeNote/selection';
 import Last from '../pages/Last/last';
+import Help from '../pages/Help/Help';
 
 class App extends React.Component{
     render(){
@@ -78,6 +79,7 @@ class App extends React.Component{
                         <Route exact path="/22" component={FakeNote}/>
                         <Route exact path="/22.1" component={Selection}/>
                         <Route exact path="/23" component={Last}/>
+                        <Route exact path="/help" component={Help}/>
 					</div>
 				</Switch>
 			</Router>

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {Modal,Button} from 'react-bootstrap';
 import './IntroScreen.css';
 
 const IntroScreen = () => {
@@ -11,6 +12,12 @@ const IntroScreen = () => {
     const [FD,setFD] = React.useState(0);
     const [inpFD,setInpFD] = React.useState(0);
     const [turns,setTurns]=React.useState(-1);
+    const [name,setName]=React.useState("");
+    const [show,setShow]=React.useState(true);
+    const handleClose=()=>setShow(false);
+    const handleName =e=>{
+        setName(e.target.value);
+    }
     const fdSubmit =(e) =>{
         e.preventDefault();
         var input =inpFD;
@@ -34,6 +41,9 @@ const IntroScreen = () => {
     const onSubmission = () => {
         const passbook=[];
         let netWorth=parseInt(amt);
+        if(name==""){
+            setName("Player");
+        }
         if(FD!==0){
             let obj1={
                 name:'Fixed Deposit',
@@ -89,6 +99,7 @@ const IntroScreen = () => {
                     sellingPrice:'5000',
                 }
             },
+            name:name,
             netWorth:[netWorth],
             timesRolled:0,
             passbook:passbook,
@@ -172,6 +183,24 @@ const IntroScreen = () => {
 
     return (
         <div className="intro-container" style={{marginTop:'0'}}>
+            <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Enter your name</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <div class="form-group">
+            <input type="text" value={name} onChange={handleName} class="form-control form-control-lg" id="name" aria-describedby="emailHelp" placeholder="Enter Your Name"/>
+        </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
             <div class="modal fade" id="Insurance" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">

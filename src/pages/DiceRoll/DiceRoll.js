@@ -54,6 +54,7 @@ const DiceRoll = () => {
     setOil(retrievedObj.stocks.oil);
     setAuto(retrievedObj.stocks.auto);
     setPassbook(retrievedObj.passbook);
+    console.log(retrievedObj.passbook)
     var nw = parseInt(retrievedObj.stocks.med) + parseInt(retrievedObj.stocks.steel) + parseInt(retrievedObj.stocks.oil) + parseInt(retrievedObj.stocks.auto) + parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length-1]) + parseInt(retrievedObj.fixedDeposit.purchased);
     if(retrievedObj.insurance.healthIns.purchased){
       nw = nw + parseInt(retrievedObj.insurance.healthIns.sellingPrice)
@@ -221,7 +222,7 @@ const DiceRoll = () => {
       obj = {
         name: 'Vehicle Insurance Premium',
         type: 'debit',
-        amount: 200
+        amount: 200,
       }
       obj12.push(obj);
     }
@@ -664,21 +665,23 @@ const DiceRoll = () => {
         <Modal.Body>
           <div className='container'>
           <div className="row">
+                  <div className="col-11">
+                    Name of Account Holder :  {retrievedObject.name}
+                  </div>
+          </div>
+          <div className="row" style={{marginTop:"5px"}}>
           <div className="col-6">
           Description
           </div>
-          <div className="col-2">
+          <div className="col-3">
           Debit
           </div>
-          <div className="col-2">
+          <div className="col-3">
           Credit
-          </div>
-          <div className="col-2">
-          Balance
           </div>
           </div>
           <hr style={{backgroundColor:'white'}}/>
-          {passbook.  map(pass=>(<>
+          {passbook.map(pass=>(<>
             <div className="row">
                   <div className='col-6'>
                     {pass.name}
@@ -687,11 +690,10 @@ const DiceRoll = () => {
                     pass.type==='debit'?
                     <div className='col-6'>
                     <div className='row'>
-                    <div className='col-4' style={{color:'#FF0000',fontWeight:'700'}}>
-                    -{pass.amount}
+                    <div className='col-6' style={{color:'#FF0000',fontWeight:'700'}}>
+                    -{parseInt(pass.amount)}
                   </div>
-                  <div className='col-4'></div>
-                  <div className='col-4'></div>
+                  <div className='col-6'></div>
                   </div>
                   </div>
 
@@ -699,11 +701,10 @@ const DiceRoll = () => {
                   :
                   <div className='col-6'>
                   <div className='row'>
-                  <div className='col-4'></div>
-                   <div className='col-4' style={{color:'#6ECB63',fontWeight:'700'}}>
-                    +{pass.amount}
+                  <div className='col-6'></div>
+                   <div className='col-6' style={{color:'#6ECB63',fontWeight:'700'}}>
+                    +{parseInt(pass.amount)}
                   </div>
-                  <div className='col-4'></div>
                   </div>
                   </div>
                   }

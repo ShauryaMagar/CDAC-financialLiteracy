@@ -722,6 +722,9 @@ const DiceRoll = () => {
               </Link>
               </div>
             <h1 className="heading-title">Financial Literacy</h1>
+            <Link to="/help" style={{ color: "white", marginLeft:'29%' }}>
+                <button className="btn  dice-page-btn-2   "   >Help</button>
+              </Link>
           </div>        
             <div className="row">
               <div className="col-5">

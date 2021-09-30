@@ -8,6 +8,10 @@ import "./DiceRoll.css";
 import { parseInt} from "lodash";
 import { Line } from "react-chartjs-2";
 
+const onHelp = () =>{
+    sessionStorage.setItem('backPage', "/start");
+}
+
 const DiceRoll = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const [retrievedObject, setRetrievedObject] = React.useState({});
@@ -60,7 +64,7 @@ const DiceRoll = () => {
     if (retrievedObj.insurance.homeIns.purchased) {
       nw = nw + parseInt(retrievedObj.insurance.homeIns.sellingPrice)
     }
-    
+
     if (retrievedObj.timesRolled>1){
       if (parseInt(retrievedObj.moneyInHand[retrievedObj.moneyInHand.length - 1]) >= 9000) {
         handleMoneyShow();
@@ -79,7 +83,7 @@ const DiceRoll = () => {
     setIsLoaded(true);
     setCurrentInd(retrievedObj.currentInd);
     setNext(retrievedObj.next);
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, []);
 
   useEffectX(() => {
@@ -183,7 +187,7 @@ const DiceRoll = () => {
     }else{
       generatedNum = getRandomNumber(1, 4);
     }
-    
+
     dice.forEach((die) => {
       toggleClasses(die);
 
@@ -228,11 +232,11 @@ const DiceRoll = () => {
       document.getElementById(update.toString()).style.background =
         "rgb(120, 214, 107)";
     }, 3500);
-    
+
     var times=timesRolled+1;
     setTimeout(() => {
       setLevel(update);
-      
+
       if (retrievedObject.fixedDeposit.turnsLeft === 1) {
         retrievedObject.fixedDeposit.purchased =
           parseFloat(retrievedObject.fixedDeposit.purchased) +
@@ -341,12 +345,12 @@ const DiceRoll = () => {
             }
          }
         }
-        
-        
+
+
       }
-      
+
     }, 5500);
-    
+
   }
 
   //   function cLevel(){
@@ -412,7 +416,7 @@ const DiceRoll = () => {
   // var netWorth = retrievedObt.moneyInHand.map(function (value) {
   //   return value + totalStocksFdValue;
   // });
-  
+
   for (var i = 0; i < net.length; i++) {
     if (net[i] === net[i + 1]) {
       net.splice(i, 1);
@@ -466,7 +470,7 @@ const DiceRoll = () => {
       //   borderColor: "#742774"
       // }
     ],
-    
+
   };
  let options = {
    scales: {
@@ -479,7 +483,7 @@ const DiceRoll = () => {
      }
    }
  };
- 
+
   const displayContentHealth = (sp) => {
     return (
       <>
@@ -659,26 +663,56 @@ const DiceRoll = () => {
         </Modal.Header>
         <Modal.Body>
           <div className='container'>
+          <div className="row">
+          <div className="col-6">
+          Description
+          </div>
+          <div className="col-2">
+          Debit
+          </div>
+          <div className="col-2">
+          Credit
+          </div>
+          <div className="col-2">
+          Balance
+          </div>
+          </div>
+          <hr style={{backgroundColor:'white'}}/>
           {passbook.  map(pass=>(<>
             <div className="row">
-                  <div className='col-7'>
+                  <div className='col-6'>
                     {pass.name}
                   </div>
                   {
                     pass.type==='debit'?
-                    <div className='col-5' style={{color:'#FF0000',fontWeight:'700'}}>
+                    <div className='col-6'>
+                    <div className='row'>
+                    <div className='col-4' style={{color:'#FF0000',fontWeight:'700'}}>
                     -{pass.amount}
-                  </div>:
-                   <div className='col-5' style={{color:'#6ECB63',fontWeight:'700'}}>
+                  </div>
+                  <div className='col-4'></div>
+                  <div className='col-4'></div>
+                  </div>
+                  </div>
+
+
+                  :
+                  <div className='col-6'>
+                  <div className='row'>
+                  <div className='col-4'></div>
+                   <div className='col-4' style={{color:'#6ECB63',fontWeight:'700'}}>
                     +{pass.amount}
                   </div>
+                  <div className='col-4'></div>
+                  </div>
+                  </div>
                   }
-                  
+
             </div>
        <hr style={{backgroundColor:'white'}}/>
             </>
           ))
-            
+
           }
           </div>
         </Modal.Body>
@@ -712,7 +746,7 @@ const DiceRoll = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      
+
         <div className="dice-roll-page">
           <div className="container-fluid" style={{ paddingTop: "2rem" }}>
           <div className="row">
@@ -722,7 +756,12 @@ const DiceRoll = () => {
               </Link>
               </div>
             <h1 className="heading-title">Financial Literacy</h1>
-          </div>        
+            <div className="col-4" style={{textAlign:"right"}}>
+                  <Link to="/help" style={{ color: "white" }}>
+                  <button onClick={onHelp} className="btn btn-danger ">Help</button>
+                </Link>
+                </div>
+          </div>
             <div className="row">
               <div className="col-5">
                 <Line options={options} data={data} />
@@ -772,7 +811,7 @@ const DiceRoll = () => {
                   className="btn dice-page-btn-1 animate__animated animate__pulse animate__infinite"
                   onClick={rollDice}
                   id="roll-button"
-                
+
                 >
                   Roll Dice
                 </button>
@@ -787,9 +826,28 @@ const DiceRoll = () => {
                       )}
                       position="top center"
                       closeOnDocumentClick
-                    > 
+                    >
                     <div className="iButtonContent">
                     Value of all assets. Selling Price of insurance+Fixed Deposit+Stocks+Money-in-hand
+
+                    </div>
+                    </Popup>
+                  </div>
+                </div>
+                <div className="row justify-content-center">
+                  <div className="col-10" style={{textAlign:'center',fontSize:'20px',fontFamily:'Poppins',fontWeight:'600', marginBottom:'1rem'}}>
+                    <strong>Money in-hand:  ₹{" "} {  retrievedObject.moneyInHand[
+                        retrievedObject.moneyInHand.length - 1
+                      ]}</strong>
+                    <Popup
+                      trigger={open => (
+                        <button className="btn iButton" style={{width:'35px'}}>i</button>
+                      )}
+                      position="top center"
+                      closeOnDocumentClick
+                    >
+                    <div className="iButtonContent">
+                      Money in-hand. Only this money can be used to purchase stocks/insurance and other assets. The remainder of your net worth is locked up in assets.
 
                     </div>
                     </Popup>
@@ -810,7 +868,7 @@ const DiceRoll = () => {
                       )}
                       position="top center"
                       closeOnDocumentClick
-                    > 
+                    >
                     <div className="iButtonContent">
                     Virtual Stock market. The value keeps updating after every move
 
@@ -818,28 +876,7 @@ const DiceRoll = () => {
                     </Popup>
                   </div>
                   <div className="col-6" style={{ marginLeft: "",fontSize:'20px',fontFamily:'Poppins',fontWeight:'600' }}>
-                    <strong>
-                      ₹{" "}
-                      {
-                        retrievedObject.moneyInHand[
-                          retrievedObject.moneyInHand.length - 1
-                        ]
-                      } 
-                      <Popup
-                      trigger={open => (
-                        <button className="btn iButton">i</button>
-                      )}
-                      position="top center"
-                      closeOnDocumentClick
-                    > 
-                    <div className="iButtonContent">
-                    Money in-hand. Only this money can be used to purchase stocks/insurance and other assets 
 
-                    </div>
-                    </Popup>
-                    </strong>
-                    
-                    <br />
                     <strong>PIN: 2345</strong>
                   </div>
                 </div>
@@ -859,9 +896,9 @@ const DiceRoll = () => {
                       )}
                       position="top center"
                       closeOnDocumentClick
-                    > 
+                    >
                     <div className="iButtonContent">
-                    All the insurance/Fixed deposits owned 
+                    All the insurance/Fixed deposits owned
 
                     </div>
                     </Popup>
@@ -880,7 +917,7 @@ const DiceRoll = () => {
                       )}
                       position="top center"
                       closeOnDocumentClick
-                    > 
+                    >
                     <div className="iButtonContent">
                     Track all your expenses here
 
@@ -904,7 +941,7 @@ const DiceRoll = () => {
           >
             <div
               className="row r board-row"
-              
+
               style={{ marginRight: "30px", marginLeft: "30px" }}
             >
               <div className="" id="0"></div>
@@ -1234,7 +1271,7 @@ const DiceRoll = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-        
+
       </>
     );
   } else {

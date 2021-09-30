@@ -3,7 +3,11 @@ import './LandingPageMain.css';
 import {NavLink} from 'react-router-dom';
 class LandingPageMain extends React.Component{
     render(){
-        
+
+      const onHelp= () =>{
+        sessionStorage.setItem('backPage', "/");
+      }
+
         return(
                 <div className="main" style={{margin:"auto", marginTop:"3%", textAlign:"center"}}>
                 <div className="container" style={{height:"10vh"}}>
@@ -43,12 +47,21 @@ class LandingPageMain extends React.Component{
                          </div>
                          <div className="col-4"></div>
                      </div>
+                     <div className="row">
+                         <div className="col-4">
+
+                         </div>
+                         <div className="col-4" style={{textAlign:"center"}}>
+                             <center style={{marginBottom:"10vh"}}><NavLink onClick={onHelp} class="bn31" exact to="/help"><span class="bn31span" >Help</span></NavLink></center>
+                         </div>
+                         <div className="col-4"></div>
+                     </div>
                      <div className = "bottom-image-div">
                           <img src="green-bg.svg" alt="grass and hill" className="bottom-image" style={{width:"80vw"}}></img>
                      </div>
-                     
+
                 </div>
-            
+
         );
     }
 }

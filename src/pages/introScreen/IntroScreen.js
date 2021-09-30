@@ -24,6 +24,13 @@ const IntroScreen = () => {
             setTurns(4);
         }
     }
+
+    const onHelp = () => {
+      sessionStorage.setItem('backPage', "/intro");
+          }
+
+
+
     const onSubmission = () => {
         const passbook=[];
         let netWorth=parseInt(amt);
@@ -37,12 +44,14 @@ const IntroScreen = () => {
             passbook.push(obj1);
         }
         if(health){
+          netWorth = netWorth + 3000
             let obj1={
                 name:'Health Insurance',
                 type:'debit',
-                amount:5000
+                amount:5000,
+                bal:netWorth,
             }
-            netWorth = netWorth + 3000
+
             passbook.push(obj1);
         }
         if(vehicle){
@@ -373,8 +382,11 @@ const IntroScreen = () => {
                 <div className="col-2">
                         {/* <h3>₹ {amt}</h3><br/>
                         <h3> PIN: 2345</h3> */}
-                        <div className='' style={{textAlign:'center',paddingBottom:"80px"}}>
+                        <div className='' style={{textAlign:'center',paddingBottom:"10px"}}>
                             <Link to="/start" onClick={onSubmission} style={{color:'white' , fontFamily:"Bubblegum Sans"}}><button className="btn btn-lg start-button animate__animated animate__pulse animate__infinite" style={{fontSize:"32px"}}>Start!</button></Link>
+                        </div>
+                        <div className='' style={{textAlign:'center',paddingBottom:"80px"}}>
+                            <Link to="/help" onClick={onHelp} style={{color:'white' , fontFamily:"Bubblegum Sans"}}><button className="btn btn-lg start-button " style={{fontSize:"32px"}}>Help</button></Link>
                         </div>
                 </div>
             </div>

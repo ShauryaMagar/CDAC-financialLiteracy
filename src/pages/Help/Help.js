@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Img1 from './images/start.png'
 import Img2 from './images/2.png'
 import Img3 from './images/3.png'
@@ -16,9 +17,30 @@ import Img14 from './images/14.jpeg'
 import Img15 from './images/15.jpeg'
 import "./help.css"
 
+var pageName;
+
+// const returnPage =() =>{
+//
+//    if (pageName === null) {
+//     pageName = "/"
+//   }
+// }
+
 const Help = () =>{
+  pageName = sessionStorage.getItem('backPage');
+  if (pageName === null){
+    pageName = "/intro"
+  }
+  const [next,setNext]=React.useState(pageName);
     return(
+
       <div className="help-container">
+      <div className="row">
+      <Link to={next}>
+      <button className="btn btn-dark">Back</button>
+      </Link>
+      </div>
+
         <div className="row help-row">
         <div className="col help-text">
         <p>Help!<br/>
@@ -154,8 +176,15 @@ If you face a loss, You lose.
 
 You can go back and to the next page in the game by clicking the two respective buttons on the top corners of your screen.
 </div>
-
-
+<div className="row help-row " >
+<div className="col-4"></div>
+<div className="col-4">
+<Link to={next}>
+<button className="btn btn-dark" >
+Back</button>
+</Link></div>
+<div className="col-4"></div>
+</div>
       </div>
     )
 }

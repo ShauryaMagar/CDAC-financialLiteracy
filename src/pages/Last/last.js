@@ -34,7 +34,7 @@ const Last=()=>{
         setIsLoaded(true);
     if(retrievedObj.insurance.healthIns.purchased){
       setHealth(parseInt(retrievedObj.insurance.healthIns.sellingPrice))
-      
+
     }
     if(retrievedObj.insurance.vehicleIns.purchased){
       setVehicle(parseInt(retrievedObj.insurance.vehicleIns.sellingPrice))
@@ -42,7 +42,7 @@ const Last=()=>{
     if(retrievedObj.insurance.homeIns.purchased){
       setHome(parseInt(retrievedObj.insurance.homeIns.sellingPrice))
     }
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     },[]);
 
 
@@ -87,22 +87,54 @@ const Last=()=>{
                             </Modal.Header>
                             <Modal.Body>
                               <div className='container'>
-                              {passbook.map(pass=>(
+                              <div className="row">
+                              <div className="col-6">
+                              Description
+                              </div>
+                              <div className="col-2">
+                              Debit
+                              </div>
+                              <div className="col-2">
+                              Credit
+                              </div>
+                              <div className="col-2">
+                              Balance
+                              </div>
+                              </div>
+                              <hr style={{backgroundColor:'white'}}/>
+                              {passbook.  map(pass=>(<>
                                 <div className="row">
-                                      <div className='col-7'>
+                                      <div className='col-6'>
                                         {pass.name}
                                       </div>
                                       {
                                         pass.type==='debit'?
-                                        <div className='col-5' style={{color:'red'}}>
+                                        <div className='col-6'>
+                                        <div className='row'>
+                                        <div className='col-4' style={{color:'#FF0000',fontWeight:'700'}}>
                                         -{pass.amount}
-                                      </div>:
-                                       <div className='col-5' style={{color:'green'}}>
+                                      </div>
+                                      <div className='col-4'></div>
+                                      <div className='col-4'></div>
+                                      </div>
+                                      </div>
+
+
+                                      :
+                                      <div className='col-6'>
+                                      <div className='row'>
+                                      <div className='col-4'></div>
+                                       <div className='col-4' style={{color:'#6ECB63',fontWeight:'700'}}>
                                         +{pass.amount}
+                                      </div>
+                                      <div className='col-4'></div>
+                                      </div>
                                       </div>
                                       }
 
                                 </div>
+                           <hr style={{backgroundColor:'white'}}/>
+                                </>
                               ))
 
                               }
@@ -215,22 +247,54 @@ const Last=()=>{
                         </Modal.Header>
                         <Modal.Body>
                           <div className='container'>
-                          {passbook.map(pass=>(
+                          <div className="row">
+                          <div className="col-6">
+                          Description
+                          </div>
+                          <div className="col-2">
+                          Debit
+                          </div>
+                          <div className="col-2">
+                          Credit
+                          </div>
+                          <div className="col-2">
+                          Balance
+                          </div>
+                          </div>
+                          <hr style={{backgroundColor:'white'}}/>
+                          {passbook.  map(pass=>(<>
                             <div className="row">
-                                  <div className='col-7'>
+                                  <div className='col-6'>
                                     {pass.name}
                                   </div>
                                   {
                                     pass.type==='debit'?
-                                    <div className='col-5' style={{color:'red'}}>
+                                    <div className='col-6'>
+                                    <div className='row'>
+                                    <div className='col-4' style={{color:'#FF0000',fontWeight:'700'}}>
                                     -{pass.amount}
-                                  </div>:
-                                   <div className='col-5' style={{color:'green'}}>
+                                  </div>
+                                  <div className='col-4'></div>
+                                  <div className='col-4'></div>
+                                  </div>
+                                  </div>
+
+
+                                  :
+                                  <div className='col-6'>
+                                  <div className='row'>
+                                  <div className='col-4'></div>
+                                   <div className='col-4' style={{color:'#6ECB63',fontWeight:'700'}}>
                                     +{pass.amount}
+                                  </div>
+                                  <div className='col-4'></div>
+                                  </div>
                                   </div>
                                   }
 
                             </div>
+                       <hr style={{backgroundColor:'white'}}/>
+                            </>
                           ))
 
                           }

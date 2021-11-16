@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {Modal,Button} from 'react-bootstrap';
@@ -41,7 +41,7 @@ const IntroScreen = () => {
     const onSubmission = () => {
         const passbook=[];
         let netWorth=parseInt(amt);
-        if(name==""){
+        if(name===""){
             setName("Player");
         }
         if(FD!==0){

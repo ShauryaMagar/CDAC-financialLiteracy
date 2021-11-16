@@ -137,7 +137,7 @@ const SellPurchaseFD = () => {
             </h1>
             <hr />
             <p>Rate of Interest: 15%</p>
-            <p>Maturity time: 4 turns</p>
+            <p>Maturity time: 3 turns</p>
             <p>
               Selling Fixed deposits before maturity will result in some loss.
             </p>

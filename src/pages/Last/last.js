@@ -102,7 +102,7 @@ const Last=()=>{
                               </div>
                               </div>
                               <hr style={{backgroundColor:'white'}}/>
-                              {passbook.  map(pass=>(<>
+                              {passbook.map(pass=>(<>
                                 <div className="row">
                                       <div className='col-6'>
                                         {pass.name}
@@ -262,7 +262,7 @@ const Last=()=>{
                           </div>
                           </div>
                           <hr style={{backgroundColor:'white'}}/>
-                          {passbook.  map(pass=>(<>
+                          {passbook.map(pass=>(<>
                             <div className="row">
                                   <div className='col-6'>
                                     {pass.name}

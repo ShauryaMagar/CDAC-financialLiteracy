@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import Img1 from "./images/start.png";
 import Img2 from "./images/2.png";
@@ -38,10 +39,10 @@ const Help = () => {
         </div>
       </div>
       <div className="row help-row">
-        <div className="col-6 help-text" style={{paddingTop:"5%"}}>
+        <div className="col-6 help-text" style={{paddingTop:"3%"}}>
           What is this game about?
         </div>
-        <div className=" col-6 help-text" style={{paddingTop:'8%'}}>
+        <div className=" col-6 help-text" style={{paddingTop:'1%'}}>
           FINLIT, is an interactive educational game which promotes and teaches students about financial literacy. We have thought of a fun game which will help you understand a lot of handlingcof finance by putting them through very life like situations. 
         </div>
       </div>

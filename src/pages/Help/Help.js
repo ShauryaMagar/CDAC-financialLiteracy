@@ -17,15 +17,22 @@ import Img14 from "./images/14.jpeg";
 import Img15 from "./images/15.jpeg";
 import Img16 from "./images/16.jpg";
 
-import { Link } from "react-router-dom";
+import { Link ,useHistory} from "react-router-dom";
 import "./help.css";
 
+
+
+
 const Help = () => {
+  let history = useHistory();
+const goToPreviousPath = () => {
+    history.goBack()
+}
   return (
     <div className="help-container">
-    <Link to="/start" style={{ color: "white" }}>
-                <button className="btn btn-danger   "   >Back</button>
-              </Link>
+
+                <button className="btn btn-danger   " onClick={goToPreviousPath}  >Back</button>
+       
       <div className="row " style={{textAlign:'center',marginTop:'1%'}}>
         <div className="col-help-pg help-text">
           <p>
